@@ -5,6 +5,8 @@
 html, body {
     height: 100%;
     margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
 }
   
 body {
@@ -12,25 +14,36 @@ body {
     transition: background-color .5s;
 }
 
+#main {
+    display: flex;
+    flex-direction: column;
+}
+
+#main > * {
+    padding: 20px;
+}
+
 /* --- Header --- */
 
 header {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-between;
-    background-color: #666;
-    padding: 20px;
+    align-items: center;
+    background-color: #6EB257;
+    position: fixed;
+    width: 100%;
 }
+
+header h1 {
+    font-size: 45px;
+}
+
+/* --- Menu --- */
 
 #openNav {
-    align-self: flex-start;
     font-size: 30px;
     cursor: pointer;
-}
-
-header h2 {
-    align-self: center;
-    color: white;
 }
 
 #sidenav {
@@ -43,16 +56,16 @@ header h2 {
     background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
+    padding-top: 10vh;
 }
   
 #sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 16px 16px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 45px;
     color: #818181;
     display: block;
-    transition: 0.3s;
+    transition: 0.5s;
 }
   
 #sidenav a:hover {
@@ -66,45 +79,27 @@ header h2 {
     font-size: 36px;
     margin-left: 50px;
 }
-  
+
+/* --- Main --- */
+
 #main {
     transition: margin-left .5s;
 }
 
 .content {
-    height: 80vh;
-    text-indent: 50px;
-    margin: 20px 70px 70px 70px;
+    height: 90vh;
 }
+
+/* --- Footer --- */
   
 footer {
-    background-color: #777;
+    background-color: #6EB257;
     padding: 10px;
     text-align: center;
     color: white;
 }
 
-.img1{
-    width: 300px;
-    height: 150px;
-    margin: 0px 10px 10px 10px;
-    border: 3px solid rgb(3, 5, 0);
-    float: right;
-}
-
-.img2{
-    width: 300px;
-    height: 150px;
-    margin: 0px 10px 10px 10px;
-    border: 3px solid rgb(3, 5, 0);
-    float: left;
-}
-
-.div1{
-    margin-bottom: 100px;
-}
-
-
+/* --- Responsive --- */
 
 @media screen and (max-height: 450px) {
     .sidenav {
@@ -113,6 +108,4 @@ footer {
     .sidenav a {
         font-size: 18px;
     }
-
-    
 }
