@@ -97,8 +97,6 @@ header h1 {
     padding: 10px;
     text-align: center;
     color: white;
-    left: 0;
-    bottom: 0;
     
 }
 
@@ -126,15 +124,6 @@ header h1 {
     float: right;
     margin-right: 20%;
   }
-
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
 
 
 /* --- Responsive --- */
