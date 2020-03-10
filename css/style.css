@@ -39,6 +39,8 @@ header h1 {
     font-size: 45px;
 }
 
+/* --- Menu --- */
+
 #openNav {
     font-size: 30px;
     cursor: pointer;
@@ -78,6 +80,8 @@ header h1 {
     margin-left: 50px;
 }
 
+/* --- Main --- */
+
 #main {
     transition: margin-left .5s;
 }
@@ -85,13 +89,17 @@ header h1 {
 .content {
     height: 90vh;
 }
+
+/* --- Footer --- */
   
 footer {
     background-color: #6EB257;
     padding: 10px;
     text-align: center;
-    color: A0EEC0;
+    color: white;
 }
+
+/* --- Responsive --- */
 
 @media screen and (max-height: 450px) {
     .sidenav {
