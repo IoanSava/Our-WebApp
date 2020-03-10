@@ -92,12 +92,50 @@ header h1 {
 
 /* --- Footer --- */
   
-footer {
+.footer {
     background-color: #6EB257;
     padding: 10px;
     text-align: center;
     color: white;
+    left: 0;
+    bottom: 0;
+    
 }
+
+.dot {
+    height: 100px;
+    width: 100px;
+    background-color: rgb(4, 92, 18);
+    border-radius: 50%;
+    display: inline-block;
+    margin: auto;
+
+  }
+
+  .column1{
+      float: left;
+      margin-left: 20%;
+  }
+
+  .column2{
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+  .column3{
+    float: right;
+    margin-right: 20%;
+  }
+
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
 
 /* --- Responsive --- */
 
