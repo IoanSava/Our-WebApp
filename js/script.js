@@ -1,6 +1,6 @@
 function openNavBar() {
-    document.getElementById("sidenav").style.width = "20%";
-    document.getElementById("main").style.marginLeft = "20%";
+    document.getElementById("sidenav").style.width = "15%";
+    document.getElementById("main").style.marginLeft = "15%";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
   
