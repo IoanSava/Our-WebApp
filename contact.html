@@ -1,14 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RO Obesity Prevalence Visualizer</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/contact.css">
 </head>
 
 <body>
-    <main>
-        <h1>Testam gitkraken!</h1>
-    </main>
+    <nav id="sidenav">
+        <a href="javascript:void(0)" class="closeButton" onclick="closeNavBar()">&times;</a>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Statistics</a>
+        <a href="#">Body Mass Index</a>
+        <a href="#">Diets</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div id="main">
+        <header>
+            <span onclick="openNavBar()" id="openNav">&#9776;</span>
+            <h2>Obesity Prevalence Visualizer</h2>
+        </header>
+        <div class="container">
+            <div class="content">
+                <div class="wrapper-contact-form">
+                    <div class="contact-form-title-bg" style="background-image: url(images/bg-contact.jpg);">
+                        <span class="contact-form-title">Contact Us</span>
+                        <span class="contact-form-subtitle">For any questions and queries, feel free to drop us a line below!</span>
+                    </div>
+
+                    <form>
+                        <!--method="post" action=""-->
+                        <ul>
+                            <li>
+                                <label for="name">Full Name:</label>
+                                <input type="text" id="name" name="user_name" placeholder="Enter full name">
+                            </li>
+                            <li>
+                                <label for="mail">Email:</label>
+                                <input type="email" id="mail" name="user_mail" placeholder="Enter email address">
+                            </li>
+                            <li>
+                                <label for="phone">Phone:</label>
+                                <input type="tel" id="phone" name="user_phone" placeholder="Enter phone number">
+                            </li>
+                            <li>
+                                <label for="msg">Message:</label>
+                                <textarea name="user_message" id="msg" cols="30" rows="10" placeholder="Write your message"></textarea>
+                            </li>
+                            <li class="button-container">
+                                <button class="button" type="submit" name="submit">
+                                    <span >Submit<b class="arrow" aria-hidden="true">&#10142;</b></span>
+                                </button>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>Footer</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>
