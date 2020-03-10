@@ -10,10 +10,10 @@
     width: 100%;
     position: relative;
     z-index: 1;
-    display: -webkit-box;
+    /*display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
-    display: -ms-flexbox;
+    display: -ms-flexbox;*/
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -25,16 +25,11 @@
 }
 
 form {
-    /*margin: 0 auto;
-    width: 400px;
-    padding: 1em;
-    border: 1px solid black;
-    border-radius: 1em;*/
     width: 100%;
-    display: -webkit-box;
+    /*display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
-    display: -ms-flexbox;
+    display: -ms-flexbox;*/
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -84,10 +79,10 @@ textarea:focus {
     color: #555555;
     line-height: 1.2;
     text-transform: uppercase;
-    display: -webkit-box;
+    /*display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
-    display: -ms-flexbox;
+    display: -ms-flexbox;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,13 +93,13 @@ textarea:focus {
     position: relative;
     z-index: 1;
     background: #80c64a;
-    background: -webkit-linear-gradient(-135deg, #56ab2f, #a8e063);
+    /*background: -webkit-linear-gradient(-135deg, #56ab2f, #a8e063);
     background: -o-linear-gradient(-135deg, #56ab2f, #a8e063);
     background: -moz-linear-gradient(-135deg, #56ab2f, #a8e063);
     background: linear-gradient(-135deg, #56ab2f, #a8e063);
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
+    -moz-transition: all 0.4s;*/
     transition: all 0.4s;
 }
 
@@ -120,9 +115,9 @@ textarea:focus {
     left: 0;
     background: #fff;
     opacity: 1;
-    -webkit-transition: all 0.4s;
+    /*-webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
+    -moz-transition: all 0.4s;*/
     transition: all 0.4s;
 }
 
@@ -170,10 +165,10 @@ textarea {
 .content {
     width: 100%;
     min-height: 100vh;
-    display: -webkit-box;
+    /*display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
-    display: -ms-flexbox;
+    display: -ms-flexbox;*/
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
