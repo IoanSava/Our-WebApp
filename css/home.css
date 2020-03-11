@@ -1,3 +1,12 @@
+/* --- Macros --- */
+
+:root {
+    --blue: #6a8caf;
+    --red: #e74c3c;
+}
+
+/* --- Cover --- */
+
 .image_container {
     background-image: url(../images/board.jpeg);
     height: 600px;
@@ -67,5 +76,94 @@
 
     h2 {
         font-size: 1.2em;
+    }
+}
+
+.section-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+@media (min-width: 620px) {
+    .section-container {
+      column-count: 2;
+      column-gap: 20px;
+    }
+    
+    section {
+      break-inside: avoid;
+    }
+  }
+  
+  @media (min-width: 960px) {
+    .section-container {
+       column-count: 3;
+    }
+  }
+  
+
+  
+h2 {
+    font-size: 1.4em;
+    padding: 10px;
+}
+  
+p {
+    margin-bottom: 1em;
+    padding: 0 10px;
+}
+  
+.info-link {
+    text-decoration: none;
+    color: var(--red);
+    padding: 10px;
+    display: block;
+}
+  
+section {
+    border-top: 3px solid var(--blue);
+    border-radius: 3px;
+    background-color: white;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+  
+.section-img {
+    display: block;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.small-image {
+    height: 200px;
+    width: 200px;
+}
+
+.bigtitle {
+    padding: 0;
+}
+  
+.bigtitle-title {
+    color: white;
+    background-color: var(--blue);
+    margin-bottom: 10px;
+}
+  
+.bigbottom-link {
+    background-color: var(--red);
+    color: white;
+}
+  
+.profile {
+    width: 80%;
+    border-radius: 50%;
+    margin-bottom: 50px;
+}
+  
+@media (min-width: 620px) {
+    .options-link {
+        font-size: 1.4em;
     }
 }
