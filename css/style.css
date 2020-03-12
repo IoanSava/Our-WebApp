@@ -92,7 +92,9 @@ main {
 footer {
     background-color: #75b79e;
     text-align: center;
+    align-items: center;
     color: white;
+    margin: 0 auto;
     padding: 20px;
 }
 
@@ -103,23 +105,8 @@ footer {
     border-radius: 50%;
     display: inline-block;
     margin: auto;
+}
 
-  }
-
-  .column1{
-      float: left;
-      margin-left: 20%;
-  }
-
-  .column2{
-    display: inline-block;
-    margin: 0 auto;
-  }
-
-  .column3{
-    float: right;
-    margin-right: 20%;
-  }
 
 /* --- Responsive --- */
 
@@ -129,5 +116,18 @@ footer {
     }
     .sidenav a {
         font-size: 38px;
+    }
+}
+
+  
+@media (min-width: 960px) {
+    footer {
+        column-count: 3;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .column {
+      width: 100%;
     }
 }
