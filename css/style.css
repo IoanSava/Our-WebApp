@@ -25,7 +25,9 @@ header {
     align-items: center;
     flex-direction: row;
     background-color: #75b79e;
-    position: fixed;
+    top: 0;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
     z-index: 5;
     width: 100%;
 }
@@ -93,6 +95,31 @@ footer {
     color: white;
     padding: 20px;
 }
+
+.dot {
+    height: 80px;
+    width: 80px;
+    background-color: #acbbb5;
+    border-radius: 50%;
+    display: inline-block;
+    margin: auto;
+
+  }
+
+  .column1{
+      float: left;
+      margin-left: 20%;
+  }
+
+  .column2{
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+  .column3{
+    float: right;
+    margin-right: 20%;
+  }
 
 /* --- Responsive --- */
 
