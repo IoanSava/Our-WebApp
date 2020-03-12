@@ -1,19 +1,21 @@
 .content {
-    height: 80vh;
     text-indent: 50px;
-    margin: 200px 70px 70px 70px;
-    font-size: x-large;
+    /*height: 80vh;
+    margin: 180px 70px 70px 70px;
+    font-size: large;
+    */
 }
 
-.img1{
+.img1About{
     width: 600px;
     height: 300px;
     margin: 0px 10px 10px 10px;
+   /* margin: auto;*/
     border: 3px solid rgb(3, 5, 0);
     float: right;
 }
 
-.img2{
+.img2About{
     width: 600px;
     height: 300px;
     margin: 0px 10px 10px 10px;
@@ -21,6 +23,17 @@
     float: left;
 }
 
-.div1{
-    margin-bottom: 180px;
+.div1About{
+    height: 80vh;
+    text-indent: 50px;
+    margin: 70px 70px 70px 70px;
+    font-size: large;
 }
+
+.div2About{
+    height: 80vh;
+    text-indent: 50px;
+    margin: 0px 70px 70px 70px;
+    font-size: large;
+}
+
