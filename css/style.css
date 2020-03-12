@@ -25,7 +25,9 @@ header {
     align-items: center;
     flex-direction: row;
     background-color: #75b79e;
-    position: fixed;
+    top: 0;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
     z-index: 5;
     width: 100%;
 }
@@ -90,9 +92,21 @@ main {
 footer {
     background-color: #75b79e;
     text-align: center;
+    align-items: center;
     color: white;
+    margin: 0 auto;
     padding: 20px;
 }
+
+.dot {
+    height: 80px;
+    width: 80px;
+    background-color: #acbbb5;
+    border-radius: 50%;
+    display: inline-block;
+    margin: auto;
+}
+
 
 /* --- Responsive --- */
 
@@ -102,5 +116,18 @@ footer {
     }
     .sidenav a {
         font-size: 38px;
+    }
+}
+
+  
+@media (min-width: 960px) {
+    footer {
+        column-count: 3;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .column {
+      width: 100%;
     }
 }
