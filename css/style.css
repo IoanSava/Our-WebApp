@@ -2,18 +2,20 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
 }
-  
+
 body {
     font-family: Helvetica, Arial, sans-serif;
     transition: background-color .5s;
     background-color: #eef9bf;
 }
+
 
 /* --- Header --- */
 
@@ -55,7 +57,7 @@ header h1 {
     transition: 0.5s;
     padding-top: 10vh;
 }
-  
+
 #sidenav a {
     padding: 16px 16px 8px 32px;
     text-decoration: none;
@@ -64,11 +66,11 @@ header h1 {
     display: block;
     transition: 0.5s;
 }
-  
+
 #sidenav a:hover {
     color: #f1f1f1;
 }
-  
+
 #sidenav .closeButton {
     position: absolute;
     top: 0;
