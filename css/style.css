@@ -92,9 +92,7 @@ footer {
     padding: 20px;
 }
 
-/* --- Responsive --- */
-
-@media screen and (min-width: 620px) {
+@media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;
     }
