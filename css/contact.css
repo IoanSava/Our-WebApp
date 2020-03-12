@@ -79,6 +79,7 @@ button:hover {
 /* --- Form title --- */
 
 .contact-form-title-bg {
+    background-image: url(../images/bg-contact.jpg);
     width: 100%;
     position: relative;
     z-index: 1;
