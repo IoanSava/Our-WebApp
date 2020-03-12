@@ -2,41 +2,40 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
 }
-  
+
 body {
     font-family: Helvetica, Arial, sans-serif;
     transition: background-color .5s;
+    background-color: #eef9bf;
 }
 
-#main {
-    display: flex;
-    flex-direction: column;
-}
-
-#main > * {
-    padding: 20px;
-}
 
 /* --- Header --- */
 
 header {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background-color: #6EB257;
+    flex-direction: row;
+    background-color: #75b79e;
     position: fixed;
+    z-index: 5;
     width: 100%;
 }
 
+header > * {
+    padding: 20px;
+}
+
 header h1 {
-    font-size: 45px;
+    font-size: 25px;
 }
 
 /* --- Menu --- */
@@ -50,7 +49,7 @@ header h1 {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     top: 0;
     left: 0;
     background-color: #111;
@@ -58,20 +57,20 @@ header h1 {
     transition: 0.5s;
     padding-top: 10vh;
 }
-  
+
 #sidenav a {
     padding: 16px 16px 8px 32px;
     text-decoration: none;
-    font-size: 45px;
+    font-size: 25px;
     color: #818181;
     display: block;
     transition: 0.5s;
 }
-  
+
 #sidenav a:hover {
     color: #f1f1f1;
 }
-  
+
 #sidenav .closeButton {
     position: absolute;
     top: 0;
@@ -82,30 +81,26 @@ header h1 {
 
 /* --- Main --- */
 
-#main {
+main {
     transition: margin-left .5s;
-}
-
-.content {
-    height: 90vh;
 }
 
 /* --- Footer --- */
   
 footer {
-    background-color: #6EB257;
-    padding: 10px;
+    background-color: #75b79e;
     text-align: center;
     color: white;
+    padding: 20px;
 }
 
 /* --- Responsive --- */
 
-@media screen and (max-height: 450px) {
+@media screen and (min-width: 620px) {
     .sidenav {
         padding-top: 15px;
     }
     .sidenav a {
-        font-size: 18px;
+        font-size: 38px;
     }
 }
