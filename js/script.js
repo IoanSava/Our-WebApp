@@ -1,3 +1,5 @@
+"use strict";
+
 function openNavBar() {
     var screenWidth = window.innerWidth;
 
@@ -14,7 +16,7 @@ function openNavBar() {
     }
     document.body.style.backgroundColor = "#a7e9af";
 }
-  
+
 function closeNavBar() {
     document.getElementById("sidenav").style.width = "0";
     document.getElementById("mainid").style.marginLeft= "0";
