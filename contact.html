@@ -12,15 +12,15 @@
 <body>
     <nav id="sidenav">
         <a href="javascript:void(0)" class="closeButton" onclick="closeNavBar()">&times;</a>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Statistics</a>
-        <a href="#">Body Mass Index</a>
-        <a href="#">Diets</a>
-        <a href="#">Contact</a>
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="#">STATISTICS</a>
+        <a href="#">BODY MASS INDEX</a>
+        <a href="#">DIETS</a>
+        <a href="#">CONTACT</a>
     </nav>
 
-    <div id="main">
+    <main id="mainid">
         <header>
             <span onclick="openNavBar()" id="openNav">&#9776;</span>
             <h1>Obesity Prevalence Visualizer</h1>
@@ -28,7 +28,7 @@
         </header>
         <div class="container">
             <div class="wrapper-contact-form">
-                <div class="contact-form-title-bg" style="background-image: url(images/bg-contact.jpg);">
+                <div class="contact-form-title-bg">
                     <b>
                             <span class="contact-form-title">Contact Us</span>
                         </b>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="wrap-input">
                         <label for="phone">Phone:</label>
-                        <input type="tel" id="phone" name="user_phone" class="input-area" placeholder="Enter phone number">
+                        <input type="tel" id="phone" name="user_phone" class="input-area" placeholder="Enter phone number" onkeypress="return isNumberKey(event)">
                         <span class="focus-input"></span>
                     </div>
                     <div class="wrap-input">
@@ -66,9 +66,32 @@
             </div>
         </div>
         <footer>
-            <p>Footer</p>
+            <div class="column1"> 
+                <span class="dot dot1"></span>
+                <div>
+                    <h3>Address</h3>
+                    <p>Gen. Berthelot</p>
+                </div>
+            </div>
+
+            <div class="column2">
+                <span class="dot dot2"></span>
+                <div>
+                    <h3>Phone</h3>
+                    <p>0711223344</p>
+                </div>
+            </div>
+
+            <div class="column3">
+                <span class="dot dot3"></span>
+
+                <div>
+                    <h3>Email</h3>
+                    <p>ourwebapp@info.uaic.ro</p>
+                </div>
+            </div>
         </footer>
-    </div>
+    </main>
 
     <script src="js/script.js"></script>
 </body>

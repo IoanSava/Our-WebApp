@@ -1,40 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>RO Obesity Prevalence Visualizer</title>
+        <link rel="stylesheet" type="text/css" href = "css/style.css"/>
+        <link rel="stylesheet" type="text/css" href = "css/home.css"/>
+    </head>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RO Obesity Prevalence Visualizer</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-</head>
+    <body>
+        <nav id="sidenav">
+            <a href="javascript:void(0)" class="closeButton" onclick="closeNavBar()">&times;</a>
+            <a href="#">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="#">STATISTICS</a>
+            <a href="#">BODY MASS INDEX</a>
+            <a href="#">DIETS</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
 
-<body>
-    <nav id="sidenav">
-        <a href="javascript:void(0)" class="closeButton" onclick="closeNavBar()">&times;</a>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Statistics</a>
-        <a href="#">Body Mass Index</a>
-        <a href="#">Diets</a>
-        <a href="#">Contact</a>
-    </nav>
+        <main id="mainid">
+            <header>
+                <span onclick="openNavBar()" id="openNav">&#9776;</span>
+                <h1>Obesity Prevalence Visualizer</h1>
+                <h1>Logo</h1>
+            </header>
 
-    <div id="main">
-        <header>
-            <span onclick="openNavBar()" id="openNav">&#9776;</span>
-            <h1>Obesity Prevalence Visualizer</h1>
-            <h1>Logo</h1>
-        </header>
-
-        <div class="container">
-            <div class="content">
+            <div class="image_container">
+                <div class="inner_container">
+                    <h1>HEALTH</h1>
+                    <h2>Our awesome site</h2>
+                    <a class="button" href="about.html">ABOUT</a>
+                </div>
             </div>
-        </div>
-        <footer>
-            <p>Footer</p>
-        </footer>
-    </div>
-    <script src="js/script.js"></script>
-</body>
 
+            <div class="section-container">
+                <section>
+                    <h2>About</h2>
+                    <p>Find out more information about our website</p>
+                    <a href="about.html" class="info-link">Learn more...</a>
+                </section>
+                <section>
+                    <h2>Statistics</h2>
+                    <p>Details about revalence of overweight among adults.</p>
+                    <img class="section-img small-image" src="images/graph.jpeg" alt="Statistics graph">
+                    <a href="#" class="info-link">Learn more...</a>
+                </section>
+                <section class="bigbottom">
+                    <h2>Diets</h2>
+                    <p>While many diets may work for you, the key is finding one you like and can stick to in the long run.</p>
+                    <a class="bigbottom-link info-link" href="#">Learn more...</a>
+                </section>
+                <section class="bigtitle">
+                    <h2 class="bigtitle-title">Contact</h2>
+                    <p>We’re here to help and answer any question you might have. We look forward to hearing from you </p>
+                    <a href="contact.html" class="info-link">Learn more...</a>
+                </section>
+                <section>
+                    <h2>Body Mass Index</h2>
+                    <img class="section-img profile" src="images/calculator.jpeg" alt="BMI calculator"/>
+                    <p>BMI is a useful measurement for most people over 18 years old. But it is only an estimate and it doesn’t take into account age, ethnicity, gender and body composition. We recommend you also check your waist measurement and other risk factors.</p>
+                    <a href="#" class="info-link">Learn more...</a>
+                </section>
+            </div>
+            <footer>
+                <div class="column1"> 
+                    <span class="dot dot1"></span>
+                    <div>
+                        <h3>Address</h3>
+                        <p>Gen. Berthelot</p>
+                    </div>
+                </div>
+
+                <div class="column2">
+                    <span class="dot dot2"></span>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>0711223344</p>
+                    </div>
+                </div>
+
+                <div class="column3">
+                    <span class="dot dot3"></span>
+
+                    <div>
+                        <h3>Email</h3>
+                        <p>ourwebapp@info.uaic.ro</p>
+                    </div>
+                </div>
+            </footer>
+        </main>
+        <script src="js/script.js"></script>
+    </body>
 </html>
