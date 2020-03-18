@@ -27,6 +27,10 @@ document.getElementById("submit").addEventListener("click", validateForm);
 function calculateBmi() {
     var valuesOfFields = [age.value, height.value, weight.value];
 
+    if (age.value < 18 || height.value < 50 || weight.value < 0) {
+        return undefined;
+    }
+
     if(male.checked) {
         valuesOfFields.push("male");
     } else if(female.checked) {
@@ -41,12 +45,14 @@ function diagnosis(bmiValue) {
         return 'Underweight';
     } else if (18.5 <= bmiValue && bmiValue <= 24.9) {
         return 'Healthy';
-    } else if (25 <= bmiValue && bmiValue <= 29.9) {
+    } else if (24.9 < bmiValue && bmiValue <= 29.9) {
         return 'Overweight';
-    } else if (30 <= bmiValue && bmiValue <= 34.9) {
+    } else if (29.9 < bmiValue && bmiValue <= 34.9) {
         return 'Obese';
-    } else if (35 <= bmiValue) {
+    } else if (34.9 < bmiValue) {
         return 'Extremely obese';
+    } else {
+        return 'Invalid data';
     }
 }
 
@@ -61,7 +67,13 @@ function showResult() {
 
     var resultText = document.createTextNode(result);
     var bmiText = document.createTextNode('BMI: ');
-    var bmiValueText = document.createTextNode(parseFloat(bmiValue).toFixed(2));
+    var bmiValueText;
+    
+    if (result != "Invalid data") {
+        bmiValueText = document.createTextNode(parseFloat(bmiValue).toFixed(2));
+    } else {
+        bmiValueText = document.createTextNode("-");
+    }
 
     h1.appendChild(resultText);
     h1.classList.add("result");
