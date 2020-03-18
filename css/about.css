@@ -1,16 +1,11 @@
 .content {
     text-indent: 50px;
-    /*height: 80vh;
-    margin: 180px 70px 70px 70px;
-    font-size: large;
-    */
 }
 
 .img1About{
     width: 600px;
     height: 300px;
     margin: 0px 10px 10px 10px;
-   /* margin: auto;*/
     border: 3px solid rgb(3, 5, 0);
     float: right;
 }
