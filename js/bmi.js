@@ -59,15 +59,15 @@ function showResult() {
     var h1 = document.createElement("h1");
     var h2 = document.createElement("h2");
 
-    var t = document.createTextNode(result);
-    var b = document.createTextNode('BMI: ');
-    var r = document.createTextNode(parseFloat(bmiValue).toFixed(2));
+    var resultText = document.createTextNode(result);
+    var bmiText = document.createTextNode('BMI: ');
+    var bmiValueText = document.createTextNode(parseFloat(bmiValue).toFixed(2));
 
-    h1.appendChild(t);
+    h1.appendChild(resultText);
     h1.classList.add("result");
 
-    h2.appendChild(b);
-    h2.appendChild(r);
+    h2.appendChild(bmiText);
+    h2.appendChild(bmiValueText);
     h2.classList.add("result");
 
     document.getElementById("bmi-container").appendChild(h1);
