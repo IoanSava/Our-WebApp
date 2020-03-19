@@ -27,7 +27,7 @@ textarea {
 
 input:focus,
 textarea:focus {
-    border-color: transparent !important;
+    border-color: transparent;
 }
 
 input:focus::placeholder,
@@ -41,7 +41,7 @@ textarea::placeholder {
 }
 
 button {
-    outline: none !important;
+    outline: none;
     border: none;
     background: transparent;
 }
