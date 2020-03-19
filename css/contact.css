@@ -90,6 +90,9 @@ button:hover {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     padding: 64px 15px 64px 15px;
 }
 
@@ -182,7 +185,7 @@ label {
     content: "";
     display: block;
     position: absolute;
-    bottom: -1px;
+    bottom: -1.1px;
     left: 0;
     width: 0;
     height: 1px;
@@ -222,7 +225,7 @@ textarea.input-area {
     padding: 0 20px;
     min-width: 160px;
     height: 50px;
-    background-color: #57b846;
+    background-color: #75b79e;
     border-radius: 25px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
