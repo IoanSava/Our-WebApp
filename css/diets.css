@@ -1,0 +1,55 @@
+.diet_image{
+    background-image: url(../images/diets-bg.jpg);
+    height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    position: relative;
+    background-size: cover;
+}
+
+.section-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    column-count: 2;
+    column-gap: 50px;
+
+}
+.title-diets{
+    font-size: 2.2em;
+}
+
+.text-diets{
+    font-size: 1.5em;
+}
+
+.chenar-diete {
+    border-top: 3px solid #6a8caf;
+    border-radius: 3px;
+    background-color: white;
+    margin-bottom: 20px;
+    overflow: hidden;
+    /*width: 850px;*/
+}
+
+
+@media (min-width: 600px) {
+    .section-container {
+        column-count: 1;
+        column-gap: 20px;
+    }
+    
+    section {
+        break-inside: avoid;
+    }
+  }
+  
+  @media (min-width: 900px) {
+    .section-container {
+        column-count: 2;
+        column-gap: normal;
+        width: 800;
+    }
+  }
+  
