@@ -8,6 +8,19 @@
     background-size: cover;
 }
 
+.inner_container {
+    text-align: center;
+    width: 100%;
+    color:black;
+    width: 100%;
+    position: absolute;
+    margin-top: 100px;
+}
+
+.inner_container h1 {
+    font-size: 7em;
+}
+
 .section-container {
     width: 100%;
     margin: 0 auto;
