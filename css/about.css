@@ -13,13 +13,12 @@
 }
 
 .about_title{
-
     font-size: 50px;
     font-weight: bold;
     text-align: center;
 }
 
-.divAbout{
+.div_about{
     background-color: rgba(219, 215, 206, 0.623);
     border-radius: 25px;
     width: 900px;
