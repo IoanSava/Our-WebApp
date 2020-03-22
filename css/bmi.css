@@ -120,7 +120,8 @@
     padding: 15px;
 }
   
-#bmi-container h3 b {
+
+#bmi-container b {
     font-size: 32px;
     font-weight: 300;
     color: #75b79e;
