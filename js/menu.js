@@ -20,5 +20,5 @@ function openNavBar() {
 function closeNavBar() {
     document.getElementById("sidenav").style.width = "0";
     document.getElementById("mainid").style.marginLeft= "0";
-    document.body.style.backgroundColor = "#eef9bf";
+    document.body.style.backgroundColor = "#c9fcb5";
 }
