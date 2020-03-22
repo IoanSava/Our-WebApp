@@ -89,13 +89,5 @@
     .section-container {
         column-count: 2;
         column-gap: normal;
-        width: 800;
     }
   }
-
-  /*
-  .diet-image-section{
-    height: 200px;
-    width: 200px;
-  }
-  */
