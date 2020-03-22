@@ -1,0 +1,88 @@
+.diet_image{
+    background-image: url(../images/diets-bg.jpg);
+    height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    position: relative;
+    background-size: cover;
+}
+
+.inner_container {
+    text-align: center;
+    width: 100%;
+    color:black;
+    width: 100%;
+    position: absolute;
+    margin-top: 100px;
+}
+
+.inner_container h1 {
+    font-size: 7em;
+}
+
+.section-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    column-count: 2;
+    column-gap: 50px;
+    display: table;
+    clear: both;
+    
+
+}
+.title-diets{
+    font-size: 2.5em;
+    padding-left: 80px;
+}
+
+.text-diets{
+    font-size: 1.8em;
+    font-weight: bolder;
+    padding-right: 80px;
+    padding-left: 80px;
+   
+}
+
+.diets-section1 {
+    border-top: 6px solid #6a8caf;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-image: url(../images/weighing-scale.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.diets-section2 {
+    border-top: 6px solid #6a8caf;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-image: url(../images/fruit-salads.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.diets-section3 {
+    border-top: 6px solid #6a8caf;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-image: url(../images/fasting-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.diets-section4 {
+    border-top: 6px solid #6a8caf;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-image:url(../images/salad-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
