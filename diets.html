@@ -1,151 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>RO Obesity Prevalence Visualizer</title>
-        <link rel="stylesheet" type="text/css" href = "css/style.css"/>
-        <link rel="stylesheet" type="text/css" href = "css/diets.css"/>
 
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RO Obesity Prevalence Visualizer</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="https://kit.fontawesome.com/fdbc1f14fa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/diets.css" />
 
-    <body>
-        <nav id="sidenav">
-            <a href="javascript:void(0)" class="closeButton" onclick="closeNavBar()">&times;</a>
-            <a href="index.html">HOME</a>
-            <a href="about.html">ABOUT</a>
-            <a href="#">STATISTICS</a>
-            <a href="bmi.html">BODY MASS INDEX</a>
-            <a href="#">DIETS</a>
-            <a href="contact.html">CONTACT</a>
-        </nav>
+</head>
 
-        <main id="mainid">
-            <header>
-                <span onclick="openNavBar()" id="openNav">&#9776;</span>
-                <h1>Obesity Prevalence Visualizer</h1>
-                <h1>Logo</h1>
-            </header>
+<body>
+    <nav id="sidenav">
+        <a href="javascript:void(0)" class="closeButton" onclick="closeNavBar()">&times;</a>
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="#">STATISTICS</a>
+        <a href="bmi.html">BODY MASS INDEX</a>
+        <a href="#">DIETS</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
 
-            <div class="diet_image">
-                <div class="inner_container">
-                    <h1>Diets</h1>
-                </div>
+    <main id="mainid">
+        <header>
+            <span onclick="openNavBar()" id="openNav">&#9776;</span>
+            <h1>Obesity Prevalence Visualizer</h1>
+            <h1>Logo</h1>
+        </header>
+
+        <div class="diet_image">
+            <div class="inner_container">
+                <h1>Diets</h1>
             </div>
+        </div>
 
-            <div class="section-container">
-                <section class="diets-section1">
+        <div class="section-container">
+            <section class="diets-section1">
+                <div class="title-wrapper">
                     <h2 class="title-diets">1. WW (Weight Watchers)</h2>
-                    <p class="text-diets">WW, formerly Weight Watchers, is one of the most popular weight loss 
-                        programs worldwide.<br><br>
-                        While it doesn’t restrict any food groups, people on a WW plan must eat within their 
-                        set daily points to reach their ideal weight.<br><br>
-                        <strong>How it works:</strong> WW is a points-based system that assigns different foods 
-                        and beverages a value, depending on their calorie, fat, and fiber contents.<br><br>
-                        To reach your desired weight, you must stay within your daily point allowance.<br><br>
-                        <strong>Weight loss:</strong> Many studies show that the WW program can help you lose weight.<br><br>
-                        For example, a review of 45 studies found that people who followed a WW diet lost 2.6% more weight 
-                        than people who received standard counseling.<br><br>
-                        What’s more, people who follow WW programs have been shown to be more successful at maintaining 
-                        weight loss after several years, compared with those who follow other diets.<br><br>
-                        <strong>Other benefits:</strong> WW allows flexibility, making it easy to follow. 
-                        This enables people with dietary restrictions, such as those with food allergies, to adhere to the plan.<br><br>
-                        <strong>Downsides:</strong> While it allows for flexibility, WW can be costly depending on the subscription plan. 
-                        Also, it’s flexibility can be a downfall if dieters choose unhealthy foods.                      
-                    </p>
-                </section>
-                <section class="diets-section2">
+                    <fieldset class="rating">
+                        <input type="radio" id="1star5" name="rating" value="5" /><label class="full" for="1star5" title="Definitely worth trying!"></label>
+                        <input type="radio" id="1star4half" name="rating" value="4 1/2" /><label class="half" for="1star4half" title="Very good!"></label>
+                        <input type="radio" id="1star4" name="rating" value="4" /><label class="full" for="1star4" title="Pretty good"></label>
+                        <input type="radio" id="1star3half" name="rating" value="3 1/2" /><label class="half" for="1star3half" title="Good to average"></label>
+                        <input type="radio" id="1star3" name="rating" value="3" /><label class="full" for="1star3" title="Average"></label>
+                        <input type="radio" id="1star2half" name="rating" value="2 1/2" /><label class="half" for="1star2half" title="Average to bad"></label>
+                        <input type="radio" id="1star2" name="rating" value="2" /><label class="full" for="1star2" title="Kinda bad"></label>
+                        <input type="radio" id="1star1half" name="rating" value="1 1/2" /><label class="half" for="1star1half" title="Pretty bad"></label>
+                        <input type="radio" id="1star1" name="rating" value="1" /><label class="full" for="1star1" title="Very bad!"></label>
+                        <input type="radio" id="1starhalf" name="rating" value="1/2" /><label class="half" for="1starhalf" title="The worst! Would not recommend!"></label>
+                    </fieldset>
+                </div>
+
+                <p class="text-diets">WW, formerly Weight Watchers, is one of the most popular weight loss programs worldwide.<br><br> While it doesn’t restrict any food groups, people on a WW plan must eat within their set daily points to reach their ideal weight.<br><br>
+                    <strong>How it works:</strong> WW is a points-based system that assigns different foods and beverages a value, depending on their calorie, fat, and fiber contents.<br><br> To reach your desired weight, you must stay within your daily
+                    point allowance.<br><br>
+                    <strong>Weight loss:</strong> Many studies show that the WW program can help you lose weight.<br><br> For example, a review of 45 studies found that people who followed a WW diet lost 2.6% more weight than people who received standard
+                    counseling.
+                    <br><br> What’s more, people who follow WW programs have been shown to be more successful at maintaining weight loss after several years, compared with those who follow other diets.<br><br>
+                    <strong>Other benefits:</strong> WW allows flexibility, making it easy to follow. This enables people with dietary restrictions, such as those with food allergies, to adhere to the plan.<br><br>
+                    <strong>Downsides:</strong> While it allows for flexibility, WW can be costly depending on the subscription plan. Also, it’s flexibility can be a downfall if dieters choose unhealthy foods.
+                </p>
+            </section>
+            <section class="diets-section2">
+                <div class="title-wrapper">
                     <h2 class="title-diets">2.Plant-based diets</h2>
-                    <p class="text-diets">Plant-based diets may help you lose weight. Vegetarianism and veganism are the most popular versions,
-                         which restrict animal products for health, ethical, and environmental reasons.<br><br>
-                        <strong>How it works:</strong> There are many types of vegetarianism, but most involve eliminating 
-                        all meat, poultry, and fish. Some vegetarians may likewise avoid eggs and dairy.<br><br>
-                        The vegan diet takes it a step further by restricting all animal products, as well as animal-derived 
-                        products like dairy, gelatin, honey, whey, casein, and albumin.<br><br>
-                        There are no clear-cut rules for the flexitarian diet, as it’s a lifestyle change rather than a diet. 
-                        It encourages eating mostly fruits, vegetables, legumes, and whole grains but allows for protein and 
-                        animal products in moderation, making it a popular alternative.<br><br>
-                        <strong>Weight loss:</strong> Research shows that plant-based diets are effective for weight loss.<br><br>
-                        A review of 12 studies including 1,151 participants found that people on a plant-based diet lost an 
-                        average of 2 kg more than those who included animal products.<br><br>
-                        Plus, those following a vegan diet lost an average of 2.5 kg more than people not eating a plant-based diet.<br><br>
-                        Plant-based diets likely aid weight loss because they tend to be rich in fiber, which can help you stay fuller for 
-                        longer, and low in high-calorie fat.<br><br>
-                        
-                        <strong>Other benefits:</strong> Plant-based diets have been linked to many other benefits, such as a 
-                        reduced risk of chronic conditions like heart disease, certain cancers, and diabetes. They can also 
-                        be more environmentally sustainable than meat-based diets.<br><br>
-                        <strong>Downsides: </strong>Though plant-based diets are healthy, they can restrict important nutrients 
-                        that are typically found in animal products, such as iron, vitamin B12, vitamin D, calcium, zinc, and 
-                        omega-3 fatty acids.
-                        </p>
-                </section>
-                <section class="diets-section3" >
+                    <fieldset class="rating">
+                        <input type="radio" id="2star5" name="rating" value="5" /><label class="full" for="2star5" title="Definitely worth trying!"></label>
+                        <input type="radio" id="2star4half" name="rating" value="4 1/2" /><label class="half" for="2star4half" title="Very good!"></label>
+                        <input type="radio" id="2star4" name="rating" value="4" /><label class="full" for="2star4" title="Pretty good"></label>
+                        <input type="radio" id="2star3half" name="rating" value="3 1/2" /><label class="half" for="2star3half" title="Good to average"></label>
+                        <input type="radio" id="2star3" name="rating" value="3" /><label class="full" for="2star3" title="Average"></label>
+                        <input type="radio" id="2star2half" name="rating" value="2 1/2" /><label class="half" for="2star2half" title="Average to bad"></label>
+                        <input type="radio" id="2star2" name="rating" value="2" /><label class="full" for="2star2" title="Kinda bad"></label>
+                        <input type="radio" id="2star1half" name="rating" value="1 1/2" /><label class="half" for="2star1half" title="Pretty bad"></label>
+                        <input type="radio" id="2star1" name="rating" value="1" /><label class="full" for="2star1" title="Very bad!"></label>
+                        <input type="radio" id="2starhalf" name="rating" value="1/2" /><label class="half" for="2starhalf" title="The worst! Would not recommend!"></label>
+                    </fieldset>
+                </div>
+
+                <p class="text-diets">Plant-based diets may help you lose weight. Vegetarianism and veganism are the most popular versions, which restrict animal products for health, ethical, and environmental reasons.<br><br>
+                    <strong>How it works:</strong> There are many types of vegetarianism, but most involve eliminating all meat, poultry, and fish. Some vegetarians may likewise avoid eggs and dairy.<br><br> The vegan diet takes it a step further by restricting
+                    all animal products, as well as animal-derived products like dairy, gelatin, honey, whey, casein, and albumin.<br><br> There are no clear-cut rules for the flexitarian diet, as it’s a lifestyle change rather than a diet. It encourages
+                    eating mostly fruits, vegetables, legumes, and whole grains but allows for protein and animal products in moderation, making it a popular alternative.<br><br>
+                    <strong>Weight loss:</strong> Research shows that plant-based diets are effective for weight loss.<br><br> A review of 12 studies including 1,151 participants found that people on a plant-based diet lost an average of 2 kg more than
+                    those who included animal products.<br><br> Plus, those following a vegan diet lost an average of 2.5 kg more than people not eating a plant-based diet.<br><br> Plant-based diets likely aid weight loss because they tend to be rich
+                    in fiber, which can help you stay fuller for longer, and low in high-calorie fat.<br><br>
+
+                    <strong>Other benefits:</strong> Plant-based diets have been linked to many other benefits, such as a reduced risk of chronic conditions like heart disease, certain cancers, and diabetes. They can also be more environmentally sustainable
+                    than meat-based diets.<br><br>
+                    <strong>Downsides: </strong>Though plant-based diets are healthy, they can restrict important nutrients that are typically found in animal products, such as iron, vitamin B12, vitamin D, calcium, zinc, and omega-3 fatty acids.
+                </p>
+            </section>
+            <section class="diets-section3">
+                <div class="title-wrapper">
                     <h2 class="title-diets">3. Intermittent fasting</h2>
-                    <p class="text-diets">Intermittent fasting is a dietary strategy that cycles between periods of fasting and eating.<br><br>
-                        <strong>How it works:</strong>Intermittent fasting restricts the time you’re allowed to eat, 
-                        which is a simple way to reduce your calorie intake. This can lead to weight loss — unless 
-                        you compensate by eating too much food during allowed eating periods.<br><br>
-                        <strong>Weight loss:</strong> In a review of studies, intermittent fasting was shown to cause 3–8% weight 
-                        loss over 3–24 weeks, which is a significantly greater percentage than other methods.<br><br>
-                        The same review showed that this way of eating may reduce waist circumference by 4–7%, which is a marker for 
-                        harmful belly fat.<br><br>
-                        Other studies found that intermittent fasting can increase fat burning while preserving muscle mass, 
-                        which can improve metabolism.<br><br>
-                        <strong>Other benefits:</strong>  Intermittent fasting has been linked to anti-aging effects, increased 
-                        insulin sensitivity, improved brain health, reduced inflammation, and many other benefits.<br><br>
-                        <strong>Downsides:</strong> In general, intermittent fasting is safe for most healthy adults.
-                    </p>
-                </section>
-                <section class="diets-section4">
+                    <fieldset class="rating">
+                        <input type="radio" id="3star5" name="rating" value="5" /><label class="full" for="3star5" title="Definitely worth trying!"></label>
+                        <input type="radio" id="3star4half" name="rating" value="4 1/2" /><label class="half" for="3star4half" title="Very good!"></label>
+                        <input type="radio" id="3star4" name="rating" value="4" /><label class="full" for="3star4" title="Pretty good"></label>
+                        <input type="radio" id="3star3half" name="rating" value="3 1/2" /><label class="half" for="3star3half" title="Good to average"></label>
+                        <input type="radio" id="3star3" name="rating" value="3" /><label class="full" for="3star3" title="Average"></label>
+                        <input type="radio" id="3star2half" name="rating" value="2 1/2" /><label class="half" for="3star2half" title="Average to bad"></label>
+                        <input type="radio" id="3star2" name="rating" value="2" /><label class="full" for="3star2" title="Kinda bad"></label>
+                        <input type="radio" id="3star1half" name="rating" value="1 1/2" /><label class="half" for="3star1half" title="Pretty bad"></label>
+                        <input type="radio" id="3star1" name="rating" value="1" /><label class="full" for="3star1" title="Very bad!"></label>
+                        <input type="radio" id="3starhalf" name="rating" value="1/2" /><label class="half" for="3starhalf" title="The worst! Would not recommend!"></label>
+                    </fieldset>
+                </div>
+
+                <p class="text-diets">Intermittent fasting is a dietary strategy that cycles between periods of fasting and eating.<br><br>
+                    <strong>How it works:</strong>Intermittent fasting restricts the time you’re allowed to eat, which is a simple way to reduce your calorie intake. This can lead to weight loss — unless you compensate by eating too much food during allowed
+                    eating periods.<br><br>
+                    <strong>Weight loss:</strong> In a review of studies, intermittent fasting was shown to cause 3–8% weight loss over 3–24 weeks, which is a significantly greater percentage than other methods.<br><br> The same review showed that this
+                    way of eating may reduce waist circumference by 4–7%, which is a marker for harmful belly fat.<br><br> Other studies found that intermittent fasting can increase fat burning while preserving muscle mass, which can improve metabolism.<br><br>
+                    <strong>Other benefits:</strong> Intermittent fasting has been linked to anti-aging effects, increased insulin sensitivity, improved brain health, reduced inflammation, and many other benefits.<br><br>
+                    <strong>Downsides:</strong> In general, intermittent fasting is safe for most healthy adults.
+                </p>
+            </section>
+            <section class="diets-section4">
+                <div class="title-wrapper">
                     <h2 class="title-diets">4. The Mediterranean diet</h2>
-                    <p class="text-diets">The Mediterranean diet is based on foods that people in countries like Italy 
-                        and Greece used to eat.<br><br>
-                        Though it was designed to lower heart disease risk, numerous studies indicate that it can 
-                        also aid weight loss.<br><br>
-                        <strong>How it works:</strong> The Mediterranean diet advocates eating plenty of fruits, vegetables, 
-                        nuts, seeds, legumes, tubers, whole grains, fish, seafood, and extra virgin olive oil.<br><br>
-                        Foods such as poultry, eggs, and dairy products are to be eaten in moderation. Meanwhile, red meats are limited.
-                        Additionally, the Mediterranean diet restricts refined grains, trans fats, refined oils, processed meats, 
-                        added sugar, and other highly processed foods.
-                        <strong>Weight loss:</strong> Though it’s not specifically a weight loss diet, many studies show that 
-                        adopting a Mediterranean-style diet may aid weight loss.<br><br>  
-                        For example, an analysis of 19 studies found that people who combined the Mediterranean diet with exercise 
-                        or calorie restriction lost an average of 4 kg more than those on a control diet.<br><br>
-                        <strong>Other benefits:</strong> The Mediterranean diet encourages eating plenty of antioxidant-rich foods, 
-                        which may help combat inflammation and oxidative stress by neutralizing free radicals. It has been linked 
-                        to reduced risks of heart disease and premature death.<br><br>
-                        <strong>Downsides:</strong> As the Mediterranean diet is not strictly a weight loss diet, people may not 
-                        lose weight following it unless they also consume fewer calories.</p>
-                </section>
+                    <fieldset class="rating">
+                        <input type="radio" id="4star5" name="rating" value="5" /><label class="full" for="4star5" title="Definitely worth trying!"></label>
+                        <input type="radio" id="4star4half" name="rating" value="4 1/2" /><label class="half" for="4star4half" title="Very good!"></label>
+                        <input type="radio" id="4star4" name="rating" value="4" /><label class="full" for="4star4" title="Pretty good"></label>
+                        <input type="radio" id="4star3half" name="rating" value="3 1/2" /><label class="half" for="4star3half" title="Good to average"></label>
+                        <input type="radio" id="4star3" name="rating" value="3" /><label class="full" for="4star3" title="Average"></label>
+                        <input type="radio" id="4star2half" name="rating" value="2 1/2" /><label class="half" for="4star2half" title="Average to bad"></label>
+                        <input type="radio" id="4star2" name="rating" value="2" /><label class="full" for="4star2" title="Kinda bad"></label>
+                        <input type="radio" id="4star1half" name="rating" value="1 1/2" /><label class="half" for="4star1half" title="Pretty bad"></label>
+                        <input type="radio" id="4star1" name="rating" value="1" /><label class="full" for="4star1" title="Very bad!"></label>
+                        <input type="radio" id="4starhalf" name="rating" value="1/2" /><label class="half" for="4starhalf" title="The worst! Would not recommend!"></label>
+                    </fieldset>
+                </div>
+
+                <p class="text-diets">The Mediterranean diet is based on foods that people in countries like Italy and Greece used to eat.<br><br> Though it was designed to lower heart disease risk, numerous studies indicate that it can also aid weight loss.<br><br>
+                    <strong>How it works:</strong> The Mediterranean diet advocates eating plenty of fruits, vegetables, nuts, seeds, legumes, tubers, whole grains, fish, seafood, and extra virgin olive oil.<br><br> Foods such as poultry, eggs, and dairy
+                    products are to be eaten in moderation. Meanwhile, red meats are limited. Additionally, the Mediterranean diet restricts refined grains, trans fats, refined oils, processed meats, added sugar, and other highly processed foods.
+                    <strong>Weight loss:</strong> Though it’s not specifically a weight loss diet, many studies show that adopting a Mediterranean-style diet may aid weight loss.<br><br> For example, an analysis of 19 studies found that people who combined
+                    the Mediterranean diet with exercise or calorie restriction lost an average of 4 kg more than those on a control diet.<br><br>
+                    <strong>Other benefits:</strong> The Mediterranean diet encourages eating plenty of antioxidant-rich foods, which may help combat inflammation and oxidative stress by neutralizing free radicals. It has been linked to reduced risks
+                    of heart disease and premature death.<br><br>
+                    <strong>Downsides:</strong> As the Mediterranean diet is not strictly a weight loss diet, people may not lose weight following it unless they also consume fewer calories.</p>
+            </section>
+        </div>
+        <footer>
+            <div class="column">
+                <span class="dot"></span>
+                <div>
+                    <h3>Address</h3>
+                    <p>Gen. Berthelot</p>
+                </div>
             </div>
-            <footer>
-                <div class="column"> 
-                    <span class="dot"></span>
-                    <div>
-                        <h3>Address</h3>
-                        <p>Gen. Berthelot</p>
-                    </div>
-                </div>
 
-                <div class="column">
-                    <span class="dot"></span>
-                    <div>
-                        <h3>Phone</h3>
-                        <p>0711223344</p>
-                    </div>
+            <div class="column">
+                <span class="dot"></span>
+                <div>
+                    <h3>Phone</h3>
+                    <p>0711223344</p>
                 </div>
+            </div>
 
-                <div class="column">
-                    <span class="dot"></span>
+            <div class="column">
+                <span class="dot"></span>
 
-                    <div>
-                        <h3>Email</h3>
-                        <p>ourwebapp@info.uaic.ro</p>
-                    </div>
+                <div>
+                    <h3>Email</h3>
+                    <p>ourwebapp@info.uaic.ro</p>
                 </div>
-            </footer>
-        </main>
-        <script src="js/menu.js"></script>
-    </body>
+            </div>
+        </footer>
+    </main>
+    <script src="js/menu.js"></script>
+
+</body>
+
 </html>
