@@ -1,17 +1,15 @@
-.diet_image{
+.diet_image {
     background-image: url(../images/diets-bg.jpg);
     height: 600px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: auto;
     position: relative;
     background-size: cover;
 }
 
 .inner_container {
     text-align: center;
-    width: 100%;
-    color:black;
+    color: black;
     width: 100%;
     position: absolute;
     margin-top: 100px;
@@ -29,20 +27,25 @@
     column-gap: 50px;
     display: table;
     clear: both;
-    
-
 }
-.title-diets{
+
+.title-diets {
     font-size: 2.5em;
     padding-left: 80px;
 }
 
-.text-diets{
+.text-diets {
     font-size: 1.8em;
     font-weight: bolder;
     padding-right: 80px;
     padding-left: 80px;
-   
+}
+
+.title-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
 }
 
 .diets-section1 {
@@ -66,6 +69,7 @@
     background-size: cover;
     background-position: center;
 }
+
 .diets-section3 {
     border-top: 6px solid #6a8caf;
     border-radius: 6px;
@@ -76,13 +80,70 @@
     background-size: cover;
     background-position: center;
 }
+
 .diets-section4 {
     border-top: 6px solid #6a8caf;
     border-radius: 6px;
     margin-bottom: 20px;
     overflow: hidden;
-    background-image:url(../images/salad-img.jpg);
+    background-image: url(../images/salad-img.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+
+/* --- Star Rating --- */
+
+fieldset,
+label {
+    margin: 0;
+    padding: 0;
+}
+
+.rating {
+    display: inline-block;
+    padding-left: 80px;
+    border: none;
+}
+
+.rating>input {
+    display: none;
+}
+
+.rating>label:before {
+    padding: .3rem .2rem;
+    margin: 0;
+    font-size: 2em;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    cursor: pointer;
+    display: inline-block;
+    content: "\f005";
+}
+
+.rating>.half:before {
+    content: "\f089";
+    text-shadow: unset;
+    padding-right: 0;
+    position: absolute;
+}
+
+.rating>label {
+    color: #333;
+    float: right;
+}
+
+.rating>input:checked~label,
+.rating:not(:checked)>label:hover,
+.rating:not(:checked)>label:hover~label {
+    color: rgb(255, 196, 0);
+}
+
+.rating>input:checked+label:hover,
+.rating>input:checked~label:hover,
+.rating>label:hover~input:checked~label,
+.rating>input:checked~label:hover~label {
+    color: rgb(255, 227, 70);
 }
