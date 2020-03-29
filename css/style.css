@@ -32,12 +32,34 @@ header {
 }
 
 header > * {
-    padding: 20px;
+    padding: 10px;
+    
 }
 
 header h1 {
     font-size: 25px;
 }
+
+
+/* --- Logo image --- */
+
+.logo-image{
+    height: 80px;
+    width: 80px;
+    display: inline-block;
+    margin-right: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../images/logo.jpg);
+    background-size: 70px;
+}
+
 
 /* --- Menu --- */
 
