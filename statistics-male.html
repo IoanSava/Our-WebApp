@@ -1,3 +1,4 @@
+  
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RO Obesity Prevalence Visualizer</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/statistics.css" />
+    <link rel="stylesheet" type="text/css" href="css/statistics-gender.css" />
 </head>
 
 <body>
@@ -14,7 +15,7 @@
         <a href="javascript:void(0)" class="closeButton" onclick="closeNavBar()">&times;</a>
         <a href="index.html">HOME</a>
         <a href="about.html">ABOUT</a>
-        <a href="#">STATISTICS</a>
+        <a href="statistics.html">STATISTICS</a>
         <a href="bmi.html">BODY MASS INDEX</a>
         <a href="diets.html">DIETS</a>
         <a href="contact.html">CONTACT</a>
@@ -24,15 +25,31 @@
         <header>
             <span onclick="openNavBar()" id="openNav">&#9776;</span>
             <h1>Obesity Prevalence Visualizer</h1>
-            <h1>Logo</h1>
+            <div class="logo-image"> </div>
         </header>
 
-        <div class="content">
-
+        <div class="container">
+            <div id="chart"></div>
+            <div id="options">
+                <a id="compare_button">Compare</a>
+                <a id="view_column_chart_button">View column chart</a>
+                <a id="view_ranking_button">View Ranking</a>
+                <a id="myBtn">EXPORT</a>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p class="title-export">Export</p>
+                        <img class="img-st" src="images/icons/png.png" alt="PNG icon"/>
+                        <img class="img-st" src="images/icons/csv.png" alt="CSV icon"/>
+                        <img class="img-st" src="images/icons/svg.png" alt="SVG icon"/>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <footer>
-            <div class="column">
-                <span class="dot"></span>
+            <div class="column"> 
+                <span class="dot dot-ad"></span>
                 <div>
                     <h3>Address</h3>
                     <p>Gen. Berthelot</p>
@@ -40,7 +57,7 @@
             </div>
 
             <div class="column">
-                <span class="dot"></span>
+                <span class="dot dot-ph"></span>
                 <div>
                     <h3>Phone</h3>
                     <p>0711223344</p>
@@ -48,7 +65,7 @@
             </div>
 
             <div class="column">
-                <span class="dot"></span>
+                <span class="dot dot-em"></span>
 
                 <div>
                     <h3>Email</h3>
@@ -58,6 +75,8 @@
         </footer>
     </main>
     <script src="js/menu.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="js/chart.js"></script>
 </body>
 
 </html>

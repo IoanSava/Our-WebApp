@@ -1,8 +1,23 @@
+.image-bg{
+    background-image: url(../images/bmi-bg.jpg);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 #bmi-container {
     width: 100%;
     margin: 0 auto;
     height: 70vh;
 }
+
 
 .form {
     background-color: #fff;
@@ -114,16 +129,16 @@
 }
   
 #bmi-container h3 {
-    font-size: 24px;
-    font-weight: 300;
+    font-size: 28px;
+    font-weight: bolder;
     text-align: center;
     padding: 15px;
 }
   
 
 #bmi-container b {
-    font-size: 32px;
-    font-weight: 300;
+    font-size: 58px;
+    font-weight: bolder;
     color: #75b79e;
 }
 
