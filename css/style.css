@@ -151,13 +151,13 @@ footer {
     background-image: url(../images/icons/mail.png);
     background-size: 60%;
 }
-
 /* --- Responsive --- */
 
 @media screen and (min-width: 620px) {
     .sidenav {
         padding-top: 15px;
     }
+
     .sidenav a {
         font-size: 38px;
     }
@@ -182,5 +182,4 @@ footer {
     header > * {
         padding: 10px;
     }
-    
 }
