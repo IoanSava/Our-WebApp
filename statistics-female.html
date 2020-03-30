@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RO Obesity Prevalence Visualizer</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/statistics.css" />
+    <link rel="stylesheet" type="text/css" href="css/statistics-gender.css" />
 </head>
 
 <body>
@@ -27,9 +27,16 @@
             <h1>Logo</h1>
         </header>
 
-        <div class="content">
-
+        <div class="container">
+            <div id="chart"></div>
+            <div id="options">
+                <a id="compare_button">Compare</a>
+                <a id="view_column_chart_button">View column chart</a>
+                <a id="view_ranking_button">View Ranking</a>
+                <a>EXPORT</a>
+            </div>
         </div>
+
         <footer>
             <div class="column">
                 <span class="dot"></span>
@@ -58,6 +65,8 @@
         </footer>
     </main>
     <script src="js/menu.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="js/chart.js"></script>
 </body>
 
 </html>

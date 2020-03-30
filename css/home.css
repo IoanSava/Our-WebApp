@@ -93,11 +93,11 @@
     }
   }
   
-  @media (min-width: 960px) {
+@media (min-width: 960px) {
     .section-container {
         column-count: 3;
     }
-  }
+}
   
 h2 {
     font-size: 1.4em;

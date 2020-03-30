@@ -3,6 +3,7 @@
 function openNavBar() {
     var screenWidth = window.innerWidth;
 
+    // adapt navigation bar width
     if (screenWidth < 620) {
         document.getElementById("sidenav").style.width = "100%";
     }
