@@ -136,7 +136,6 @@ footer {
     
 }
 
-
 .dot-ad{
     background-image: url(../images/icons/address.png);
     background-size: 70%;
@@ -151,6 +150,7 @@ footer {
     background-image: url(../images/icons/mail.png);
     background-size: 60%;
 }
+
 /* --- Responsive --- */
 
 @media screen and (min-width: 620px) {
