@@ -35,7 +35,7 @@ function loadColumnChart() {
 
 function drawColumnChart() {
     var data = google.visualization.arrayToDataTable([
-        ['Year', 'Percentage'],
+        ['Year', '%'],
         ['2001',  17.4],
         ['2002',  17.6],
         ['2003',  17.8],
