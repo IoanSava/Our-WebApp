@@ -35,7 +35,7 @@ function loadColumnChart() {
 
 function drawColumnChart() {
     var data = google.visualization.arrayToDataTable([
-        ['Year', '%'],
+        ['Year', 'Percentage'],
         ['2001',  17.4],
         ['2002',  17.6],
         ['2003',  17.8],
@@ -115,7 +115,7 @@ function changeToLineChartMode() {
 }
 
 function changeToColumnChartMode() {
-    delete_anchor_by_id("compare_button");
+    // delete_anchor_by_id("compare_button");
     delete_anchor_by_id("view_column_chart_button");
 
     add_anchor("view_ranking_button", "View ranking");
@@ -128,7 +128,7 @@ function changeToColumnChartMode() {
 }
 
 function changeToRankingMode() {
-    delete_anchor_by_id("compare_button");
+    // delete_anchor_by_id("compare_button");
     delete_anchor_by_id("view_ranking_button");
 
     add_anchor("view_column_chart_button", "View column chart");
@@ -149,27 +149,55 @@ document.getElementById("view_ranking_button").addEventListener("click", changeT
 /*--- Export Button ---*/
 
 // Get the modal
-var modal = document.getElementById("myModal");
+var emodal = document.getElementById("export_modal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+var ebtn = document.getElementById("export_button");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var espan = document.getElementsByClassName("eclose")[0];
 
 // When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
+ebtn.onclick = function() {
+    emodal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
+espan.onclick = function() {
+    emodal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-            modal.style.display = "none";
+    if (event.target == emodal) {
+            emodal.style.display = "none";
+        }
+}
+
+// /*---Compare Button ---*/
+
+// Get the modal
+var cmodal = document.getElementById("compare_modal");
+
+// Get the button that opens the modal
+var cbtn = document.getElementById("compare_button");
+
+// Get the <span> element that closes the modal
+var cspan = document.getElementsByClassName("cclose")[0];
+
+// When the user clicks the button, open the modal 
+cbtn.onclick = function() {
+    cmodal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+cspan.onclick = function() {
+    cmodal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == cmodal) {
+            cmodal.style.display = "none";
         }
 }
