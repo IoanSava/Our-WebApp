@@ -146,7 +146,7 @@ document.getElementById("view_column_chart_button").addEventListener("click", ch
 document.getElementById("view_ranking_button").addEventListener("click", changeToRankingMode);
 
 
-/*--- Export Button ---*/
+/* --- Export Button --- */
 
 // Get the modal
 var modal = document.getElementById("myModal");
@@ -171,5 +171,33 @@ span.onclick = function() {
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
+    }
+}
+
+/* ---Compare Button --- */
+
+// Get the modal
+var cmodal = document.getElementById("compare_modal");
+
+// Get the button that opens the modal
+var cbtn = document.getElementById("compare_button");
+
+// Get the <span> element that closes the modal
+var cspan = document.getElementsByClassName("cclose")[0];
+
+// When the user clicks the button, open the modal 
+cbtn.onclick = function() {
+    cmodal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+cspan.onclick = function() {
+    cmodal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == cmodal) {
+        cmodal.style.display = "none";
     }
 }
