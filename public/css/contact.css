@@ -1,0 +1,282 @@
+/* --- Miscellaneous --- */
+
+input,
+textarea {
+    border: none;
+    outline: none;
+}
+
+textarea {
+    overflow: auto;
+    resize: vertical;
+}
+
+button,
+input {
+    overflow: visible;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+}
+
+input:focus,
+textarea:focus {
+    border-color: transparent;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+    color: transparent;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #999999;
+}
+
+button {
+    outline: none;
+    border: none;
+    background: transparent;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+
+/* --- Contact Form Container --- */
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../images/contact-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.wrapper-contact-form {
+    width: 670px;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* --- Form title --- */
+
+.contact-form-title-bg {
+    background-image: url(../images/contact-img.jpg);
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 64px 15px 64px 15px;
+}
+
+.contact-form-title {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: x-large;
+    color: #fff;
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 7px;
+}
+
+.contact-form-subtitle {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    color: #fff;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.contact-form-title-bg::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(121, 143, 155, 0.7);
+}
+
+
+/* --- Form --- */
+
+form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 43px 88px 57px 190px;
+}
+
+
+/* --- Input --- */
+
+.wrap-input {
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid #8f8e8e;
+    margin-bottom: 26px;
+}
+
+label {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    color: #808080;
+    line-height: 1.2;
+    text-align: right;
+    position: absolute;
+    display: inline-block;
+    margin-bottom: .5rem;
+    top: 14px;
+    left: -105px;
+    width: 80px;
+    font-size: 100%;
+}
+
+.input-area {
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.2;
+    display: block;
+    width: 100%;
+    background: transparent;
+    padding: 0 5px;
+}
+
+.focus-input {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.focus-input::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -1.1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    transition: all 0.6s;
+    background: #57b846;
+}
+
+input.input-area {
+    height: 45px;
+}
+
+textarea.input-area {
+    min-height: 115px;
+    height: 8em;
+    padding-top: 14px;
+    padding-bottom: 13px;
+}
+
+.input-area:focus+.focus-input::before {
+    width: 100%;
+}
+
+
+/* --- Button --- */
+
+.button-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 8px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    min-width: 160px;
+    height: 50px;
+    background-color: #75b79e;
+    border-radius: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+    transition: all 0.4s;
+}
+
+.arrow:before {
+    content: "\279F";
+}
+
+.arrow {
+    margin-left: 7px;
+    display: inline-block;
+    font: normal normal normal 14px/1 'Gill Sans';
+    font-size: inherit;
+    text-rendering: auto;
+}
+
+.button b {
+    transition: all 0.4s;
+}
+
+.button:hover {
+    background-color: #333333;
+}
+
+.button:hover b {
+    transform: translateX(10px);
+}
+
+
+/* --- Responsive --- */
+
+@media (max-width: 576px) {
+    form {
+        padding: 43px 15px 57px 117px;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        padding: 43px 15px 57px 15px;
+    }
+    label {
+        text-align: left;
+        position: unset;
+        top: unset;
+        left: unset;
+        width: 100%;
+        padding: 0 5px;
+    }
+}

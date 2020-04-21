@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    transition: background-color .5s;
+    background-color: #eef9bf;
+}
+
+/* --- Header --- */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    background-color: #75b79e;
+    top: 0;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    z-index: 5;
+    width: 100%;
+}
+
+header > * {
+    padding: 10px;
+    
+}
+
+header h1 {
+    font-size: 25px;
+}
+
+
+/* --- Logo image --- */
+
+.logo-image{
+    height: 80px;
+    width: 80px;
+    display: inline-block;
+    margin-right: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../images/logo.jpg);
+    background-size: 70px;
+}
+
+
+/* --- Menu --- */
+
+#openNav {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 10vh;
+}
+
+#sidenav a {
+    padding: 16px 16px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.5s;
+}
+
+#sidenav a:hover {
+    color: #f1f1f1;
+}
+
+#sidenav .closeButton {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* --- Main --- */
+
+main {
+    transition: margin-left .5s;
+}
+
+/* --- Footer --- */
+  
+footer {
+    background-color: #75b79e;
+    text-align: center;
+    align-items: center;
+    color: white;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.dot {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.dot-ad{
+    background-image: url(../images/icons/address.png);
+    background-size: 70%;
+}
+
+.dot-ph{
+    background-image: url(../images/icons/phone.png);
+    background-size: 60%;
+}
+
+.dot-em{
+    background-image: url(../images/icons/mail.png);
+    background-size: 60%;
+}
+
+/* --- Responsive --- */
+
+@media screen and (min-width: 620px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 38px;
+    }
+}
+
+  
+@media (min-width: 960px) {
+    footer {
+        column-count: 3;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .column {
+      width: 100%;
+    }
+
+    header h1 {
+        font-size: 15px;
+    }
+
+    header > * {
+        padding: 10px;
+    }
+}

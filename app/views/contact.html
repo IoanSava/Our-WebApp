@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RO Obesity Prevalence Visualizer</title>
+    <link rel="stylesheet" type="text/css" href="/obis/public/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/obis/public/css/contact.css" />
+</head>
+
+<body>
+    <nav id="sidenav">
+        <a href="javascript:void(0)" class="closeButton" onclick="closeNavBar()">&times;</a>
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="statistics.html">STATISTICS</a>
+        <a href="bmi.html">BODY MASS INDEX</a>
+        <a href="diets.html">DIETS</a>
+        <a href="#">CONTACT</a>
+    </nav>
+
+    <main id="mainid">
+        <header>
+            <span onclick="openNavBar()" id="openNav">&#9776;</span>
+            <h1>Obesity Prevalence Visualizer</h1>
+            <div class="logo-image"> </div>
+        </header>
+        <div class="container">
+            <div class="wrapper-contact-form">
+                <div class="contact-form-title-bg">
+                    <b>
+                            <span class="contact-form-title">Contact Us</span>
+                        </b>
+                    <span class="contact-form-subtitle">For any questions and queries, feel free to drop us a line below!</span>
+                </div>
+
+                <form>
+                    <!--method="post" action=""-->
+                    <div class="wrap-input">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="user_name" class="input-area" placeholder="Enter full name">
+                        <span class="focus-input"></span>
+                    </div>
+                    <div class="wrap-input">
+                        <label for="mail">Email:</label>
+                        <input type="email" id="mail" name="user_mail" class="input-area" placeholder="Enter email address">
+                        <span class="focus-input"></span>
+                    </div>
+                    <div class="wrap-input">
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" name="user_phone" class="input-area" placeholder="Enter phone number" onkeypress="return isNumberKey(event)">
+                        <span class="focus-input"></span>
+                    </div>
+                    <div class="wrap-input">
+                        <label for="msg">Message:</label>
+                        <textarea name="user_message" id="msg" cols="30" rows="10" class="input-area" placeholder="Write your message"></textarea>
+                        <span class="focus-input"></span>
+                    </div>
+                    <div class="button-container">
+                        <button class="button" type="submit" name="submit">
+                                    <span >Submit<b class="arrow" aria-hidden="true"></b></span>
+                                </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <footer>
+            <div class="column"> 
+                <span class="dot dot-ad"></span>
+                <div>
+                    <h3>Address</h3>
+                    <p>Gen. Berthelot</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <span class="dot dot-ph"></span>
+                <div>
+                    <h3>Phone</h3>
+                    <p>0711223344</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <span class="dot dot-em"></span>
+
+                <div>
+                    <h3>Email</h3>
+                    <p>ourwebapp@info.uaic.ro</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="/obis/public/js/menu.js"></script>
+    <script src="/obis/public/js/contact.js"></script>
+</body>
+
+</html>

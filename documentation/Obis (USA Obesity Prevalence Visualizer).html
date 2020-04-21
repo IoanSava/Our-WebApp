@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="utf-8">
+    <title>Obis (USA Obesity Prevalence Visualizer)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="documentation.css" />
+</head>
+
+<body>
+    <main>
+        <article resource="#" typeof="schema:ScholarlyArticle">
+            <header>
+                <h1 property="schema:name">Obis (USA Obesity Prevalence Visualizer)</h1>
+                <p role="doc-subtitle" property="schema:alternateName">
+                    - documentație -
+                </p>
+            </header>
+            <meta property="schema:accessibilityFeature" content="alternativeText">
+            <meta property="schema:accessibilityHazard" content="none">
+            <div role="contentinfo">
+                <section typeof="sa:AuthorsList">
+                    <h2>Membrii echipei</h2>
+                    <ul id="team_list">
+                        <li typeof="sa:ContributorRole" property="schema:author" resource="#">
+                            <span typeof="schema:Person">
+                                <meta property="schema:givenName" content="Ioan">
+                                <meta property="schema:familyName" content="Sava">
+                                <span property="schema:name">Sava Ioan, A2</span>
+                            </span>
+                        </li>
+                        <li typeof="sa:ContributorRole" property="schema:author" resource="#">
+                            <span typeof="schema:Person">
+                                <meta property="schema:givenName" content="Diana">
+                                <meta property="schema:additionalName" content="Isabela">
+                                <meta property="schema:familyName" content="Crainic">
+                                <span property="schema:name">Crainic Diana - Isabela, A2</span>
+                            </span>
+                        </li>
+                        <li typeof="sa:ContributorRole" property="schema:author" resource="#">
+                            <span typeof="schema:Person">
+                                <meta property="schema:givenName" content="Ciprian">
+                                <meta property="schema:familyName" content="Daniș">
+                                <span property="schema:name">Daniș Ciprian, A2</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <section role="doc-toc">
+                <h2>Cuprins</h2>
+                <ol class="nested" role="directory">
+                    <li class="nested"><a href="#Abstract">Abstract</a></li>
+                    <li class="nested"><a href="#Introduction">Introducere</a>
+                        <ol class="nested">
+                            <li class="nested"><a href="#Description">Descriere</a></li>
+                            <li class="nested"><a href="#Motivation">Motivație</a></li>
+                        </ol>
+                    </li>
+                    <li class="nested"><a href="#Types_of_Users">Tipuri de utilizatori</a></li>
+                    <li class="nested"><a href="#Structure&Design">Structură &amp; Design</a>
+                        <ol class="nested">
+                            <li class="nested"><a href="#Structure">Structură</a></li>
+                            <li class="nested"><a href="#Design">Design</a></li>
+                        </ol>
+                    </li>
+                    <li class="nested"><a href="#Technologies_Used">Tehnologii Utilizate</a>
+                        <ol class="nested">
+                            <li class="nested"><a href="#Development_Environment">Mediul de dezvoltare</a></li>
+                            <li class="nested"><a href="#Libraries_&_External_APIs">Biblioteci și API-uri externe</a></li>
+                        </ol>
+                    </li>
+                    <li class="nested"><a href="#Use-Case_Scenarios">Scenarii Use-Case</a></li>
+                    <li class="nested"><a href="#Task_Distribution">Distribuția sarcinilor</a></li>
+                    <li class="nested"><a href="#Conclusions">Concluzii</a></li>
+                    <li class="nested"><a href="#References">Referințe</a></li>
+                </ol>
+            </section>
+            <section role="doc-abstract">
+                <h2 id="Abstract">1. Abstract</h2>
+                <div>
+                    <p>
+                        Acest articol detaliază munca noastră în structurarea și implementarea unei aplicații Web pentru vizualizarea de date referitoare la ponderea obezității în rândul populației în Statele Unite, ca parte a proiectului nostru pentru Tehnologii Web. Articolul
+                        oferă o vedere de ansamblu asupra arhitecturii proiectului, cât și asupra tehnologiilor utilizate în realizarea acestuia. Pentru mai multe detalii referitoare la aceste tehnologii, o listă cu referințe către materiale atât teoretice
+                        cât și practice este oferită în secțiunea <a href="#References">Referințe</a>.
+                    </p>
+                </div>
+            </section>
+            <section role="doc-introduction">
+                <h2 id="Introduction">2. Introducere</h2>
+                <div>
+                    <section>
+                        <h3 id="Description">2.1. Descriere</h3>
+                        <p>
+                            Obis este o aplicație Web dedicată vizualizării de date referitoare la ponderea obezității în rândul populației în Statele Unite, pe baza informațiilor colectate și oferite de BRFSS. În cadrul acesteia, un utilizator poate vizualiza statisticile oferite,
+                            exporta graficele în diverse formate, afla indicele de masă corporal(IMC în română, BMI în engleză), lăsa întrebări sau comentarii la care poate primi răspuns prin e-mail sau telefon, respectiv consulta sfaturile puse la dispoziție
+                            și le evalua.
+                        </p>
+                    </section>
+                    <section>
+                        <h3 id="Motivation">2.2. Motivație</h3>
+                        <p>
+                            Obezitatea este o afecțiune medicală de nutriție și metabolism în care grăsimea corporală se acumulează în exces, astfel încât poate avea un efect advers, negativ asupra sănătății, ducând la o speranță de viață redusă și/sau probleme de sănătate. Ea este
+                            una dintre principalele cauze de deces ce pot fi prevenite la nivel mondial, cu o răspândire din ce în ce mai mare la adulți și copii, iar autoritățile o consideră ca fiind una dintre cele mai grave probleme de sănătate publică
+                            din secolul al XXI-lea. Este în special gravă în Statele Unite, unde mai bine de o treime din populație și 17% din copii sunt obezi, conform statisticilor făcute de CDC în 2019. Prin urmare, scopul acestei aplicații este de
+                            a face ușoară informarea în legătură cu obezitatea, verificarea IMC-ului în vederea stabilirii condiției personale și de a oferi persoanelor interesate diverse sfaturi și diete care ar putea să îi ajute în tratarea obezității.
+                        </p>
+                    </section>
+                </div>
+            </section>
+            <section>
+                <h2 id="Types_of_Users">Tipuri de utilizatori</h2>
+                <div>
+                    <p>
+                        La nivelul aplicației există doar un singur tip de utilizator, și anume cel obișnuit. Acesta va avea posibilitatea de a întreprinde următoarele operații:
+                        <ul>
+                            <li>Vizualizarea întregul conținut pus la dispoziție de către aplicație;</li>
+                            <li>Calcularea IMC-ul prin intermediul calculatorului pus la dispoziție de către aplicație și evaluarea condiției fizice pe baza valorii calculate;</li>
+                            <li>Vizualizarea graficelor din cadrul statisticilor în diferite formate;</li>
+                            <li>Realizarea de comparații între diverse state din cadrul SUA;</li>
+                            <li>Exportarea graficelor din cadrul statisticilor în diverse formate;</li>
+                            <li>Evaluarea sfaturilor și dietelor puse la dispoziție în cadrul aplicației;</li>
+                            <li>Exprimarea de nelămuriri sau întrebări prin intermediul unui formular; În cadrul formularului li se va cere un număr de telefon și o adresă de e-amil validă pentru a li se putea eventual trimite un răspuns.</li>
+                        </ul>
+                    </p>
+                </div>
+            </section>
+            <section role="doc-part">
+                <h2 id="Structure&Design">4. Structură &amp; Design</h2>
+                <div>
+                    <section>
+                        <h3 id="Structură">4.1. Structură</h3>
+                        <p>
+                            Pentru partea de arhitectură a aplicaţiei Web.
+                        </p>
+                    </section>
+                    <section>
+                        <h3 id="Design">4.2. Design</h3>
+                        <p>
+                            Ca design, Obis pune la dispoziție, din punct de vedere a interfeței cu utilizatorul, 8 pagini Web, fiecare având un anume scop. Mai exact:
+                            <ul>
+                                <li><strong>about.html</strong> - oferă o vedere de ansamblu asupra tematicii tratate de Obis;</li>
+                                <li><strong>index.html</strong> - servește drept pagină de start, oferind scurtături către restul conținutului oferit de aplicație;</li>
+                                <li><strong>diets.html</strong> - pune la dispoziția utilizatorilor diverse sfaturi și diete pe care aceștia le pot eventual evalua;</li>
+                                <li><strong>bmi.html</strong> - pune la dispoziția utilizatorilor un calculator pentru indexul de masă corporală care, pe baza rezultatelor, poate trage concluzia dacă o persoană este sau nu sănătoasă;</li>
+                                <li><strong>contact.html</strong> - oferă utilizatorului un form pe care îl poate completa (dacă dorește) în vederea primirii unui răspuns la o eventuală nelămurire sau întrebare;</li>
+                                <li><strong>statistics.html</strong> - pagina principală a secțiunii de statistici, din care se poate ajunge în paginile cu statistici pentru bărbați, respectiv pentru femei;</li>
+                                <li><strong>statistics-female.html</strong> - pagina de statistici a ponderii obezității în rândul femeilor;</li>
+                                <li><strong>statistics-male.html</strong> - pagina de statistici a ponderii obezității în rândul bărbaților.</li>
+                            </ul>
+                        </p>
+                    </section>
+                </div>
+            </section>
+            <section role="doc-part">
+                <h2 id="Technologies_Used">5. Tehnologii Utilizate</h2>
+                <div>
+                    <section>
+                        <h3 id="Development_Environment">5.1. Mediul de dezvoltare</h3>
+                        <p>
+                            Pentru partea de arhitectură a aplicaţiei Web.
+                        </p>
+                    </section>
+                    <section>
+                        <h3 id="Libraries_&_External_APIs">5.2. Biblioteci și API-uri externe</h3>
+                        <p>
+                            Pentru partea de arhitectură a aplicaţiei Web.
+                        </p>
+                    </section>
+                </div>
+            </section>
+            <section role="doc-part">
+                <h2 id="Use-Case_Scenarios">Scenarii Use-Case</h2>
+                <div>
+
+                </div>
+            </section>
+            <section role="doc-part">
+                <h2 id="Task_Distribution">Distribuția sarcinilor</h2>
+                <div>
+                    <section>
+                        <span typeof="schema:Person">
+                            <meta property="schema:givenName" content="Ioan">
+                            <meta property="schema:familyName" content="Sava">
+                            <span property="schema:name">Sava Ioan</span>
+                        </span>
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <span typeof="schema:Person">
+                            <meta property="schema:givenName" content="Diana">
+                            <meta property="schema:additionalName" content="Isabela">
+                            <meta property="schema:familyName" content="Crainic">
+                            <span property="schema:name">Crainic Diana - Isabela</span>
+                        </span>
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <span typeof="schema:Person">
+                            <meta property="schema:givenName" content="Ciprian">
+                            <meta property="schema:familyName" content="Daniș">
+                            <span property="schema:name">Daniș Ciprian</span>
+                        </span>
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </section>
+                </div>
+            </section>
+            <section role="doc-conclusion">
+                <h2 id="Conclusions">5. Concluzii</h2>
+                <div>
+                    <p>
+                        Aplicația Web Obis facilitează accesul la statistici și informații verificate referitoare la obezitate și la ponderea acesteia în rândul populației americane. Sistemul de comunicare prin formular permite o comunicare facilă cu utilizatorul în vederea
+                        lămuririi eventualelor întrebări sau nelămuriri. Vizualizarea statisticilor în diverse forme asigură o vedere de ansamblu mai bună asupra valorilor prezentate, iar exportarea acestora în diverse formate permite utilizarea lor și
+                        de către alte entități.
+                    </p>
+                </div>
+            </section>
+            <section role="doc-bibliography">
+                <h2 id="References">6. Referințe</h2>
+                <ul>
+                    <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://profs.info.uaic.ro/~busaco/teach/courses/web/" property="schema:citation" id="course-site">
+                        <cite property="schema:name">
+                        <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/">Tehnologii Web - fundaţia unui viitor dezvoltator Web profesionist</a>
+                        </cite>
+                    </li>
+                    <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://profs.info.uaic.ro/~andrei.panu/" property="schema:citation" id="lab-site">
+                        <cite property="schema:name">
+                        <a href="https://profs.info.uaic.ro/~andrei.panu/">Web Technologies</a>
+                        </cite>
+                    </li>
+                    <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://nccd.cdc.gov/BRFSSPrevalence/rdPage.aspx?rdReport=DPH_BRFSS.ExploreByTopic&irbLocationType=StatesAndMMSA&islClass=CLASS14&islTopic=TOPIC09&islYear=2018&rdRnd=56727&fbclid=IwAR3J5CPUIlRHgLIOBsQTVIB6St4oWToKHz90jtAujmhJVmVOENu5-CxTUQA"
+                        property="schema:citation" id="statistics">
+                        <cite property="schema:name">
+                        <a href="https://nccd.cdc.gov/BRFSSPrevalence/rdPage.aspx?rdReport=DPH_BRFSS.ExploreByTopic&irbLocationType=StatesAndMMSA&islClass=CLASS14&islTopic=TOPIC09&islYear=2018&rdRnd=56727&fbclid=IwAR3J5CPUIlRHgLIOBsQTVIB6St4oWToKHz90jtAujmhJVmVOENu5-CxTUQA">BRFSS Prevalence & Trends Data - Topic: BMI Categories</a>
+                        </cite>
+                    </li>
+                    <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://fontawesome.com/" property="schema:citation" id="font-and-icons">
+                        <cite property="schema:name">
+                        <a href="https://fontawesome.com/">Font Awesome</a>
+                        </cite>
+                    </li>
+                    <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://developers.google.com/chart" property="schema:citation" id="some-id">
+                        <cite property="schema:name">
+                        <a href="https://developers.google.com/chart">Google Charts - Interactive charts for browsers and mobile devices.</a>
+                        </cite>
+                    </li>
+                </ul>
+            </section>
+        </article>
+    </main>
+</body>
+
+</html>
