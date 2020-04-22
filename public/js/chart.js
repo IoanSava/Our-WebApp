@@ -1,20 +1,20 @@
 /* --- Charts --- */
 
 function loadLineChart() {
-    google.charts.load('current', {'packages':['corechart']});
+    google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawLineChart);
 }
 
 function drawLineChart() {
     var data = google.visualization.arrayToDataTable([
         ['Year', 'Percentage'],
-        ['2001',  17.4],
-        ['2002',  17.6],
-        ['2003',  17.8],
-        ['2004',  18],
-        ['2005',  18.3],
-        ['2006',  18.5],
-        ['2007',  18.8]
+        ['2001', 17.4],
+        ['2002', 17.6],
+        ['2003', 17.8],
+        ['2004', 18],
+        ['2005', 18.3],
+        ['2006', 18.5],
+        ['2007', 18.8]
     ]);
 
     var options = {
@@ -29,20 +29,20 @@ function drawLineChart() {
 }
 
 function loadColumnChart() {
-    google.charts.load('current', {'packages':['bar']});
+    google.charts.load('current', { 'packages': ['bar'] });
     google.charts.setOnLoadCallback(drawColumnChart);
 }
 
 function drawColumnChart() {
     var data = google.visualization.arrayToDataTable([
-        ['Year', 'Percentage'],
-        ['2001',  17.4],
-        ['2002',  17.6],
-        ['2003',  17.8],
-        ['2004',  18],
-        ['2005',  18.3],
-        ['2006',  18.5],
-        ['2007',  18.8]
+        ['Year', '%'],
+        ['2001', 17.4],
+        ['2002', 17.6],
+        ['2003', 17.8],
+        ['2004', 18],
+        ['2005', 18.3],
+        ['2006', 18.5],
+        ['2007', 18.8]
     ]);
 
     var options = {
@@ -57,27 +57,27 @@ function drawColumnChart() {
 }
 
 function loadRanking() {
-    google.charts.load('current', {'packages':['table']});
+    google.charts.load('current', { 'packages': ['table'] });
     google.charts.setOnLoadCallback(drawRanking);
 }
 
 function drawRanking() {
     var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Year');
-        data.addColumn('number', 'Percentage');
-        data.addRows([
-            ['2001',  17.4],
-            ['2002',  17.6],
-            ['2003',  17.8],
-            ['2004',  18],
-            ['2005',  18.3],
-            ['2006',  18.5],
-            ['2007',  18.8]
-        ]);
+    data.addColumn('string', 'Year');
+    data.addColumn('number', 'Percentage');
+    data.addRows([
+        ['2001', 17.4],
+        ['2002', 17.6],
+        ['2003', 17.8],
+        ['2004', 18],
+        ['2005', 18.3],
+        ['2006', 18.5],
+        ['2007', 18.8]
+    ]);
 
-        var table = new google.visualization.Table(document.getElementById('chart'));
+    var table = new google.visualization.Table(document.getElementById('chart'));
 
-        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    table.draw(data, { showRowNumber: true, width: '100%', height: '100%' });
 }
 
 function delete_anchor_by_id(anchor_id) {
@@ -172,7 +172,7 @@ function changeToLineChartMode() {
 }
 
 function changeToColumnChartMode() {
-    // delete_anchor_by_id("compare_button");
+    delete_anchor_by_id("compare_button");
     delete_anchor_by_id("view_column_chart_button");
 
     add_anchor("view_ranking_button", "View ranking");
@@ -185,7 +185,7 @@ function changeToColumnChartMode() {
 }
 
 function changeToRankingMode() {
-    // delete_anchor_by_id("compare_button");
+    delete_anchor_by_id("compare_button");
     delete_anchor_by_id("view_ranking_button");
 
     add_anchor("view_column_chart_button", "View column chart");
