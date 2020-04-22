@@ -1,4 +1,5 @@
 /* --- Diets Cover --- */
+
 .diet_image {
     background-image: url(../images/diets-bg.jpg);
     height: 600px;
@@ -19,6 +20,7 @@
 .inner_container h1 {
     font-size: 7em;
 }
+
 
 /* --- Diets Section --- */
 
@@ -58,7 +60,7 @@
     overflow: hidden;
 }
 
-.diet1{
+.diet1 {
     background-image: url(../images/weighing-scale.jpg);
     background-repeat: no-repeat;
     background-size: cover;

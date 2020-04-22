@@ -7,7 +7,7 @@ var form = document.getElementById("form");
 
 function removeElementsByClass(className) {
     var elements = document.getElementsByClassName(className);
-    while(elements.length > 0) {
+    while (elements.length > 0) {
         elements[0].parentNode.removeChild(elements[0]);
     }
 }
@@ -31,9 +31,9 @@ function calculateBmi() {
         return undefined;
     }
 
-    if(male.checked) {
+    if (male.checked) {
         valuesOfFields.push("male");
-    } else if(female.checked) {
+    } else if (female.checked) {
         valuesOfFields.push("female");
     }
 
@@ -58,7 +58,7 @@ function diagnosis(bmiValue) {
 
 function showResult() {
     //form.reset();
-    
+
     var bmiValue = calculateBmi();
     var result = diagnosis(bmiValue);
 
@@ -68,7 +68,7 @@ function showResult() {
     var resultText = document.createTextNode(result);
     var bmiText = document.createTextNode('BMI: ');
     var bmiValueText;
-    
+
     if (result != "Invalid data") {
         bmiValueText = document.createTextNode(parseFloat(bmiValue).toFixed(2));
     } else {
