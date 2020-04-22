@@ -44,9 +44,7 @@
 
 /* --- POP-UP --- */
 
-.modal,
-.cmodal,
-.smodal {
+.modal {
     display: none;
     /* Hidden by default */
     position: fixed;
@@ -72,9 +70,7 @@
 
 /* Modal Content */
 
-.modal-content,
-.cmodal_content,
-.smodal_content {
+.modal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -82,7 +78,7 @@
     width: 50%;
 }
 
-.modal-content {
+.emodal-content {
     text-align: center;
 }
 
@@ -119,10 +115,6 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
-}
-
-.cmodal_content {
-    text-align: left;
 }
 
 
