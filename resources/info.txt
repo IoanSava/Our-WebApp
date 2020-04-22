@@ -11,3 +11,7 @@ Credits:
 
 - About text: 
 https://knoema.com/atlas/Romania/Female-obesity-prevalence
+
+Icons:
+https://icons8.com/icons/set/webp - WEBP icon
+https://icons8.com/icons/set/csv - CSV icon
