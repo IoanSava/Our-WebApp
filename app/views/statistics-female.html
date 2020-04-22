@@ -1,4 +1,3 @@
-  
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,18 +35,37 @@
                     <div class="cmodal_content">
                         <span class="cclose">&times;</span>
                         <p class="title_compare">Compare</p>
+                        <form action="/action_page.php">
+                            <label class="container-btn">Alabama
+                                <input type="checkbox" checked="checked">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-btn">Alaska
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-btn">Arizona
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-btn">Arkansas
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label><br>
+                            <input class="submit-btn" type="submit" value="Submit">
+                          </form>
                     </div>
                 </div>
                 <a id="view_column_chart_button">View column chart</a>
                 <a id="view_ranking_button">View Ranking</a>
-                <a id="export_button">EXPORT</a>
-                <div id="export_modal" class="emodal">
-                    <div class="emodal_content">
-                        <span class="eclose">&times;</span>
-                        <p class="title_export">Export</p>
-                        <img class="img_st" src="images/icons/png.png" alt="PNG icon"/>
-                        <img class="img_st" src="images/icons/csv.png" alt="CSV icon"/>
-                        <img class="img_st" src="images/icons/svg.png" alt="SVG icon"/>
+                <a id="myBtn">EXPORT</a>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p class="title-export">Export</p>
+                        <button class="btn webp-button"></button>
+                        <button class="btn csv-button"></button>
+                        <button class="btn svg-button"></button>
                     </div>
                 </div>
             </div>
