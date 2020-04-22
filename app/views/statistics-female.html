@@ -33,8 +33,8 @@
                 <a id="compare_button">Compare</a>
                 <div id="compare_modal" class="cmodal">
                     <div class="cmodal_content">
-                        <span class="cclose">&times;</span>
-                        <p class="title_compare">Compare</p>
+                        <span class="compare_close">&times;</span>
+                        <p class="title">Compare</p>
                         <form action="/action_page.php">
                             <label class="container-btn">Alabama
                                 <input type="checkbox" checked="checked">
@@ -56,13 +56,19 @@
                         </form>
                     </div>
                 </div>
+                <div id="select_modal" class="smodal">
+                    <div class="smodal_content">
+                        <span class="select_close">&times;</span>
+                        <p class="title">Select state</p>
+                    </div>
+                </div>
                 <a id="view_column_chart_button">View column chart</a>
                 <a id="view_ranking_button">View Ranking</a>
-                <a id="myBtn">EXPORT</a>
-                <div id="myModal" class="modal">
+                <a id="export_button">EXPORT</a>
+                <div id="export_modal" class="modal">
                     <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <p class="title-export">Export</p>
+                        <span class="export_close">&times;</span>
+                        <p class="title">Export</p>
                         <button class="btn webp-button"></button>
                         <button class="btn csv-button"></button>
                         <button class="btn svg-button"></button>
