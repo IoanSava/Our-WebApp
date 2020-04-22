@@ -35,7 +35,7 @@ function loadColumnChart() {
 
 function drawColumnChart() {
     var data = google.visualization.arrayToDataTable([
-        ['Year', '%'],
+        ['Year', 'Percentage'],
         ['2001',  17.4],
         ['2002',  17.6],
         ['2003',  17.8],
@@ -172,7 +172,7 @@ function changeToLineChartMode() {
 }
 
 function changeToColumnChartMode() {
-    delete_anchor_by_id("compare_button");
+    // delete_anchor_by_id("compare_button");
     delete_anchor_by_id("view_column_chart_button");
 
     add_anchor("view_ranking_button", "View ranking");
@@ -185,7 +185,7 @@ function changeToColumnChartMode() {
 }
 
 function changeToRankingMode() {
-    delete_anchor_by_id("compare_button");
+    // delete_anchor_by_id("compare_button");
     delete_anchor_by_id("view_ranking_button");
 
     add_anchor("view_column_chart_button", "View column chart");
