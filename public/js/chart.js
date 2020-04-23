@@ -1,20 +1,20 @@
 /* --- Charts --- */
 
 function loadLineChart() {
-    google.charts.load('current', {'packages':['corechart']});
+    google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawLineChart);
 }
 
 function drawLineChart() {
     var data = google.visualization.arrayToDataTable([
         ['Year', 'Percentage'],
-        ['2001',  17.4],
-        ['2002',  17.6],
-        ['2003',  17.8],
-        ['2004',  18],
-        ['2005',  18.3],
-        ['2006',  18.5],
-        ['2007',  18.8]
+        ['2001', 17.4],
+        ['2002', 17.6],
+        ['2003', 17.8],
+        ['2004', 18],
+        ['2005', 18.3],
+        ['2006', 18.5],
+        ['2007', 18.8]
     ]);
 
     var options = {
@@ -29,20 +29,20 @@ function drawLineChart() {
 }
 
 function loadColumnChart() {
-    google.charts.load('current', {'packages':['bar']});
+    google.charts.load('current', { 'packages': ['bar'] });
     google.charts.setOnLoadCallback(drawColumnChart);
 }
 
 function drawColumnChart() {
     var data = google.visualization.arrayToDataTable([
         ['Year', '%'],
-        ['2001',  17.4],
-        ['2002',  17.6],
-        ['2003',  17.8],
-        ['2004',  18],
-        ['2005',  18.3],
-        ['2006',  18.5],
-        ['2007',  18.8]
+        ['2001', 17.4],
+        ['2002', 17.6],
+        ['2003', 17.8],
+        ['2004', 18],
+        ['2005', 18.3],
+        ['2006', 18.5],
+        ['2007', 18.8]
     ]);
 
     var options = {
@@ -57,27 +57,27 @@ function drawColumnChart() {
 }
 
 function loadRanking() {
-    google.charts.load('current', {'packages':['table']});
+    google.charts.load('current', { 'packages': ['table'] });
     google.charts.setOnLoadCallback(drawRanking);
 }
 
 function drawRanking() {
     var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Year');
-        data.addColumn('number', 'Percentage');
-        data.addRows([
-            ['2001',  17.4],
-            ['2002',  17.6],
-            ['2003',  17.8],
-            ['2004',  18],
-            ['2005',  18.3],
-            ['2006',  18.5],
-            ['2007',  18.8]
-        ]);
+    data.addColumn('string', 'Year');
+    data.addColumn('number', 'Percentage');
+    data.addRows([
+        ['2001', 17.4],
+        ['2002', 17.6],
+        ['2003', 17.8],
+        ['2004', 18],
+        ['2005', 18.3],
+        ['2006', 18.5],
+        ['2007', 18.8]
+    ]);
 
-        var table = new google.visualization.Table(document.getElementById('chart'));
+    var table = new google.visualization.Table(document.getElementById('chart'));
 
-        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    table.draw(data, { showRowNumber: true, width: '100%', height: '100%' });
 }
 
 function delete_anchor_by_id(anchor_id) {
@@ -101,8 +101,93 @@ function add_anchor(anchor_id, text) {
     }
 }
 
+function exportButtonEvents() {
+    // Get the modal
+    var exportModal = document.getElementById("export_modal");
+
+    // Get the button that opens the modal
+    var exportButton = document.getElementById("export_button");
+
+    // Get the <span> element that closes the modal
+    var exportSpan = document.getElementsByClassName("export_close")[0];
+
+    // When the user clicks the button, open the modal 
+    exportButton.onclick = function() {
+        exportModal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    exportSpan.onclick = function() {
+        exportModal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == exportModal) {
+            exportModal.style.display = "none";
+        }
+    }
+}
+
+function compareButtonEvents() {
+    // Get the modal
+    var compareModal = document.getElementById("compare_modal");
+
+    // Get the button that opens the modal
+    var compareButton = document.getElementById("compare_button");
+
+    // Get the <span> element that closes the modal
+    var compareSpan = document.getElementsByClassName("compare_close")[0];
+
+    // When the user clicks the button, open the modal 
+    compareButton.onclick = function() {
+        compareModal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    compareSpan.onclick = function() {
+        compareModal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == compareModal) {
+            compareModal.style.display = "none";
+        }
+    }
+}
+
+function selectStateButtonEvents() {
+    // Get the modal
+    var selectModal = document.getElementById("select_modal");
+
+    // Get the button that opens the modal
+    var selectButton = document.getElementById("select_button");
+
+    // Get the <span> element that closes the modal
+    var selectSpan = document.getElementsByClassName("select_close")[0];
+
+    // When the user clicks the button, open the modal 
+    selectButton.onclick = function() {
+        selectModal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    selectSpan.onclick = function() {
+        selectModal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == selectModal) {
+            selectModal.style.display = "none";
+        }
+    }
+}
+
 function changeToLineChartMode() {
     delete_anchor_by_id("view_line_chart_button");
+    delete_anchor_by_id("select_button");
 
     add_anchor("view_ranking_button", "View ranking");
     add_anchor("view_column_chart_button", "View column chart");
@@ -110,6 +195,7 @@ function changeToLineChartMode() {
 
     document.getElementById("view_column_chart_button").addEventListener("click", changeToColumnChartMode);
     document.getElementById("view_ranking_button").addEventListener("click", changeToRankingMode);
+    compareButtonEvents();
 
     loadLineChart();
 }
@@ -120,15 +206,18 @@ function changeToColumnChartMode() {
 
     add_anchor("view_ranking_button", "View ranking");
     add_anchor("view_line_chart_button", "View line chart");
+    add_anchor("select_button", "Select state");
 
     document.getElementById("view_line_chart_button").addEventListener("click", changeToLineChartMode);
     document.getElementById("view_ranking_button").addEventListener("click", changeToRankingMode);
+    selectStateButtonEvents();
 
     loadColumnChart();
 }
 
 function changeToRankingMode() {
     delete_anchor_by_id("compare_button");
+    delete_anchor_by_id("select_button");
     delete_anchor_by_id("view_ranking_button");
 
     add_anchor("view_column_chart_button", "View column chart");
@@ -141,35 +230,8 @@ function changeToRankingMode() {
 }
 
 loadLineChart();
+exportButtonEvents();
+compareButtonEvents();
 
 document.getElementById("view_column_chart_button").addEventListener("click", changeToColumnChartMode);
 document.getElementById("view_ranking_button").addEventListener("click", changeToRankingMode);
-
-
-/*--- Export Button ---*/
-
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-            modal.style.display = "none";
-        }
-}

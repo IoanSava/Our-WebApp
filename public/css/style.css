@@ -16,6 +16,7 @@ body {
     background-color: #eef9bf;
 }
 
+
 /* --- Header --- */
 
 header {
@@ -25,15 +26,15 @@ header {
     flex-direction: row;
     background-color: #75b79e;
     top: 0;
-    position: -webkit-sticky; /* Safari */
+    position: -webkit-sticky;
+    /* Safari */
     position: sticky;
     z-index: 5;
     width: 100%;
 }
 
-header > * {
+header>* {
     padding: 10px;
-    
 }
 
 header h1 {
@@ -43,7 +44,7 @@ header h1 {
 
 /* --- Logo image --- */
 
-.logo-image{
+.logo-image {
     height: 80px;
     width: 80px;
     display: inline-block;
@@ -102,14 +103,16 @@ header h1 {
     margin-left: 50px;
 }
 
+
 /* --- Main --- */
 
 main {
     transition: margin-left .5s;
 }
 
+
 /* --- Footer --- */
-  
+
 footer {
     background-color: #75b79e;
     text-align: center;
@@ -133,23 +136,23 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    
 }
 
-.dot-ad{
+.dot-ad {
     background-image: url(../images/icons/address.png);
     background-size: 70%;
 }
 
-.dot-ph{
+.dot-ph {
     background-image: url(../images/icons/phone.png);
     background-size: 60%;
 }
 
-.dot-em{
+.dot-em {
     background-image: url(../images/icons/mail.png);
     background-size: 60%;
 }
+
 
 /* --- Responsive --- */
 
@@ -157,13 +160,11 @@ footer {
     .sidenav {
         padding-top: 15px;
     }
-
     .sidenav a {
         font-size: 38px;
     }
 }
 
-  
 @media (min-width: 960px) {
     footer {
         column-count: 3;
@@ -172,14 +173,12 @@ footer {
 
 @media screen and (max-width: 620px) {
     .column {
-      width: 100%;
+        width: 100%;
     }
-
     header h1 {
         font-size: 15px;
     }
-
-    header > * {
+    header>* {
         padding: 10px;
     }
 }

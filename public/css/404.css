@@ -7,14 +7,14 @@
     background: transparent;
     color: #03a9f4;
 }
-  
+
 body {
     font-family: 'Roboto Mono', monospace;
     font-size: 16px;
     margin: 0;
     padding: 0;
 }
-  
+
 main {
     display: flex;
     justify-content: center;
@@ -22,11 +22,11 @@ main {
     min-height: 100vh;
     max-width: 100%;
 }
-  
+
 .container {
     max-width: 100%;
 }
-  
+
 .title {
     margin: 0;
     font-size: 6em;
@@ -40,7 +40,7 @@ main {
     display: block;
     word-wrap: break-word;
 }
-  
+
 .links {
     color: #666;
     margin: 4em 0 0;
@@ -52,7 +52,7 @@ main {
     border-bottom: 1px solid black;
     margin-right: 15px;
 }
-  
+
 @media (max-width: 720px) {
     .title {
         font-size: 4em;

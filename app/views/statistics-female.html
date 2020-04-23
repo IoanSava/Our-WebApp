@@ -31,16 +31,64 @@
             <div id="chart"></div>
             <div id="options">
                 <a id="compare_button">Compare</a>
+                <div id="compare_modal" class="modal">
+                    <div class="modal-content">
+                        <span class="compare_close">&times;</span>
+                        <p class="title">Compare</p>
+                        <!-- <form action="/action_page.php"> -->
+                        <label class="container-btn">Alabama
+                                <input type="checkbox" checked="checked">
+                                <span class="checkmark"></span>
+                            </label>
+                        <label class="container-btn">Alaska
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        <label class="container-btn">Arizona
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        <label class="container-btn">Arkansas
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label><br>
+                        <input class="submit-btn" type="submit" value="Submit">
+                        <!-- </form> -->
+                    </div>
+                </div>
+                <div id="select_modal" class="modal">
+                    <div class="modal-content">
+                        <span class="select_close">&times;</span>
+                        <p class="title">Select state</p>
+                        <label class="container-radio">Alabama
+                            <input type="radio" checked="checked" name="radio">
+                            <span class="checkmark-radio"></span>
+                          </label>
+                        <label class="container-radio">Alaska
+                            <input type="radio" name="radio">
+                            <span class="checkmark-radio"></span>
+                          </label>
+                        <label class="container-radio">Arizona
+                            <input type="radio" name="radio">
+                            <span class="checkmark-radio"></span>
+                          </label>
+                        <label class="container-radio">Arkansas
+                            <input type="radio" name="radio">
+                            <span class="checkmark-radio"></span>
+                          </label><br>
+                        <input class="submit-radio" type="submit" value="Submit">
+                    </div>
+                </div>
                 <a id="view_column_chart_button">View column chart</a>
                 <a id="view_ranking_button">View Ranking</a>
-                <a id="myBtn">EXPORT</a>
-                <div id="myModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <p class="title-export">Export</p>
-                        <img class="img-st" src="/obis/public/images/icons/png.png" alt="PNG icon" />
-                        <img class="img-st" src="/obis/public/images/icons/csv.png" alt="CSV icon" />
-                        <img class="img-st" src="/obis/public/images/icons/svg.png" alt="SVG icon" />
+                <a id="export_button">EXPORT</a>
+                <div id="export_modal" class="modal">
+                    <div class="modal-content emodal-content">
+                        <span class="export_close">&times;</span>
+                        <p class="title">Export</p>
+                        <button class="btn webp-button"></button>
+                        <button class="btn csv-button"></button>
+                        <button class="btn svg-button"></button>
                     </div>
                 </div>
             </div>
