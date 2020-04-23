@@ -37,7 +37,7 @@ section>section {
 }
 
 ol.nested {
-    counter-reset: item
+    counter-reset: item;
 }
 
 li.nested {
@@ -46,7 +46,7 @@ li.nested {
 
 li.nested:before {
     content: counters(item, ".") " ";
-    counter-increment: item
+    counter-increment: item;
 }
 
 p {
