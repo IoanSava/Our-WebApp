@@ -208,6 +208,10 @@ textarea.input-area {
     width: 100%;
 }
 
+.has-value.input100+.focus-input100::before {
+    width: 100%;
+}
+
 
 /* --- Button --- */
 
@@ -278,5 +282,55 @@ textarea.input-area {
         left: unset;
         width: 100%;
         padding: 0 5px;
+    }
+}
+
+
+/* --- Alert validate --- */
+
+.alert-validate::before {
+    content: attr(data-validate);
+    position: absolute;
+    max-width: 70%;
+    background-color: #fff;
+    border: 1px solid #c80000;
+    border-radius: 2px;
+    padding: 4px 25px 4px 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 2px;
+    pointer-events: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #c80000;
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: left;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.alert-validate::after {
+    content: "\f06a";
+    font-weight: 900;
+    font-family: 'Font Awesome 5 Free';
+    display: block;
+    position: absolute;
+    color: #c80000;
+    font-size: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 8px;
+}
+
+.alert-validate:hover:before {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (max-width: 992px) {
+    .alert-validate::before {
+        visibility: visible;
+        opacity: 1;
     }
 }
