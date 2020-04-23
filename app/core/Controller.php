@@ -6,8 +6,12 @@ class Controller {
         return new $model();
     }
 
-    public function view($view, $data = []) {
-        require_once '../app/views/' . $view;
+    public function view($view) {
+        require_once '../app/views/' . $view . '.html';
+    }
+
+    public function php_view($view, $data = []) {
+        require_once '../app/views/' . $view . '.php';
     }
 }
 ?>

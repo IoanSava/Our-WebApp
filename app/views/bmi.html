@@ -1,82 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>RO Obesity Prevalence Visualizer</title>
-        <link rel="stylesheet" type="text/css" href = "/obis/public/css/style.css"/>
-        <link rel="stylesheet" type="text/css" href = "/obis/public/css/bmi.css"/>
-    </head>
 
-    <body>
-        <nav id="sidenav">
-            <a href="javascript:void(0)" class="closeButton" onclick="closeNavBar()">&times;</a>
-            <a href="index.html">HOME</a>
-            <a href="about.html">ABOUT</a>
-            <a href="statistics.html">STATISTICS</a>
-            <a href="#">BODY MASS INDEX</a>
-            <a href="diets.html">DIETS</a>
-            <a href="contact.html">CONTACT</a>
-        </nav>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RO Obesity Prevalence Visualizer</title>
+    <link rel="stylesheet" type="text/css" href="/obis/public/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/obis/public/css/bmi.css" />
+</head>
 
-        <main id="mainid">
-            <header>
-                <span onclick="openNavBar()" id="openNav">&#9776;</span>
-                <h1>Obesity Prevalence Visualizer</h1>
-                <div class="logo-image"> </div>
-            </header>
-            <div class="image-bg">
-                <div id="bmi-container">
-                    <h3><b>B</b>ody <b>M</b>ass <b>I</b>ndex Calculator</h3>
-                    <form class="form" id="form" onsubmit="return validateForm()">
-                        <div class="row">
-                            <input type="text" class="text-input" id="age" autocomplete="off" required/><p class="text">Age</p>
-                            <label class="container">
+<body>
+    <nav id="sidenav">
+        <a href="javascript:void(0)" class="closeButton" onclick="closeNavBar()">&times;</a>
+        <a href="index">HOME</a>
+        <a href="about">ABOUT</a>
+        <a href="statistics">STATISTICS</a>
+        <a href="">BODY MASS INDEX</a>
+        <a href="diets">DIETS</a>
+        <a href="contact">CONTACT</a>
+    </nav>
+
+    <main id="mainid">
+        <header>
+            <span onclick="openNavBar()" id="openNav">&#9776;</span>
+            <h1>Obesity Prevalence Visualizer</h1>
+            <div class="logo-image"> </div>
+        </header>
+        <div class="image-bg">
+            <div id="bmi-container">
+                <h3><b>B</b>ody <b>M</b>ass <b>I</b>ndex Calculator</h3>
+                <form class="form" id="form" onsubmit="return validateForm()">
+                    <div class="row">
+                        <input type="text" class="text-input" id="age" autocomplete="off" required/>
+                        <p class="text">Age</p>
+                        <label class="container">
                                 <input type="radio" name="radio" id="female"><span class="text">Female</span>
                                 <span class="checkmark"></span>
                             </label>
-                            <label class="container">
+                        <label class="container">
                                 <input type="radio" name="radio" id="male"><span class="text">Male</span>
                                 <span class="checkmark"></span>
                             </label>
-                        </div>
+                    </div>
 
-                        <div class="row">
-                            <input type="text" class="text-input" id="height" autocomplete="off" required><p class="text">Height (cm)</p>
-                            <input type="text" class="text-input" id="weight" autocomplete="off" required><p class="text">Weight (kg)</p>
-                        </div>
-                        <button type="button" id="submit">Submit</button>
-                    </form>
+                    <div class="row">
+                        <input type="text" class="text-input" id="height" autocomplete="off" required>
+                        <p class="text">Height (cm)</p>
+                        <input type="text" class="text-input" id="weight" autocomplete="off" required>
+                        <p class="text">Weight (kg)</p>
+                    </div>
+                    <button type="button" id="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <footer>
+            <div class="column">
+                <span class="dot dot-ad"></span>
+                <div>
+                    <h3>Address</h3>
+                    <p>Gen. Berthelot</p>
                 </div>
             </div>
-            <footer>
-                <div class="column"> 
-                    <span class="dot dot-ad"></span>
-                    <div>
-                        <h3>Address</h3>
-                        <p>Gen. Berthelot</p>
-                    </div>
-                </div>
 
-                <div class="column">
-                    <span class="dot dot-ph"></span>
-                    <div>
-                        <h3>Phone</h3>
-                        <p>0711223344</p>
-                    </div>
+            <div class="column">
+                <span class="dot dot-ph"></span>
+                <div>
+                    <h3>Phone</h3>
+                    <p>0711223344</p>
                 </div>
+            </div>
 
-                <div class="column">
-                    <span class="dot dot-em"></span>
+            <div class="column">
+                <span class="dot dot-em"></span>
 
-                    <div>
-                        <h3>Email</h3>
-                        <p>ourwebapp@info.uaic.ro</p>
-                    </div>
+                <div>
+                    <h3>Email</h3>
+                    <p>ourwebapp@info.uaic.ro</p>
                 </div>
-            </footer>
-        </main>
-        <script src="/obis/public/js/menu.js"></script>
-        <script src="/obis/public/js/bmi.js"></script>
-    </body>
+            </div>
+        </footer>
+    </main>
+    <script src="/obis/public/js/menu.js"></script>
+    <script src="/obis/public/js/bmi.js"></script>
+</body>
+
 </html>
