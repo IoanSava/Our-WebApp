@@ -1,7 +1,9 @@
 <?php
 
-class Controller {
-    protected function model($model) {
+class Controller
+{
+    protected function model($model)
+    {
         require_once '../app/models/' . $model . '.php';
         return new $model();
     }
@@ -14,4 +16,3 @@ class Controller {
         require_once '../app/views/' . $view . '.php';
     }
 }
-?>
