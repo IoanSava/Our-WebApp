@@ -1,0 +1,63 @@
+/* Compare Checkboxes */
+
+.container-btn {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 10px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+
+/* Hide the default checkbox */
+
+.container-btn input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    cursor: pointer;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(221, 219, 219);
+}
+
+.container-btn:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.container-btn input:checked~.checkmark {
+    background-color: #0a8ef2;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container-btn input:checked~.checkmark:after {
+    display: block;
+}
+
+.container-btn .checkmark:after {
+    top: 5px;
+    left: 9px;
+    height: 10px;
+    width: 5px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
