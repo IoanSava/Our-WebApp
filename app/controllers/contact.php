@@ -12,11 +12,13 @@ class Contact extends Controller
 
         $formManager = $this->model('FormManager');
 
-        $verification_message = call_user_func([$formManager, 'send_mail_with_info'], 
-                                ['name' => $name, 'email' => $email, 'phone' => $phone, 'msg' => $message]);
+        $verification_message = call_user_func(
+            [$formManager, 'send_mail_with_info'],
+            ['name' => $name, 'email' => $email, 'phone' => $phone, 'msg' => $message]
+        );
         $_SESSION['verification_message'] = $verification_message;
 
-        if (strcmp($verification_message,"It is done") != 0) {
+        if (strcmp($verification_message, "It is done") != 0) {
             header('Location: ./contact/failure', TRUE, 302);
             die();
         } else {
