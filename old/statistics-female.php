@@ -12,12 +12,12 @@
 <body>
     <nav id="sidenav">
         <a href="javascript:void(0)" class="closeButton" onclick="closeNavBar()">&times;</a>
-        <a href="index">HOME</a>
-        <a href="about">ABOUT</a>
-        <a href="statistics">STATISTICS</a>
-        <a href="bmi">BODY MASS INDEX</a>
-        <a href="diets">DIETS</a>
-        <a href="contact">CONTACT</a>
+        <a href="../home/index">HOME</a>
+        <a href="../home/about">ABOUT</a>
+        <a href="../home/statistics">STATISTICS</a>
+        <a href="../home/bmi">BODY MASS INDEX</a>
+        <a href="../home/diets">DIETS</a>
+        <a href="../home/contact">CONTACT</a>
     </nav>
 
     <main id="mainid">
@@ -36,22 +36,20 @@
                         <span class="compare_close">&times;</span>
                         <p class="title">Compare</p>
                         <!-- <form action="/action_page.php"> -->
-                        <label class="container-btn">Alabama
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>
-                            </label>
-                        <label class="container-btn">Alaska
+                        <label class="container-btn">
+                            <?= $data[0] ?>
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <?php
+                        for ($i = 1; $i < count($data); ++$i) {
+                        ?>
+                            <label class="container-btn">
+                                <?= $data[$i] ?>
                                 <input type="checkbox">
                                 <span class="checkmark"></span>
                             </label>
-                        <label class="container-btn">Arizona
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                        <label class="container-btn">Arkansas
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label><br>
+                        <?php } ?>
                         <input class="submit-btn" type="submit" value="Submit">
                         <!-- </form> -->
                     </div>
@@ -60,22 +58,20 @@
                     <div class="modal-content">
                         <span class="select_close">&times;</span>
                         <p class="title">Select state</p>
-                        <label class="container-radio">Alabama
+                        <label class="container-radio">
+                            <?= $data[0] ?>
                             <input type="radio" checked="checked" name="radio">
                             <span class="checkmark-radio"></span>
-                          </label>
-                        <label class="container-radio">Alaska
-                            <input type="radio" name="radio">
-                            <span class="checkmark-radio"></span>
-                          </label>
-                        <label class="container-radio">Arizona
-                            <input type="radio" name="radio">
-                            <span class="checkmark-radio"></span>
-                          </label>
-                        <label class="container-radio">Arkansas
-                            <input type="radio" name="radio">
-                            <span class="checkmark-radio"></span>
-                          </label><br>
+                        </label>
+                        <?php
+                        for ($i = 1; $i < count($data); ++$i) {
+                        ?>
+                            <label class="container-radio">
+                                <?= $data[$i] ?>
+                                <input type="radio" name="radio">
+                                <span class="checkmark-radio"></span>
+                            </label>
+                        <?php } ?>
                         <input class="submit-radio" type="submit" value="Submit">
                     </div>
                 </div>

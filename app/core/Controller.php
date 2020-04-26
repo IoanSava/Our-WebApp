@@ -8,11 +8,11 @@ class Controller
         return new $model();
     }
 
-    public function view($view) {
+    protected function view($view) {
         require_once '../app/views/' . $view . '.html';
     }
 
-    public function php_view($view, $data = []) {
+    protected function php_view($view, $data = []) {
         require_once '../app/views/' . $view . '.php';
     }
 }

@@ -6,32 +6,29 @@
 class Database
 {
     private static $instance = null;
-    private $connection;
+    private $pdo;
 
     // database connection parameters
-    private const SERVER_LOCATION = 'db4free.net';
-    private const USERNAME = 'student_2020';
-    private const PASSWORD = 'obis_UAIC2020';
-    private const DATABASE = 'obis_2020';
+    private const HOST = 'sql7.freemysqlhosting.net';
+    private const USERNAME = 'sql7335724';
+    private const PASSWORD = 'cD3XyPN8WW';
+    private const DATABASE = 'sql7335724';
+    private const CHARSET = 'utf8mb4';
 
     private function __construct()
     {
-        // MySQL connection
-        $this->connection = new mysqli(
-            self::SERVER_LOCATION,
-            self::USERNAME,
-            self::PASSWORD,
-            self::DATABASE
-        );
+        $dsn = "mysql:host=" . self::HOST . ";dbname=" . self::DATABASE . ";charset=" . self::CHARSET;
+        $options = [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES   => false,
+        ];
 
-        if (mysqli_connect_errno()) {
-            die('Connection failed');
+        try {
+            $this->pdo = new PDO($dsn, self::USERNAME, self::PASSWORD, $options);
+        } catch (\PDOException $exception) {
+            throw new \PDOException($exception->getMessage(), (int) $exception->getCode());
         }
-    }
-
-    function __destruct()
-    {
-        $this->connection->close();
     }
 
     public static function getInstance()
@@ -43,8 +40,8 @@ class Database
         return self::$instance;
     }
 
-    public function getConnection()
+    public function getPDO()
     {
-        return $this->connection;
+        return $this->pdo;
     }
 }
