@@ -30,7 +30,6 @@ function drawChart(chart_data = '', gender = '', state = '') {
         var jsonData = chart_data;
 
         jsonData.forEach((record, index) => {
-            console.log(record);
             var year = record.year;
             var value = parseFloat(record.data_value);
             data.addRows([
