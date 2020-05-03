@@ -4,6 +4,7 @@ google.charts.load('current', {
 
 google.charts.setOnLoadCallback(drawChart);
 
+
 function load_data(gender, state) {
     $.ajax({
         url: '/obis/app/handlers/ColumnChartHandler.php',
@@ -27,9 +28,11 @@ function drawChart(chart_data = '', gender = '', state = '') {
 
     if (chart_data != '') {
         var jsonData = chart_data;
-        $.each(jsonData, function(i, jsonData) {
-            var year = jsonData.year;
-            var value = parseFloat($.trim(jsonData.data_value));
+
+        jsonData.forEach((record, index) => {
+            console.log(record);
+            var year = record.year;
+            var value = parseFloat(record.data_value);
             data.addRows([
                 [String(year), value]
             ]);
@@ -52,20 +55,18 @@ function drawChart(chart_data = '', gender = '', state = '') {
 }
 
 
-$(document).ready(function() {
-    $('#gender-selector, #select_modal').on('change', function() {
-        var select = document.getElementById("gender-selector");
-        var gender = select.options[select.selectedIndex].value;
-        if (gender != '') {
-            var radios = document.getElementsByName('radio');
-            var state;
-            for (var i = 0; i < radios.length; ++i) {
-                if (radios[i].checked) {
-                    state = radios[i].value;
-                    break;
-                }
+function updateChart() {
+    var select = document.getElementById("gender-selector");
+    var gender = select.options[select.selectedIndex].value;
+    if (gender != '') {
+        var radios = document.getElementsByName('radio');
+        var state;
+        for (var i = 0; i < radios.length; ++i) {
+            if (radios[i].checked) {
+                state = radios[i].value;
+                break;
             }
-            load_data(gender, state);
         }
-    });
-});
+        load_data(gender, state);
+    }
+}
