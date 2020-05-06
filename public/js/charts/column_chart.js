@@ -26,4 +26,42 @@ function selectStateButtonEvents() {
     }
 }
 
+
+function getSelectedGender() {
+    var select = document.getElementById("gender-selector");
+    return select.options[select.selectedIndex].value;
+}
+
+
+function getSelectedState() {
+    var radios = document.getElementsByName('radio');
+    for (var i = 0; i < radios.length; ++i) {
+        if (radios[i].checked) {
+            return radios[i].value;
+        }
+    }
+}
+
+
+function exportDataAsCSV(gender, state) {
+    window.open('/obis/public/ColumnChartController/exportCSV?gender=' + gender + '&state=' + state);
+}
+
+
+function exportData(format) {
+    if (format != 'csv') {
+        alert("exported in another format")
+        return;
+    }
+
+    var gender = getSelectedGender();
+    if (gender != '') {
+        var state = getSelectedState();
+        exportDataAsCSV(gender, state);
+    } else {
+        alert("You didn't specifed a gender");
+    }
+}
+
+
 selectStateButtonEvents();

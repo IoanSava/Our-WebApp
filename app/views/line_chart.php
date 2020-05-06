@@ -44,7 +44,7 @@
                         <p class="title">Compare</p>
                         <label class="container-btn">
                             <?= $data[0] ?>
-                            <input type="checkbox" checked="checked" value=<?= $data[0] ?>>
+                            <input type="checkbox" checked="checked" value="<?= $data[0] ?>">
                             <span class="checkmark"></span>
                         </label>
                         <?php
@@ -52,7 +52,7 @@
                         ?>
                             <label class="container-btn">
                                 <?= $data[$i] ?>
-                                <input type="checkbox" value=<?= $data[$i] ?>>
+                                <input type="checkbox" value="<?= $data[$i] ?>">
                                 <span class="checkmark"></span>
                             </label>
                         <?php } ?>

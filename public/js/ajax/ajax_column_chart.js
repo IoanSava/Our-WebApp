@@ -5,9 +5,9 @@ google.charts.load('current', {
 google.charts.setOnLoadCallback(drawChart);
 
 
-function load_data(gender, state) {
+function loadData(gender, state) {
     $.ajax({
-        url: '/obis/app/handlers/ColumnChartHandler.php',
+        url: '/obis/public/ColumnChartController/sendData',
         method: "POST",
         data: {
             gender: gender,
@@ -54,18 +54,26 @@ function drawChart(chart_data = '', gender = '', state = '') {
 }
 
 
-function updateChart() {
+function getSelectedGender() {
     var select = document.getElementById("gender-selector");
-    var gender = select.options[select.selectedIndex].value;
-    if (gender != '') {
-        var radios = document.getElementsByName('radio');
-        var state;
-        for (var i = 0; i < radios.length; ++i) {
-            if (radios[i].checked) {
-                state = radios[i].value;
-                break;
-            }
+    return select.options[select.selectedIndex].value;
+}
+
+
+function getSelectedState() {
+    var radios = document.getElementsByName('radio');
+    for (var i = 0; i < radios.length; ++i) {
+        if (radios[i].checked) {
+            return radios[i].value;
         }
-        load_data(gender, state);
+    }
+}
+
+
+function updateChart() {
+    var gender = getSelectedGender();
+    if (gender != '') {
+        var state = getSelectedState();
+        loadData(gender, state);
     }
 }

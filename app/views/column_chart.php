@@ -44,7 +44,7 @@
                         <p class="title">Select state</p>
                         <label class="container-radio">
                             <?= $data[0] ?>
-                            <input type="radio" checked="checked" name="radio" value=<?= $data[0] ?>>
+                            <input type="radio" checked="checked" name="radio" value="<?= $data[0] ?>">
                             <span class="checkmark-radio"></span>
                         </label>
                         <?php
@@ -52,7 +52,7 @@
                         ?>
                             <label class="container-radio">
                                 <?= $data[$i] ?>
-                                <input type="radio" name="radio" value=<?= $data[$i] ?>>
+                                <input type="radio" name="radio" value="<?= $data[$i] ?>">
                                 <span class="checkmark-radio"></span>
                             </label>
                         <?php } ?>
@@ -63,9 +63,9 @@
                     <div class="modal-content emodal-content">
                         <span class="export_close">&times;</span>
                         <p class="title">Export</p>
-                        <button class="btn webp-button"></button>
-                        <button class="btn csv-button"></button>
-                        <button class="btn svg-button"></button>
+                        <button class="btn webp-button" onclick="exportData('webp')"></button>
+                        <button class="btn csv-button" onclick="exportData('csv')"></button>
+                        <button class="btn svg-button" onclick="exportData('svg')"></button>
                     </div>
                 </div>
             </div>
