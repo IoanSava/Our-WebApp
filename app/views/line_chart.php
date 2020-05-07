@@ -31,20 +31,20 @@
         <div class="container">
             <div id="chart"></div>
             <div id="options">
-                <select name="gender" id="gender-selector">
+                <select name="gender" id="gender-selector" onchange="updateChart()">
                     <option value="">Select gender</option>
                     <option value="female">Female</option>
                     <option value="male">Male</option>
                 </select>
                 <br>
                 <a id="compare_button">COMPARE</a>
-                <div id="compare_modal" class="modal">
+                <form id="compare_modal" class="modal" onchange="updateChart()">
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <p class="title">Compare</p>
                         <label class="container-btn">
                             <?= $data[0] ?>
-                            <input type="checkbox" checked="checked" value=<?= $data[0] ?>>
+                            <input type="checkbox" checked="checked" name="checkbox" id=<?= 0 ?> value="<?= $data[0] ?>">
                             <span class="checkmark"></span>
                         </label>
                         <?php
@@ -52,12 +52,26 @@
                         ?>
                             <label class="container-btn">
                                 <?= $data[$i] ?>
-                                <input type="checkbox" value=<?= $data[$i] ?>>
+                                <input type="checkbox" name="checkbox" id=<?= $i ?> value="<?= $data[$i] ?>">
                                 <span class="checkmark"></span>
                             </label>
                         <?php } ?>
                     </div>
-                </div>
+                </form>
+<!-- 
+
+ -->
+
+<!-- <div id="curve_chart" style="width: 900px; height: 500px"></div>
+
+<input type="checkbox" class="checkbox"  id="1" checked> State1<br>
+<input type="checkbox" class="checkbox"  id="2"> State2<br>
+<input type="checkbox" class="checkbox"  id="3"> State3<br>
+<input type="checkbox" class="checkbox"  id="4"> State4<br> -->
+
+<!-- 
+
+ -->
                 <a id="export_button">EXPORT</a>
                 <div id="export_modal" class="modal">
                     <div class="modal-content emodal-content">

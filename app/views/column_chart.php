@@ -31,20 +31,20 @@
         <div class="container">
             <div id="chart"></div>
             <div id="options">
-                <select name="gender" id="gender-selector">
+                <select name="gender" id="gender-selector" onchange="updateChart()">
                     <option value="">Select gender</option>
                     <option value="female">Female</option>
                     <option value="male">Male</option>
                 </select>
                 <br>
                 <a id="select_button">SELECT STATE</a>
-                <div id="select_modal" class="modal">
+                <div id="select_modal" class="modal" onchange="updateChart()">
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <p class="title">Select state</p>
                         <label class="container-radio">
                             <?= $data[0] ?>
-                            <input type="radio" checked="checked" name="radio" value=<?= $data[0] ?>>
+                            <input type="radio" checked="checked" name="radio" value="<?= $data[0] ?>">
                             <span class="checkmark-radio"></span>
                         </label>
                         <?php
@@ -52,7 +52,7 @@
                         ?>
                             <label class="container-radio">
                                 <?= $data[$i] ?>
-                                <input type="radio" name="radio" value=<?= $data[$i] ?>>
+                                <input type="radio" name="radio" value="<?= $data[$i] ?>">
                                 <span class="checkmark-radio"></span>
                             </label>
                         <?php } ?>

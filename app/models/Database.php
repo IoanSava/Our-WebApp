@@ -1,5 +1,7 @@
 <?php
 
+require_once 'config.php';
+
 /**
  * Singleton database
  */
@@ -8,16 +10,9 @@ class Database
     private static $instance = null;
     private $pdo;
 
-    // database connection parameters
-    private const HOST = 'sql7.freemysqlhosting.net';
-    private const USERNAME = 'sql7335724';
-    private const PASSWORD = 'cD3XyPN8WW';
-    private const DATABASE = 'sql7335724';
-    private const CHARSET = 'utf8mb4';
-
     private function __construct()
     {
-        $dsn = "mysql:host=" . self::HOST . ";dbname=" . self::DATABASE . ";charset=" . self::CHARSET;
+        $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_DATABASE . ";charset=" . DB_CHARSET;
         $options = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -25,7 +20,7 @@ class Database
         ];
 
         try {
-            $this->pdo = new PDO($dsn, self::USERNAME, self::PASSWORD, $options);
+            $this->pdo = new PDO($dsn, DB_USERNAME, DB_PASSWORD, $options);
         } catch (\PDOException $exception) {
             throw new \PDOException($exception->getMessage(), (int) $exception->getCode());
         }
@@ -45,3 +40,4 @@ class Database
         return $this->pdo;
     }
 }
+?>
