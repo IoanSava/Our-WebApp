@@ -68,7 +68,7 @@ function drawChart(chart_data = '', gender = '', state = '') {
             strokeWidth: 5,
             fill: 'ghostwhite'
         },
-        colors: ['gold'],
+        colors: ['blue'],
         animation: {
             startup: true,
             duration: 1000,

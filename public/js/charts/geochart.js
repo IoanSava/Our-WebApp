@@ -43,48 +43,40 @@ function getSelectedYear() {
 }
 
 
-function exportDataAsCSV(gender, year) {
+function exportCSV(gender, year) {
     window.open('/obis/public/GeoChartController/exportCSV?gender=' + gender + '&year=' + year);
 }
 
 
-function exportData(format) {
-    if (format != 'csv') {
-        alert("exported in another format")
-        return;
-    }
+function exportSVG() {
+    var yearAux = getSelectedYear();
+    titleYear = '-' + yearAux.toString();
+    var genderAux = getSelectedGender();
+    titleGender = '-' + genderAux.charAt(0).toUpperCase() + genderAux.slice(1);
 
-    var gender = getSelectedGender();
-    if (gender != '') {
-        var year = getSelectedYear();
-        exportDataAsCSV(gender, year);
-    } else {
-        alert("You didn't specifed a gender");
-    }
+    var svg = document.getElementsByTagName('svg')[0];
+    var clone = svg.cloneNode(true);
+    var svgDocType = document.implementation.createDocumentType('svg', "-//W3C//DTD SVG 1.1//EN", "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd");
+    var svgDoc = document.implementation.createDocument('http://www.w3.org/2000/svg', 'svg', svgDocType);
+    svgDoc.replaceChild(clone, svgDoc.documentElement);
+    var svgData = (new XMLSerializer()).serializeToString(svgDoc);
+    var a = document.createElement('a');
+    const baseTitle = '-USA_obesity_prevalence';
+    a.href = 'data:image/svg+xml; charset=utf8, ' + encodeURIComponent(svgData.replace(/></g, '>\n\r<'));
+    a.download = 'Ranking-Chart' + baseTitle + titleGender + titleYear + '.svg';
+    a.click();
 }
 
 
-const baseTitle = '-USA_obesity_prevalence';
-
-
-function exportSVG() {
+function exportData(format) {
     var gender = getSelectedGender();
     if (gender != '') {
-        var yearAux = getSelectedYear();
-        titleYear = '-' + yearAux.toString();
-        var genderAux = getSelectedGender();
-        titleGender = '-' + genderAux.charAt(0).toUpperCase() + genderAux.slice(1);
-
-        var svg = document.getElementsByTagName('svg')[0];
-        var clone = svg.cloneNode(true);
-        var svgDocType = document.implementation.createDocumentType('svg', "-//W3C//DTD SVG 1.1//EN", "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd");
-        var svgDoc = document.implementation.createDocument('http://www.w3.org/2000/svg', 'svg', svgDocType);
-        svgDoc.replaceChild(clone, svgDoc.documentElement);
-        var svgData = (new XMLSerializer()).serializeToString(svgDoc);
-        var a = document.createElement('a');
-        a.href = 'data:image/svg+xml; charset=utf8, ' + encodeURIComponent(svgData.replace(/></g, '>\n\r<'));
-        a.download = 'Ranking-Chart' + baseTitle + titleGender + titleYear + '.svg';
-        a.click();
+        if (format == 'csv') {
+            var year = getSelectedYear();
+            exportCSV(gender, year);
+        } else if (format == 'svg') {
+            exportSVG();
+        }
     } else {
         alert("You didn't specifed a gender");
     }

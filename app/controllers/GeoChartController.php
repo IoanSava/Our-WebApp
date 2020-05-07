@@ -37,7 +37,7 @@ class GeoChartController extends Controller
             header('Content-Disposition: attachment; filename='.$filename);
         
             $filePointer = fopen('php://output', 'w');
-            $header = array("year", "data_value");
+            $header = array("state", "data_value");
             fputcsv($filePointer, $header);
         
             $chart = $this->model('GeoChart');
