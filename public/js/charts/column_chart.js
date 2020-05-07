@@ -44,6 +44,11 @@ function getSelectedState() {
 
 
 function exportSVG() {
+    var stateAux = getSelectedState();
+    titleState = '-' + stateAux.toString();
+    var genderAux = getSelectedGender();
+    titleGender = '-' + genderAux.charAt(0).toUpperCase() + genderAux.slice(1);
+
     var svg = document.getElementsByTagName('svg')[0];
     var clone = svg.cloneNode(true);
     var svgDocType = document.implementation.createDocumentType('svg', "-//W3C//DTD SVG 1.1//EN", "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd");
@@ -52,7 +57,7 @@ function exportSVG() {
     var svgData = (new XMLSerializer()).serializeToString(svgDoc);
     var a = document.createElement('a');
     a.href = 'data:image/svg+xml; charset=utf8, ' + encodeURIComponent(svgData.replace(/></g, '>\n\r<'));
-    a.download = 'Column-Chart.svg';
+    a.download = 'Column_Chart' + titleState + titleGender + '.svg';
     a.click();
 }
 
