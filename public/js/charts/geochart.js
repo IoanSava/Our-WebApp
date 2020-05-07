@@ -63,7 +63,7 @@ function exportSVG() {
     var a = document.createElement('a');
     const baseTitle = '-USA_obesity_prevalence';
     a.href = 'data:image/svg+xml; charset=utf8, ' + encodeURIComponent(svgData.replace(/></g, '>\n\r<'));
-    a.download = 'Ranking-Chart' + baseTitle + titleGender + titleYear + '.svg';
+    a.download = 'GeoChart' + baseTitle + titleGender + titleYear + '.svg';
     a.click();
 }
 

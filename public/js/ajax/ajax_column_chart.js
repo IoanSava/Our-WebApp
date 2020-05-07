@@ -34,7 +34,7 @@ function drawChart(chart_data = '', gender = '', state = '') {
             var year = record.year;
             var value = parseFloat(record.data_value);
             data.addRows([
-                [String(year), value, 'stroke-color: goldenrod; stroke-width: 5;']
+                [String(year), value, 'stroke-color: darkblue; stroke-width: 5;']
             ]);
         });
     }
@@ -68,7 +68,7 @@ function drawChart(chart_data = '', gender = '', state = '') {
             strokeWidth: 5,
             fill: 'ghostwhite'
         },
-        colors: ['blue'],
+        colors: ['cornflowerblue'],
         animation: {
             startup: true,
             duration: 1000,
