@@ -66,8 +66,8 @@
                         <span class="export_close">&times;</span>
                         <p class="title">Export</p>
                         <button class="btn webp-button"></button>
-                        <button class="btn csv-button"></button>
-                        <button class="btn svg-button" onclick="exportSVG()"></button>
+                        <button class="btn csv-button" onclick="exportData('csv')"></button>
+                        <button class="btn svg-button" onclick="exportData('svg')"></button>
                     </div>
                 </div>
             </div>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ranking</title>
+    <title>GeoChart</title>
     <link rel="stylesheet" type="text/css" href="/obis/public/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/obis/public/css/charts/chart.css" />
     <link rel="stylesheet" type="text/css" href="/obis/public/css/charts/geochart.css" />
@@ -67,7 +67,7 @@
                         <p class="title">Export</p>
                         <button class="btn webp-button"></button>
                         <button class="btn csv-button" onclick="exportData('csv')"></button>
-                        <button class="btn svg-button" onclick="exportSVG()"></button>
+                        <button class="btn svg-button" onclick="exportData('svg')"></button>
                     </div>
                 </div>
             </div>

@@ -14,14 +14,16 @@ function openNavBar() {
         document.getElementById("mainid").style.marginLeft = "15%";
     }
     document.body.style.backgroundColor = "#a7e9af";
-    if (document.querySelector(".choicebox") != null)
+    if (document.querySelector(".choicebox") != null) {
         document.querySelector(".choicebox").classList.add("switch-color");
+    }
 }
 
 function closeNavBar() {
     document.getElementById("sidenav").style.width = "0";
     document.getElementById("mainid").style.marginLeft = "0";
     document.body.style.backgroundColor = "#eef9bf";
-    if (document.querySelector(".choicebox") != null)
+    if (document.querySelector(".choicebox") != null) {
         document.querySelector(".choicebox").classList.remove("switch-color");
+    }
 }

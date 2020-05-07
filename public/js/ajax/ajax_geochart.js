@@ -5,7 +5,7 @@ google.charts.load('current', {
 google.charts.setOnLoadCallback(drawChart);
 
 
-function load_data(gender, year) {
+function loadData(gender, year) {
     $.ajax({
         url: '/obis/public/GeoChartController/sendData',
         method: "POST",
@@ -70,19 +70,27 @@ function drawChart(chart_data = '', gender = '', year = '') {
 }
 
 
+function getSelectedGender() {
+    var select = document.getElementById("gender-selector");
+    return select.options[select.selectedIndex].value;
+}
+
+
+function getSelectedYear() {
+    var radios = document.getElementsByName('radio');
+    for (var i = 0; i < radios.length; ++i) {
+        if (radios[i].checked) {
+            return radios[i].value;
+        }
+    }
+}
+
 
 function updateChart() {
-    var select = document.getElementById("gender-selector");
-    var gender = select.options[select.selectedIndex].value;
+    var gender = getSelectedGender();
     if (gender != '') {
         var radios = document.getElementsByName('radio');
-        var year;
-        for (var i = 0; i < radios.length; ++i) {
-            if (radios[i].checked) {
-                year = radios[i].value;
-                break;
-            }
-        }
-        load_data(gender, year);
+        var year = getSelectedYear();
+        loadData(gender, year);
     }
 }
