@@ -31,11 +31,13 @@
         <div class="container">
             <div id="chart"></div>
             <div id="options">
-                <select name="gender" id="gender-selector" onchange="updateChart()">
-                    <option value="">Select gender</option>
-                    <option value="female">Female</option>
-                    <option value="male">Male</option>
-                </select>
+                <div class="choicebox">
+                    <select name="gender" id="gender-selector" onchange="updateChart()">
+                        <option value="">SELECT GENDER</option>
+                        <option value="female">FEMALE</option>
+                        <option value="male">MALE</option>
+                    </select>
+                </div>
                 <br>
                 <a id="select_button">SELECT STATE</a>
                 <div id="select_modal" class="modal" onchange="updateChart()">
@@ -63,9 +65,9 @@
                     <div class="modal-content emodal-content">
                         <span class="export_close">&times;</span>
                         <p class="title">Export</p>
-                        <button class="btn webp-button" onclick="exportData('webp')"></button>
-                        <button class="btn csv-button" onclick="exportData('csv')"></button>
-                        <button class="btn svg-button" onclick="exportData('svg')"></button>
+                        <button class="btn webp-button"></button>
+                        <button class="btn csv-button"></button>
+                        <button class="btn svg-button" onclick="exportSVG()"></button>
                     </div>
                 </div>
             </div>
