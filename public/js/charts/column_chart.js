@@ -26,4 +26,27 @@ function selectStateButtonEvents() {
     }
 }
 
+function getSelectedGender() {
+    var select = document.getElementById("gender-selector");
+    return select.options[select.selectedIndex].value;
+}
+
+function exportSVG() {
+    var gender = getSelectedGender();
+    if (gender != '') {
+        var svg = document.getElementsByTagName('svg')[0];
+        var clone = svg.cloneNode(true);
+        var svgDocType = document.implementation.createDocumentType('svg', "-//W3C//DTD SVG 1.1//EN", "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd");
+        var svgDoc = document.implementation.createDocument('http://www.w3.org/2000/svg', 'svg', svgDocType);
+        svgDoc.replaceChild(clone, svgDoc.documentElement);
+        var svgData = (new XMLSerializer()).serializeToString(svgDoc);
+        var a = document.createElement('a');
+        a.href = 'data:image/svg+xml; charset=utf8, ' + encodeURIComponent(svgData.replace(/></g, '>\n\r<'));
+        a.download = 'Column-Chart.svg';
+        a.click();
+    } else {
+        alert("You didn't specifed a gender");
+    }
+}
+
 selectStateButtonEvents();

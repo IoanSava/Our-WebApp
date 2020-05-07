@@ -31,11 +31,13 @@
         <div class="container">
             <div id="chart"></div>
             <div id="options">
-                <select name="gender" id="gender-selector">
-                    <option value="">Select gender</option>
-                    <option value="female">Female</option>
-                    <option value="male">Male</option>
-                </select>
+                <div class="choicebox">
+                    <select name="gender" id="gender-selector" onchange="updateChart()">
+                        <option value="">SELECT GENDER</option>
+                        <option value="female">FEMALE</option>
+                        <option value="male">MALE</option>
+                    </select>
+                </div>
                 <br>
                 <a id="compare_button">COMPARE</a>
                 <div id="compare_modal" class="modal">
@@ -44,7 +46,7 @@
                         <p class="title">Compare</p>
                         <label class="container-btn">
                             <?= $data[0] ?>
-                            <input type="checkbox" checked="checked" value=<?= $data[0] ?>>
+                            <input type="checkbox" checked="checked" value="<?= $data[0] ?>">
                             <span class="checkmark"></span>
                         </label>
                         <?php
@@ -52,7 +54,7 @@
                         ?>
                             <label class="container-btn">
                                 <?= $data[$i] ?>
-                                <input type="checkbox" value=<?= $data[$i] ?>>
+                                <input type="checkbox" value="<?= $data[$i] ?>">
                                 <span class="checkmark"></span>
                             </label>
                         <?php } ?>
