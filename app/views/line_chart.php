@@ -40,13 +40,13 @@
                 </div>
                 <br>
                 <a id="compare_button">COMPARE</a>
-                <div id="compare_modal" class="modal">
+                <form id="compare_modal" class="modal" onchange="updateChart()">
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <p class="title">Compare</p>
                         <label class="container-btn">
                             <?= $data[0] ?>
-                            <input type="checkbox" checked="checked" value="<?= $data[0] ?>">
+                            <input type="checkbox" checked="checked" name="checkbox" value="<?= $data[0] ?>">
                             <span class="checkmark"></span>
                         </label>
                         <?php
@@ -54,12 +54,13 @@
                         ?>
                             <label class="container-btn">
                                 <?= $data[$i] ?>
-                                <input type="checkbox" value="<?= $data[$i] ?>">
+                                <input type="checkbox" name="checkbox" value="<?= $data[$i] ?>">
                                 <span class="checkmark"></span>
                             </label>
                         <?php } ?>
                     </div>
-                </div>
+                </form>
+              
                 <a id="export_button">EXPORT</a>
                 <div id="export_modal" class="modal">
                     <div class="modal-content emodal-content">
