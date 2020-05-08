@@ -33,7 +33,6 @@
             <div id="options">
                 <div class="choicebox">
                     <select name="gender" id="gender-selector" onchange="updateChart()">
-                        <option value="">SELECT GENDER</option>
                         <option value="female">FEMALE</option>
                         <option value="male">MALE</option>
                     </select>

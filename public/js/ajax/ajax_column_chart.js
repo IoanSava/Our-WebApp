@@ -111,8 +111,8 @@ function getSelectedState() {
 
 function updateChart() {
     var gender = getSelectedGender();
-    if (gender != '') {
-        var state = getSelectedState();
-        loadData(gender, state);
-    }
+    var state = getSelectedState();
+    loadData(gender, state);
 }
+
+updateChart();

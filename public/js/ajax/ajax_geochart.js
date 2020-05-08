@@ -88,9 +88,10 @@ function getSelectedYear() {
 
 function updateChart() {
     var gender = getSelectedGender();
-    if (gender != '') {
-        var radios = document.getElementsByName('radio');
-        var year = getSelectedYear();
-        loadData(gender, year);
-    }
+    var radios = document.getElementsByName('radio');
+    var year = getSelectedYear();
+    loadData(gender, year);
 }
+
+
+updateChart();
