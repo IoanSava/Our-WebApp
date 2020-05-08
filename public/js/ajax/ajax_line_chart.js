@@ -57,14 +57,54 @@ function drawChart(chart_data = '', gender = '', states = []) {
         title = title.concat(" (", gender, ", ", states, ')');
     }
 
+    // var title = 'USA Obesity Prevalence';
+    // if (gender != '' && states != []) {
+    //     if (states.length > 1) {
+    //         for (var i = 0; i < states.length - 1; i++) {
+    //             title = title.concat(" (", gender, ", ", states[i], ', ');
+    //         }
+    //         title = title.concat(states[i], ')');
+    //     } else {
+    //         title = title.concat(" (", gender, ", ", state, ')');
+    //     }
+
+
+    // }
+
     var options = {
         title: title,
-        vAxis: {
-            title: 'Percentage'
+        titleTextStyle: {
+            fontName: 'Gill Sans',
+            fontSize: 18
         },
+        vAxis: {
+            title: 'Percentage',
+            minValue: 0,
+            textStyle: {
+                fontName: 'Gill Sans',
+                bold: true
+            },
+        },
+        lineWidth: 7,
         hAxis: {
-            title: 'Year'
-        }
+            title: 'Year',
+            minValue: 0,
+            textStyle: {
+                fontName: 'Gill Sans',
+                bold: true
+            },
+        },
+        colorAxis: { colors: ['lightcyan', 'midnightblue'] },
+        backgroundColor: {
+            fill: 'ghostwhite',
+            stroke: 'black',
+            strokeWidth: 5
+        },
+        animation: {
+            startup: true,
+            duration: 100,
+            easing: 'out'
+        },
     };
 
     var chart = new google.visualization.LineChart(document.getElementById('chart'));
