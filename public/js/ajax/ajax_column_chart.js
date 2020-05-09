@@ -115,4 +115,5 @@ function updateChart() {
     loadData(gender, state);
 }
 
+
 updateChart();
