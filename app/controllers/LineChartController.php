@@ -29,4 +29,46 @@ class LineChartController extends Controller
         
     }
 
+    private function getFileName($states, $gender, $format) {
+        $states = str_replace(' ', '_', $states);
+        $filename = $states . "_" . $gender . "." . $format;
+        return $filename;
+    }
+
+    public function exportCSV() {
+        if (isset($_GET["gender"]) && isset($_GET["state"])) {
+            $gender = $_GET["gender"];
+            $states = $_GET["state"];
+        
+            header('Content-type: application/csv');
+        
+            $filename = $this->getFileName($states, $gender, "csv");
+            header('Content-Disposition: attachment; filename='.$filename);
+        
+            $filePointer = fopen('php://output', 'w');
+            $header = array("year", "data_value");
+            fputcsv($filePointer, $header);
+        
+            $chart = $this->model('LineChart');
+            $result = $chart->getData($gender, $states);
+            
+            $output = array();
+            foreach($result as $row => $row_value){
+                foreach ($row_value as $info) {
+                    $current_output = array();
+                    foreach($info as $data){
+                        $current_output[] = array(
+                            0   => $data["year"],
+                            1  => floatval($data["data_value"])
+                            );
+                    }
+                    $output[$row] = $current_output;
+                }
+                fputcsv($filePointer, $output);
+            }
+        
+            exit;
+        }
+    }
+
 }

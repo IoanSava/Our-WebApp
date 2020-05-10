@@ -21,6 +21,7 @@ function loadData(gender, states) {
 }
 
 
+
 function drawChart(chart_data = '', gender = '', states = []) {
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Year');
