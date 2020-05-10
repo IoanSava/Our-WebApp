@@ -5,9 +5,9 @@ google.charts.load('current', {
 google.charts.setOnLoadCallback(drawChart);
 
 
-function load_data(gender, states) {
+function loadData(gender, states) {
     $.ajax({
-        url: '/obis/app/handlers/LineChartHandler.php',
+        url: '/obis/public/LineChartController/sendData',
         method: "POST",
         data: {
             gender: gender,
@@ -19,6 +19,7 @@ function load_data(gender, states) {
         }
     });
 }
+
 
 
 function drawChart(chart_data = '', gender = '', states = []) {
@@ -52,24 +53,18 @@ function drawChart(chart_data = '', gender = '', states = []) {
         }
     }
 
-    var title = 'USA obesity prevalence';
+    var title = 'USA Obesity Prevalence';
     if (gender != '' && states != []) {
-        title = title.concat(" (", gender, ", ", states, ')');
+        if (states.length > 1) {
+            title = title.concat(" (", gender, ", ");
+            for (var i = 0; i < states.length - 1; i++) {
+                title = title.concat(states[i], ', ');
+            }
+            title = title.concat(states[i], ')');
+        } else {
+            title = title.concat(" (", gender, ", ", states, ')');
+        }
     }
-
-    // var title = 'USA Obesity Prevalence';
-    // if (gender != '' && states != []) {
-    //     if (states.length > 1) {
-    //         for (var i = 0; i < states.length - 1; i++) {
-    //             title = title.concat(" (", gender, ", ", states[i], ', ');
-    //         }
-    //         title = title.concat(states[i], ')');
-    //     } else {
-    //         title = title.concat(" (", gender, ", ", state, ')');
-    //     }
-
-
-    // }
 
     var options = {
         title: title,
@@ -100,11 +95,6 @@ function drawChart(chart_data = '', gender = '', states = []) {
             stroke: 'black',
             strokeWidth: 5
         },
-        animation: {
-            startup: true,
-            duration: 100,
-            easing: 'out'
-        },
     };
 
     var chart = new google.visualization.LineChart(document.getElementById('chart'));
@@ -112,17 +102,27 @@ function drawChart(chart_data = '', gender = '', states = []) {
 }
 
 
-function updateChart() {
+function getSelectedGender() {
     var select = document.getElementById("gender-selector");
-    var gender = select.options[select.selectedIndex].value;
-    if (gender != '') {
-        var checkboxes = document.getElementsByName('checkbox');
-        var states = [];
-        for (var i = 0; i < checkboxes.length; ++i) {
-            if (checkboxes[i].checked) {
-                states.push(checkboxes[i].value);
-            }
-        }
-        load_data(gender, states);
-    }
+    return select.options[select.selectedIndex].value;
 }
+
+function getSelectedStates() {
+    var checkboxes = document.getElementsByName('checkbox');
+    var states = [];
+    for (var i = 0; i < checkboxes.length; ++i) {
+        if (checkboxes[i].checked) {
+            states.push(checkboxes[i].value);
+        }
+    }
+    return states;
+}
+
+
+function updateChart() {
+    var gender = getSelectedGender();
+    var states = getSelectedStates();
+    loadData(gender, states);
+}
+
+updateChart();

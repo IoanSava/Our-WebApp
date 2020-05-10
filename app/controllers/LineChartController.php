@@ -23,24 +23,26 @@ class LineChartController extends Controller
                     $output[$row] = $current_output;
                 }
             }
+        
             echo json_encode($output);
         }
+        
     }
 
-    private function getFileName($state, $gender, $format) {
-        $state = str_replace(' ', '_', $state);
-        $filename = $state . "_" . $gender . "." . $format;
+    private function getFileName($states, $gender, $format) {
+        $states = str_replace(' ', '_', $states);
+        $filename = $states . "_" . $gender . "." . $format;
         return $filename;
     }
 
     public function exportCSV() {
         if (isset($_GET["gender"]) && isset($_GET["state"])) {
             $gender = $_GET["gender"];
-            $state = $_GET["state"];
+            $states = $_GET["state"];
         
             header('Content-type: application/csv');
         
-            $filename = $this->getFileName($state, $gender, "csv");
+            $filename = $this->getFileName($states, $gender, "csv");
             header('Content-Disposition: attachment; filename='.$filename);
         
             $filePointer = fopen('php://output', 'w');
@@ -48,17 +50,25 @@ class LineChartController extends Controller
             fputcsv($filePointer, $header);
         
             $chart = $this->model('LineChart');
-            $result = $chart->getData($gender, $state);
+            $result = $chart->getData($gender, $states);
             
-            foreach ($result as $row) {
-                $output = array(
-                    0 => $row["year"],
-                    1 => $row["data_value"]
-                );
+            $output = array();
+            foreach($result as $row => $row_value){
+                foreach ($row_value as $info) {
+                    $current_output = array();
+                    foreach($info as $data){
+                        $current_output[] = array(
+                            0   => $data["year"],
+                            1  => floatval($data["data_value"])
+                            );
+                    }
+                    $output[$row] = $current_output;
+                }
                 fputcsv($filePointer, $output);
             }
         
             exit;
         }
     }
+
 }
