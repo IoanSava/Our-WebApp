@@ -7,7 +7,7 @@ google.charts.setOnLoadCallback(drawChart);
 
 function loadData(gender, year) {
     $.ajax({
-        url: '/obis/public/GeoChartController/sendData',
+        url: '/obis/public/GeoChartController/getData',
         method: "POST",
         data: {
             gender: gender,
@@ -21,29 +21,17 @@ function loadData(gender, year) {
 }
 
 
-function drawChart(chart_data = '', gender = '', year = '') {
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'State');
-    data.addColumn('number', 'Percentage');
-
-    if (chart_data != '') {
-        var jsonData = chart_data;
-
-        jsonData.forEach((record, index) => {
-            var state = record.state;
-            var value = parseFloat(record.data_value);
-            data.addRows([
-                [String(state), value]
-            ]);
-        });
-    }
-
+function getTitle(gender, year) {
     var title = 'USA obesity prevalence';
     if (gender != '' && year != '') {
         title = title.concat(" (", gender, ", ", year, ')');
     }
+    return title;
+}
 
-    var options = {
+
+function getOptions(title) {
+    return {
         title: title,
         region: 'US',
         displayMode: 'regions',
@@ -64,7 +52,29 @@ function drawChart(chart_data = '', gender = '', year = '') {
             }
         }
     };
+}
 
+
+
+function drawChart(chartData = '', gender = '', year = '') {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'State');
+    data.addColumn('number', 'Percentage');
+
+    if (chartData != '') {
+        var jsonData = chartData;
+
+        jsonData.forEach((record, index) => {
+            var state = record.state;
+            var value = parseFloat(record.data_value);
+            data.addRows([
+                [String(state), value]
+            ]);
+        });
+    }
+
+    var title = getTitle(gender, year);
+    var options = getOptions(title);
     var chart = new google.visualization.GeoChart(document.getElementById('chart'));
     chart.draw(data, options);
 }
@@ -88,9 +98,10 @@ function getSelectedYear() {
 
 function updateChart() {
     var gender = getSelectedGender();
-    if (gender != '') {
-        var radios = document.getElementsByName('radio');
-        var year = getSelectedYear();
-        loadData(gender, year);
-    }
+    var radios = document.getElementsByName('radio');
+    var year = getSelectedYear();
+    loadData(gender, year);
 }
+
+
+updateChart();

@@ -33,41 +33,43 @@
             <div id="options">
                 <div class="choicebox">
                     <select name="gender" id="gender-selector" onchange="updateChart()">
-                        <option value="">SELECT GENDER</option>
                         <option value="female">FEMALE</option>
                         <option value="male">MALE</option>
                     </select>
                 </div>
                 <br>
                 <a id="compare_button">COMPARE</a>
-                <div id="compare_modal" class="modal">
+                <form id="compare_modal" class="modal" onchange="updateChart()">
                     <div class="modal-content">
                         <span class="close">&times;</span>
-                        <p class="title">Compare</p>
-                        <label class="container-btn">
-                            <?= $data[0] ?>
-                            <input type="checkbox" checked="checked" value="<?= $data[0] ?>">
-                            <span class="checkmark"></span>
-                        </label>
+                        <p class="title">Compare</p>-
+
                         <?php
-                        for ($i = 1; $i < count($data); ++$i) {
+                        $first = true;
+                        foreach ($data as $state => $state_abbr) {
                         ?>
                             <label class="container-btn">
-                                <?= $data[$i] ?>
-                                <input type="checkbox" value="<?= $data[$i] ?>">
+                                <?= $state ?>
+                                <?php if ($first == true) { $first = false; ?>
+                                    <input type="checkbox" checked="checked" name="checkbox" value="<?= $state_abbr ?>">
+                                <?php } else { ?>
+                                    <input type="checkbox" name="checkbox" value="<?= $state_abbr ?>">
+                                <?php } ?>
                                 <span class="checkmark"></span>
                             </label>
                         <?php } ?>
+
                     </div>
-                </div>
+                </form>
+              
                 <a id="export_button">EXPORT</a>
                 <div id="export_modal" class="modal">
                     <div class="modal-content emodal-content">
                         <span class="export_close">&times;</span>
                         <p class="title">Export</p>
-                        <button class="btn webp-button"></button>
-                        <button class="btn csv-button"></button>
-                        <button class="btn svg-button"></button>
+                        <button class="btn webp-button" onclick="exportData('webp')"></button>
+                        <button class="btn csv-button" onclick="exportData('csv')"></button>
+                        <button class="btn svg-button" onclick="exportData('svg')"></button>
                     </div>
                 </div>
             </div>

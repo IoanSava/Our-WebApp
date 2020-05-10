@@ -69,15 +69,11 @@ function exportCSV(gender, state) {
 
 function exportData(format) {
     var gender = getSelectedGender();
-    if (gender != '') {
-        if (format == 'csv') {
-            var state = getSelectedState();
-            exportCSV(gender, state);
-        } else if (format == 'svg') {
-            exportSVG();
-        }
-    } else {
-        alert("You didn't specifed a gender");
+    if (format == 'csv') {
+        var state = getSelectedState();
+        exportCSV(gender, state);
+    } else if (format == 'svg') {
+        exportSVG();
     }
 }
 
