@@ -43,20 +43,22 @@
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <p class="title">Select state</p>
-                        <label class="container-radio">
-                            <?= $data[0] ?>
-                            <input type="radio" checked="checked" name="radio" value="<?= $data[0] ?>">
-                            <span class="checkmark-radio"></span>
-                        </label>
+
                         <?php
-                        for ($i = 1; $i < count($data); ++$i) {
+                        $first = true;
+                        foreach ($data as $state => $state_abbr) {
                         ?>
                             <label class="container-radio">
-                                <?= $data[$i] ?>
-                                <input type="radio" name="radio" value="<?= $data[$i] ?>">
+                                <?= $state ?>
+                                <?php if ($first == true) { $first = false; ?>
+                                    <input type="radio" checked="checked" name="radio" value="<?= $state_abbr ?>">
+                                <?php } else { ?>
+                                    <input type="radio" name="radio" value="<?= $state_abbr ?>">
+                                <?php } ?>
                                 <span class="checkmark-radio"></span>
                             </label>
                         <?php } ?>
+
                     </div>
                 </div>
                 <a id="export_button">EXPORT</a>

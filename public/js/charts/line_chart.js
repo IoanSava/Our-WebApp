@@ -92,8 +92,6 @@ function exportData(format) {
     var gender = getSelectedGender();
     if (format == 'csv') {
         var states = getSelectedStates();
-        console.log(gender);
-        console.log(states);
         exportCSV(gender, states);
     } else if (format == 'svg') {
         exportSVG();

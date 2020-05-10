@@ -42,21 +42,23 @@
                 <form id="compare_modal" class="modal" onchange="updateChart()">
                     <div class="modal-content">
                         <span class="close">&times;</span>
-                        <p class="title">Compare</p>
-                        <label class="container-btn">
-                            <?= $data[0] ?>
-                            <input type="checkbox" checked="checked" name="checkbox" value="<?= $data[0] ?>">
-                            <span class="checkmark"></span>
-                        </label>
+                        <p class="title">Compare</p>-
+
                         <?php
-                        for ($i = 1; $i < count($data); ++$i) {
+                        $first = true;
+                        foreach ($data as $state => $state_abbr) {
                         ?>
                             <label class="container-btn">
-                                <?= $data[$i] ?>
-                                <input type="checkbox" name="checkbox" value="<?= $data[$i] ?>">
+                                <?= $state ?>
+                                <?php if ($first == true) { $first = false; ?>
+                                    <input type="checkbox" checked="checked" name="checkbox" value="<?= $state_abbr ?>">
+                                <?php } else { ?>
+                                    <input type="checkbox" name="checkbox" value="<?= $state_abbr ?>">
+                                <?php } ?>
                                 <span class="checkmark"></span>
                             </label>
                         <?php } ?>
+
                     </div>
                 </form>
               

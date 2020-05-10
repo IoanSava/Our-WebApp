@@ -7,7 +7,7 @@ google.charts.setOnLoadCallback(drawChart);
 
 function loadData(gender, state) {
     $.ajax({
-        url: '/obis/public/ColumnChartController/sendData',
+        url: '/obis/public/ColumnChartController/getData',
         method: "POST",
         data: {
             gender: gender,
@@ -20,31 +20,17 @@ function loadData(gender, state) {
     });
 }
 
-
-function drawChart(chart_data = '', gender = '', state = '') {
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Year');
-    data.addColumn('number', '%');
-    data.addColumn({ role: 'style' });
-
-    if (chart_data != '') {
-        var jsonData = chart_data;
-
-        jsonData.forEach((record, index) => {
-            var year = record.year;
-            var value = parseFloat(record.data_value);
-            data.addRows([
-                [String(year), value, 'stroke-color: darkblue; stroke-width: 5;']
-            ]);
-        });
-    }
-
+function getTitle(gender, state) {
     var title = 'USA obesity prevalence';
     if (gender != '' && state != '') {
         title = title.concat(" (", gender, ", ", state, ')');
     }
+    return title;
+}
 
-    var options = {
+
+function getOptions(title) {
+    return {
         title: title,
         titleTextStyle: {
             fontName: 'Gill Sans',
@@ -87,7 +73,29 @@ function drawChart(chart_data = '', gender = '', state = '') {
             }
         }
     };
+}
 
+
+function drawChart(chartData = '', gender = '', state = '') {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Year');
+    data.addColumn('number', '%');
+    data.addColumn({ role: 'style' });
+
+    if (chartData != '') {
+        var jsonData = chartData;
+
+        jsonData.forEach((record, index) => {
+            var year = record.year;
+            var value = parseFloat(record.data_value);
+            data.addRows([
+                [String(year), value, 'stroke-color: darkblue; stroke-width: 5;']
+            ]);
+        });
+    }
+
+    var title = getTitle(gender, state);
+    var options = getOptions(title);
     var chart = new google.visualization.ColumnChart(document.getElementById('chart'));
     chart.draw(data, options);
 }
