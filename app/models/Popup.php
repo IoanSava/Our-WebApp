@@ -16,15 +16,16 @@ class Popup
 
     private function initListOfStates()
     {
-        $query = 'SELECT DISTINCT state FROM data';
+        $query = 'SELECT DISTINCT state, state_abbr FROM data';
         $statement = $this->pdo->prepare($query);
 
         $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_COLUMN);
+        $result = $statement->fetchAll(PDO::FETCH_KEY_PAIR);
         $this->states = $result;
     }
 
-    private function initListOfYears(){
+    private function initListOfYears()
+    {
         $query = 'SELECT DISTINCT year FROM data';
         $statement = $this->pdo->prepare($query);
 
@@ -38,7 +39,8 @@ class Popup
         return $this->states;
     }
 
-    public function getListOfYears(){
+    public function getListOfYears()
+    {
         return $this->years;
     }
 }

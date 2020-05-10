@@ -7,11 +7,11 @@ google.charts.setOnLoadCallback(drawChart);
 
 function loadData(gender, states) {
     $.ajax({
-        url: '/obis/public/LineChartController/sendData',
+        url: '/obis/public/LineChartController/getData',
         method: "POST",
         data: {
             gender: gender,
-            state: states
+            states: states
         },
         dataType: "JSON",
         success: function(data) {
@@ -21,38 +21,7 @@ function loadData(gender, states) {
 }
 
 
-
-function drawChart(chart_data = '', gender = '', states = []) {
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Year');
-    states.forEach((state) => {
-        data.addColumn('number', state);
-    });
-
-    if (chart_data != '') {
-        var jsonData = chart_data;
-
-
-        var year_array = [];
-        for (aux in jsonData[states[0]]) {
-            year_array.push(String(jsonData[states[0]][aux]['year']));
-        }
-
-        var value_array;
-        var index = 0;
-        var aux;
-        for (elem in year_array) {
-            value_array = [];
-            value_array.push(year_array[elem]);
-            for (index_in_states in states) {
-                aux = jsonData[states[index_in_states]][index.toString()]['data_value']
-                value_array.push(parseFloat(aux));
-            }
-            index++;
-            data.addRows([value_array]);
-        }
-    }
-
+function getTitle(gender, states) {
     var title = 'USA Obesity Prevalence';
     if (gender != '' && states != []) {
         if (states.length > 1) {
@@ -66,7 +35,12 @@ function drawChart(chart_data = '', gender = '', states = []) {
         }
     }
 
-    var options = {
+    return title;
+}
+
+
+function getOptions(title) {
+    return {
         title: title,
         titleTextStyle: {
             fontName: 'Gill Sans',
@@ -96,7 +70,42 @@ function drawChart(chart_data = '', gender = '', states = []) {
             strokeWidth: 5
         },
     };
+}
 
+
+function drawChart(chartData = '', gender = '', states = []) {
+    // add headers
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Year');
+    states.forEach((state) => {
+        data.addColumn('number', state);
+    });
+
+    if (chartData != '') {
+        var jsonData = chartData;
+
+
+        var yearArray = [];
+        for (aux in jsonData[states[0]]) {
+            yearArray.push(String(jsonData[states[0]][aux]['year']));
+        }
+
+        var index = 0;
+
+        for (year in yearArray) {
+            var dataValueArray = [];
+            dataValueArray.push(yearArray[year]);
+            for (stateIndex in states) {
+                var aux = jsonData[states[stateIndex]][index.toString()]['data_value'];
+                dataValueArray.push(parseFloat(aux));
+            }
+            ++index;
+            data.addRows([dataValueArray]);
+        }
+    }
+
+    var title = getTitle(gender, states);
+    var options = getOptions(title);
     var chart = new google.visualization.LineChart(document.getElementById('chart'));
     chart.draw(data, options);
 }
@@ -106,6 +115,7 @@ function getSelectedGender() {
     var select = document.getElementById("gender-selector");
     return select.options[select.selectedIndex].value;
 }
+
 
 function getSelectedStates() {
     var checkboxes = document.getElementsByName('checkbox');
@@ -124,5 +134,6 @@ function updateChart() {
     var states = getSelectedStates();
     loadData(gender, states);
 }
+
 
 updateChart();
