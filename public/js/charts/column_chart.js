@@ -43,6 +43,11 @@ function getSelectedState() {
 }
 
 
+function exportCSV(gender, state) {
+    window.open('/obis/public/ColumnChartController/exportCSV?gender=' + gender + '&state=' + state);
+}
+
+
 function exportSVG() {
     var stateAux = getSelectedState();
     titleState = '-' + stateAux.toString();
@@ -62,8 +67,35 @@ function exportSVG() {
 }
 
 
-function exportCSV(gender, state) {
-    window.open('/obis/public/ColumnChartController/exportCSV?gender=' + gender + '&state=' + state);
+function exportWEBP() {
+    var state = getSelectedState()
+    titleState = '-' + state;
+    var gender = getSelectedGender();
+    titleGender = '-' + gender.charAt(0).toUpperCase() + gender.slice(1);
+
+    var svg = document.querySelector('svg');
+    var svgURL = new XMLSerializer().serializeToString(svg);
+    var canvas = document.createElement('canvas');
+
+    var width = svg.getAttribute("width");
+    var height = svg.getAttribute("height");
+
+    canvas.width = width;
+    canvas.height = height;
+
+    var img = new Image(width, height);
+
+    img.onload = function() {
+        ctx = canvas.getContext('2d');
+        ctx.drawImage(this, 0, 0, width, height, 0, 0, width, height);
+        var dataURL = canvas.toDataURL('image/webp');
+
+        var a = document.createElement('a');
+        a.href = dataURL;
+        a.download = 'Column_Chart' + titleState + titleGender + '.webp';
+        a.click();
+    }
+    img.src = 'data:image/svg+xml; charset=utf8, ' + encodeURIComponent(svgURL);
 }
 
 
@@ -74,6 +106,8 @@ function exportData(format) {
         exportCSV(gender, state);
     } else if (format == 'svg') {
         exportSVG();
+    } else if (format == 'webp') {
+        exportWEBP();
     }
 }
 

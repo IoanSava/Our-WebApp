@@ -64,7 +64,7 @@
                     <div class="modal-content emodal-content">
                         <span class="export_close">&times;</span>
                         <p class="title">Export</p>
-                        <button class="btn webp-button"></button>
+                        <button class="btn webp-button" onclick="exportData('webp')"></button>
                         <button class="btn csv-button" onclick="exportData('csv')"></button>
                         <button class="btn svg-button" onclick="exportData('svg')"></button>
                     </div>
@@ -102,7 +102,6 @@
 
     <script src="/obis/public/js/charts/chart.js"></script>
     <script src="/obis/public/js/charts/geochart.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="/obis/public/js/ajax/ajax_geochart.js"></script>
     <script src="/obis/public/js/menu.js"></script>

@@ -6,19 +6,24 @@ google.charts.setOnLoadCallback(drawChart);
 
 
 function loadData(gender, state) {
-    $.ajax({
-        url: '/obis/public/ColumnChartController/getData',
-        method: "POST",
-        data: {
-            gender: gender,
-            state: state
-        },
-        dataType: "JSON",
-        success: function(data) {
-            drawChart(data, gender, state);
+    var data = new FormData();
+    data.append('gender', gender);
+    data.append('state', state);
+
+    var url = '/obis/public/ColumnChartController/getData';
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            var response = JSON.parse(xhr.responseText);
+            drawChart(response, gender, state);
         }
-    });
+    };
+
+    xhr.open('POST', url, true);
+    xhr.send(data);
 }
+
 
 function getTitle(gender, state) {
     var title = 'USA obesity prevalence';
