@@ -42,7 +42,7 @@
                 <form id="compare_modal" class="modal" onchange="updateChart()">
                     <div class="modal-content">
                         <span class="close">&times;</span>
-                        <p class="title">Compare</p>-
+                        <p class="title">Compare</p>
 
                         <?php
                         $first = true;
