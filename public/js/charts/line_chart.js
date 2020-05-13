@@ -42,14 +42,30 @@ function checkboxlimit(checkgroup, limit) {
     }
 }
 
+function getSelectedGender() {
+    var select = document.getElementById("gender-selector");
+    return select.options[select.selectedIndex].value;
+}
+
+
+function getSelectedStates() {
+    var checkboxes = document.getElementsByName('checkbox');
+    var states = [];
+    for (var i = 0; i < checkboxes.length; ++i) {
+        if (checkboxes[i].checked) {
+            states.push(checkboxes[i].value);
+        }
+    }
+    return states;
+}
+
 function exportCSV(gender, states) {
     window.open('/obis/public/LineChartController/exportCSV?gender=' + gender + '&states=' + states);
 }
 
 function exportSVG() {
     var stateAux = getSelectedStates();
-    stateAux = stateAux.toString();
-    stateAux = stateAux.replace(/\s+/g, '_');
+    stateAux = stateAux.join('_');
     titleState = '-' + stateAux;
     var genderAux = getSelectedGender();
     titleGender = '-' + genderAux.charAt(0).toUpperCase() + genderAux.slice(1);
@@ -69,24 +85,35 @@ function exportSVG() {
 
 function exportWEBP() {
     var stateAux = getSelectedStates();
-    stateAux = stateAux.toString();
-    stateAux = stateAux.replace(/\s+/g, '_');
+    stateAux = stateAux.join('_');
     titleState = '-' + stateAux;
     var genderAux = getSelectedGender();
     titleGender = '-' + genderAux.charAt(0).toUpperCase() + genderAux.slice(1);
 
-    var svg = document.getElementsByTagName('svg')[0];
-    var clone = svg.cloneNode(true);
-    var svgDocType = document.implementation.createDocumentType('svg', "-//W3C//DTD SVG 1.1//EN", "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd");
-    var svgDoc = document.implementation.createDocument('http://www.w3.org/2000/svg', 'svg', svgDocType);
-    svgDoc.replaceChild(clone, svgDoc.documentElement);
-    var svgData = (new XMLSerializer()).serializeToString(svgDoc);
-    var a = document.createElement('a');
-    a.href = 'data:image/webp; charset=utf8, ' + encodeURIComponent(svgData.replace(/></g, '>\n\r<'));
-    a.download = 'Line_Chart' + titleState + titleGender + '.webp';
-    a.click();
-}
+    var svg = document.querySelector('svg');
+    var svgURL = new XMLSerializer().serializeToString(svg);
+    var canvas = document.createElement('canvas');
 
+    var width = svg.getAttribute("width");
+    var height = svg.getAttribute("height");
+
+    canvas.width = width;
+    canvas.height = height;
+
+    var img = new Image(width, height);
+
+    img.onload = function() {
+        ctx = canvas.getContext('2d');
+        ctx.drawImage(this, 0, 0, width, height, 0, 0, width, height);
+        var dataURL = canvas.toDataURL('image/webp');
+
+        var a = document.createElement('a');
+        a.href = dataURL;
+        a.download = 'Line_Chart' + titleState + titleGender + '.webp';
+        a.click();
+    }
+    img.src = 'data:image/svg+xml; charset=utf8, ' + encodeURIComponent(svgURL);
+}
 
 function exportData(format) {
     var gender = getSelectedGender();

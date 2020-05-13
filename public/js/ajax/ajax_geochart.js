@@ -6,18 +6,22 @@ google.charts.setOnLoadCallback(drawChart);
 
 
 function loadData(gender, year) {
-    $.ajax({
-        url: '/obis/public/GeoChartController/getData',
-        method: "POST",
-        data: {
-            gender: gender,
-            year: year
-        },
-        dataType: "JSON",
-        success: function(data) {
-            drawChart(data, gender, year);
+    var data = new FormData();
+    data.append('gender', gender);
+    data.append('year', year);
+
+    var url = '/obis/public/GeoChartController/getData';
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            var response = JSON.parse(xhr.responseText);
+            drawChart(response, gender, year);
         }
-    });
+    };
+
+    xhr.open('POST', url, true);
+    xhr.send(data);
 }
 
 
@@ -53,7 +57,6 @@ function getOptions(title) {
         }
     };
 }
-
 
 
 function drawChart(chartData = '', gender = '', year = '') {
@@ -98,7 +101,6 @@ function getSelectedYear() {
 
 function updateChart() {
     var gender = getSelectedGender();
-    var radios = document.getElementsByName('radio');
     var year = getSelectedYear();
     loadData(gender, year);
 }

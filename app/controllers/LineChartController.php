@@ -4,7 +4,7 @@ class LineChartController extends Controller
 {
     private function checkGender($gender)
     {
-        if(strcasecmp($gender, 'female') != 0 && strcasecmp($gender, 'male') != 0) {
+        if (strcasecmp($gender, 'female') != 0 && strcasecmp($gender, 'male') != 0) {
             http_response_code(400); // bad request
             echo json_encode(array("message" => "Invalid gender. Choose between female or male"));
             return -1;
@@ -25,7 +25,7 @@ class LineChartController extends Controller
             if ($this->checkGender($gender) != 0) {
                 return;
             }
-            $states = $_POST["states"];
+            $states = json_decode($_POST["states"]);
 
             $chart = $this->model('Chart');
             $result = array();
@@ -55,8 +55,8 @@ class LineChartController extends Controller
 
     private function getFileName($states, $gender, $format)
     {
-        $states = str_replace(' ', '_', $states);
-        $filename = $states . "_" . $gender . "." . $format;
+        $states = implode("_", $states);
+        $filename = $states . "-" . $gender . "." . $format;
         return $filename;
     }
 
@@ -73,8 +73,9 @@ class LineChartController extends Controller
             if ($this->checkGender($gender) != 0) {
                 return;
             }
-            
-            $states = $_GET["state"];
+
+            $states = $_GET["states"];
+            $states = explode(",", $states);
 
             header('Content-type: application/csv');
 
@@ -82,7 +83,7 @@ class LineChartController extends Controller
             header('Content-Disposition: attachment; filename=' . $filename);
 
             $filePointer = fopen('php://output', 'w');
-            $header = array("year", "data_value");
+            $header = array("State", "year", "data_value");
             fputcsv($filePointer, $header);
 
             $chart = $this->model('Chart');
@@ -92,19 +93,17 @@ class LineChartController extends Controller
                 $result[$state] = array($currentStateDataValues);
             }
 
-            $output = array();
             foreach ($result as $row => $row_value) {
                 foreach ($row_value as $info) {
-                    $current_output = array();
                     foreach ($info as $data) {
-                        $current_output[] = array(
-                            0   => $data["year"],
-                            1  => floatval($data["data_value"])
+                        $current_output = array(
+                            0   => $row,
+                            1   => $data["year"],
+                            2  => floatval($data["data_value"])
                         );
+                        fputcsv($filePointer, $current_output);
                     }
-                    $output[$row] = $current_output;
                 }
-                fputcsv($filePointer, $output);
             }
 
             exit;

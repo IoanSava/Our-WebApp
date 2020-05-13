@@ -68,18 +68,49 @@ function exportSVG() {
 }
 
 
+function exportWEBP() {
+    var year = getSelectedYear()
+    titleYear = '-' + year;
+    var gender = getSelectedGender();
+    titleGender = '-' + gender.charAt(0).toUpperCase() + gender.slice(1);
+
+    var svg = document.querySelector('svg');
+    var svgURL = new XMLSerializer().serializeToString(svg);
+    var canvas = document.createElement('canvas');
+
+    var width = svg.getAttribute("width");
+    var height = svg.getAttribute("height");
+
+    canvas.width = width;
+    canvas.height = height;
+
+    var img = new Image(width, height);
+
+    img.onload = function() {
+        ctx = canvas.getContext('2d');
+        ctx.drawImage(this, 0, 0, width, height, 0, 0, width, height);
+        var dataURL = canvas.toDataURL('image/webp');
+
+        var a = document.createElement('a');
+        a.href = dataURL;
+        a.download = 'GeoChart' + titleYear + titleGender + '.webp';
+        a.click();
+    }
+    img.src = 'data:image/svg+xml; charset=utf8, ' + encodeURIComponent(svgURL);
+}
+
+
 function exportData(format) {
     var gender = getSelectedGender();
-    if (gender != '') {
-        if (format == 'csv') {
-            var year = getSelectedYear();
-            exportCSV(gender, year);
-        } else if (format == 'svg') {
-            exportSVG();
-        }
-    } else {
-        alert("You didn't specifed a gender");
+    if (format == 'csv') {
+        var year = getSelectedYear();
+        exportCSV(gender, year);
+    } else if (format == 'svg') {
+        exportSVG();
+    } else if (format == 'webp') {
+        exportWEBP();
     }
 }
+
 
 selectYearButtonEvents();

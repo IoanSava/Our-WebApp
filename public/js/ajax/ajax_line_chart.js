@@ -6,18 +6,22 @@ google.charts.setOnLoadCallback(drawChart);
 
 
 function loadData(gender, states) {
-    $.ajax({
-        url: '/obis/public/LineChartController/getData',
-        method: "POST",
-        data: {
-            gender: gender,
-            states: states
-        },
-        dataType: "JSON",
-        success: function(data) {
-            drawChart(data, gender, states);
+    var data = new FormData();
+    data.append('gender', gender);
+    data.append('states', JSON.stringify(states));
+
+    var url = '/obis/public/LineChartController/getData';
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            var response = JSON.parse(xhr.responseText);
+            drawChart(response, gender, states);
         }
-    });
+    };
+
+    xhr.open('POST', url, true);
+    xhr.send(data);
 }
 
 
@@ -84,7 +88,6 @@ function drawChart(chartData = '', gender = '', states = []) {
     if (chartData != '') {
         var jsonData = chartData;
 
-
         var yearArray = [];
         for (aux in jsonData[states[0]]) {
             yearArray.push(String(jsonData[states[0]][aux]['year']));
@@ -108,24 +111,6 @@ function drawChart(chartData = '', gender = '', states = []) {
     var options = getOptions(title);
     var chart = new google.visualization.LineChart(document.getElementById('chart'));
     chart.draw(data, options);
-}
-
-
-function getSelectedGender() {
-    var select = document.getElementById("gender-selector");
-    return select.options[select.selectedIndex].value;
-}
-
-
-function getSelectedStates() {
-    var checkboxes = document.getElementsByName('checkbox');
-    var states = [];
-    for (var i = 0; i < checkboxes.length; ++i) {
-        if (checkboxes[i].checked) {
-            states.push(checkboxes[i].value);
-        }
-    }
-    return states;
 }
 
 
