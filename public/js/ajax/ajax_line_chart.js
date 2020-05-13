@@ -111,24 +111,6 @@ function drawChart(chartData = '', gender = '', states = []) {
 }
 
 
-function getSelectedGender() {
-    var select = document.getElementById("gender-selector");
-    return select.options[select.selectedIndex].value;
-}
-
-
-function getSelectedStates() {
-    var checkboxes = document.getElementsByName('checkbox');
-    var states = [];
-    for (var i = 0; i < checkboxes.length; ++i) {
-        if (checkboxes[i].checked) {
-            states.push(checkboxes[i].value);
-        }
-    }
-    return states;
-}
-
-
 function updateChart() {
     var gender = getSelectedGender();
     var states = getSelectedStates();
