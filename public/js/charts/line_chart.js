@@ -91,11 +91,8 @@ function exportWEBP() {
     titleGender = '-' + genderAux.charAt(0).toUpperCase() + genderAux.slice(1);
 
     var svg = document.querySelector('svg');
-
     var svgURL = new XMLSerializer().serializeToString(svg);
-
     var canvas = document.createElement('canvas');
-
 
     var width = svg.getAttribute("width");
     var height = svg.getAttribute("height");

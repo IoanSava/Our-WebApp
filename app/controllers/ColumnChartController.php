@@ -4,7 +4,7 @@ class ColumnChartController extends Controller
 {
     private function checkGender($gender)
     {
-        if(strcasecmp($gender, 'female') != 0 && strcasecmp($gender, 'male') != 0) {
+        if (strcasecmp($gender, 'female') != 0 && strcasecmp($gender, 'male') != 0) {
             http_response_code(400); // bad request
             echo json_encode(array("message" => "Invalid gender. Choose between female or male"));
             return -1;
