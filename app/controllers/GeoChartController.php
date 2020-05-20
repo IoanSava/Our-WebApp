@@ -6,7 +6,7 @@ class GeoChartController extends Controller
     {
         if (strcasecmp($gender, 'female') != 0 && strcasecmp($gender, 'male') != 0) {
             http_response_code(400); // bad request
-            echo json_encode(array("message" => "Invalid gender. Choose between female or male"));
+            echo json_encode(array("message" => "Invalid gender. Choose between female or male."));
             return -1;
         }
         return 0;
@@ -16,10 +16,10 @@ class GeoChartController extends Controller
     {
         if (!isset($_POST["gender"])) {
             http_response_code(400); // bad request
-            echo json_encode(array("message" => "Gender not specified"));
+            echo json_encode(array("message" => "Gender not specified."));
         } else if (!isset($_POST["year"])) {
             http_response_code(400); // bad request
-            echo json_encode(array("message" => "Year not specified"));
+            echo json_encode(array("message" => "Year not specified."));
         } else {
             $gender = $_POST["gender"];
             if ($this->checkGender($gender) != 0) {
@@ -31,15 +31,20 @@ class GeoChartController extends Controller
             $chart = $this->model('Chart');
             $result = $chart->getDataByGenderAndYear($gender, $year);
 
-            foreach ($result as $row) {
-                $output[] = array(
-                    'state'   => $row["state"],
-                    'data_value'  => floatval($row["data_value"])
-                );
-            }
+            if (!empty($result)) {
+                foreach ($result as $row) {
+                    $output[] = array(
+                        'state'   => $row["state"],
+                        'data_value'  => floatval($row["data_value"])
+                    );
+                }
 
-            http_response_code(200);
-            echo json_encode($output);
+                http_response_code(200); // ok
+                echo json_encode($output);
+            } else {
+                http_response_code(404); // not found
+                echo json_encode(array("message" => "Data not found."));
+            }
         }
     }
 
@@ -54,10 +59,10 @@ class GeoChartController extends Controller
     {
         if (!isset($_GET["gender"])) {
             http_response_code(400); // bad request
-            echo json_encode(array("message" => "Gender not specified"));
+            echo json_encode(array("message" => "Gender not specified."));
         } else if (!isset($_GET["year"])) {
             http_response_code(400); // bad request
-            echo json_encode(array("message" => "Year not specified"));
+            echo json_encode(array("message" => "Year not specified."));
         } else {
             $gender = $_GET["gender"];
             if ($this->checkGender($gender) != 0) {
