@@ -4,12 +4,12 @@ class Popup
 {
     private $states;
     private $years;
-    private $pdo;
+    private $connection;
 
     public function __construct()
     {
         require_once 'Database.php';
-        $this->pdo = Database::getInstance()->getPDO();
+        $this->connection = Database::getInstance()->getConnection();
         $this->initListOfStates();
         $this->initListOfYears();
     }
@@ -17,7 +17,7 @@ class Popup
     private function initListOfStates()
     {
         $query = 'SELECT DISTINCT state, state_abbr FROM data';
-        $statement = $this->pdo->prepare($query);
+        $statement = $this->connection->prepare($query);
 
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_KEY_PAIR);
@@ -27,7 +27,7 @@ class Popup
     private function initListOfYears()
     {
         $query = 'SELECT DISTINCT year FROM data';
-        $statement = $this->pdo->prepare($query);
+        $statement = $this->connection->prepare($query);
 
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_COLUMN);
