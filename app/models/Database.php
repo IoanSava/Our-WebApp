@@ -8,7 +8,7 @@ require_once 'config.php';
 class Database
 {
     private static $instance = null;
-    private $pdo;
+    private $connection;
 
     private function __construct()
     {
@@ -20,7 +20,7 @@ class Database
         ];
 
         try {
-            $this->pdo = new PDO($dsn, DB_USERNAME, DB_PASSWORD, $options);
+            $this->connection = new PDO($dsn, DB_USERNAME, DB_PASSWORD, $options);
         } catch (\PDOException $exception) {
             throw new \PDOException($exception->getMessage(), (int) $exception->getCode());
         }
@@ -35,8 +35,8 @@ class Database
         return self::$instance;
     }
 
-    public function getPDO()
+    public function getConnection()
     {
-        return $this->pdo;
+        return $this->connection;
     }
 }
