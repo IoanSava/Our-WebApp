@@ -42,10 +42,58 @@ class ChartController extends Controller
     public function updateRow()
     {
         // update data_value of row by (state, year, gender)
+        $this->getHeaders();
+        $data = json_decode(file_get_contents("php://input"));
+
+        require_once 'UserController.php';
+        $userController = new UserController;
+        $userController->checkJWT($data);
+
+        if (!empty($data->gender) && !empty($data->state) && !empty($data->year) && !empty($data->value)) {
+            $chartModel = $this->model('Chart');
+
+            $result = $chartModel->updateRow($data->gender, $data->state, $data->year, $data->value);
+
+            if ($result == 0) {
+                http_response_code(200); // OK
+                echo json_encode(array("message" => "Row updated"));
+            } else {
+                http_response_code(504); //  gateway timeout
+                echo json_encode(array("message" => "Unable to update row"));
+            }
+
+        } else {
+            http_response_code(400); // bad request
+            echo json_encode(array("message" => "Unable to update row. Not enough data provided."));
+        }
     }
 
     public function deleteRow()
     {
         // delete row by (state, year, gender, data_value)
+        $this->getHeaders();
+        $data = json_decode(file_get_contents("php://input"));
+
+        require_once 'UserController.php';
+        $userController = new UserController;
+        $userController->checkJWT($data);
+
+        if (!empty($data->gender) && !empty($data->state) && !empty($data->year) && !empty($data->value)) {
+            $chartModel = $this->model('Chart');
+
+            $result = $chartModel->deleteRow($data->gender, $data->state, $data->year, $data->value);
+
+            if ($result == 0) {
+                http_response_code(200); // OK
+                echo json_encode(array("message" => "Row deleted"));
+            } else {
+                http_response_code(504); //  gateway timeout
+                echo json_encode(array("message" => "Unable to delete row"));
+            }
+
+        } else {
+            http_response_code(400); // bad request
+            echo json_encode(array("message" => "Unable to delete row. Not enough data provided."));
+        }
     }
 }

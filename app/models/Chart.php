@@ -67,4 +67,41 @@ class Chart
         }
         return -1; // error
     }
+
+    // update data_value of row by (state, year, gender)
+    public function updateRow($gender, $state, $year, $value)
+    {
+        $query = "UPDATE data SET data_value = :data_value WHERE
+                    year = :year AND state_abbr = :state_abbr AND 
+                    break_out = :break_out AND break_out_category = :break_out_category";
+        $statement = $this->connection->prepare($query);
+        if ($statement->execute([
+            "year" => $year,
+            "state_abbr" => $state,
+            "break_out" => $gender,
+            "break_out_category" => "Gender",
+            "data_value" => $value
+        ])) {
+            return 0; // ok
+        }
+        return -1; // error
+    }
+
+    // delete row by (state, year, gender, data_value)
+    public function deleteRow($gender, $state, $year, $value)
+    {
+        $query = "DELETE FROM data WHERE year = :year AND state_abbr = :state_abbr AND
+                 break_out = :break_out AND break_out_category = :break_out_category AND data_value = :data_value";
+        $statement = $this->connection->prepare($query);
+        if ($statement->execute([
+            "year" => $year,
+            "state_abbr" => $state,
+            "break_out" => $gender,
+            "break_out_category" => "Gender",
+            "data_value" => $value
+        ])) {
+            return 0; // ok
+        }
+        return -1; // error
+    }
 }
