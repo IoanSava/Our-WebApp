@@ -19,16 +19,16 @@ class UserController extends Controller
         header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
     }
 
-    public function checkJWT($data)
+    public function checkJWT($jwt)
     {
-        if (empty($data->jwt)) {
+        if (empty($jwt)) {
             http_response_code(401); // unauthorized
             echo json_encode(array("message" => "Authentication failed"));
             exit();
         }
 
         try {
-            $decodedJWT = JWT::decode($data->jwt, JWT_KEY, array('HS256'));
+            $decodedJWT = JWT::decode($jwt, JWT_KEY, array('HS256'));
         } catch (Exception $exception) {
             http_response_code(401); // unauthorized
             echo json_encode(array("message" => $exception->getMessage()));
@@ -41,7 +41,7 @@ class UserController extends Controller
         $this->getHeaders();
         $data = json_decode(file_get_contents("php://input"));
 
-        $this->checkJWT($data);
+        $this->checkJWT($data->jwt);
 
         if (empty($data->email)) {
             http_response_code(400); // bad request
