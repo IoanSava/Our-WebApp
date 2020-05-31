@@ -18,7 +18,7 @@ class ChartController extends Controller
 
         require_once 'UserController.php';
         $userController = new UserController;
-        $userController->checkJWT($data);
+        $userController->checkJWT($data->jwt);
 
         if (!empty($data->gender) && !empty($data->state) && !empty($data->year) && !empty($data->value)) {
             $chartModel = $this->model('Chart');
@@ -47,7 +47,7 @@ class ChartController extends Controller
 
         require_once 'UserController.php';
         $userController = new UserController;
-        $userController->checkJWT($data);
+        $userController->checkJWT($data->jwt);
 
         if (!empty($data->gender) && !empty($data->state) && !empty($data->year) && !empty($data->value)) {
             $chartModel = $this->model('Chart');
@@ -76,7 +76,7 @@ class ChartController extends Controller
 
         require_once 'UserController.php';
         $userController = new UserController;
-        $userController->checkJWT($data);
+        $userController->checkJWT($data->jwt);
 
         if (!empty($data->gender) && !empty($data->state) && !empty($data->year) && !empty($data->value)) {
             $chartModel = $this->model('Chart');
