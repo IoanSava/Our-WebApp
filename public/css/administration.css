@@ -1,0 +1,10 @@
+.content {
+    box-sizing: border-box;
+    width: 60%;
+    margin: auto;
+    padding: 16px;
+}
+
+.hidden {
+    display: none;
+}

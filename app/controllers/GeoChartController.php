@@ -12,39 +12,36 @@ class GeoChartController extends Controller
         return 0;
     }
 
-    public function getData()
+    public function getData($requestData = [])
     {
-        if (!isset($_POST["gender"])) {
-            http_response_code(400); // bad request
-            echo json_encode(array("message" => "Gender not specified."));
-        } else if (!isset($_POST["year"])) {
-            http_response_code(400); // bad request
-            echo json_encode(array("message" => "Year not specified."));
+        if(empty($requestData)){
+            http_response_code(403); // bad request
+            echo json_encode(array("message" => "The called url is not allowed."));
+            return;
+        }
+        $gender = $requestData["gender"];
+        if ($this->checkGender($gender) != 0) {
+            return;
+        }
+
+        $year = $requestData["year"];
+
+        $chart = $this->model('Chart');
+        $result = $chart->getDataByGenderAndYear($gender, $year);
+
+        if (!empty($result)) {
+            foreach ($result as $row) {
+                $output[] = array(
+                    'state'   => $row["state"],
+                    'data_value'  => floatval($row["data_value"])
+                );
+            }
+
+            http_response_code(200); // ok
+            echo json_encode($output);
         } else {
-            $gender = $_POST["gender"];
-            if ($this->checkGender($gender) != 0) {
-                return;
-            }
-
-            $year = $_POST["year"];
-
-            $chart = $this->model('Chart');
-            $result = $chart->getDataByGenderAndYear($gender, $year);
-
-            if (!empty($result)) {
-                foreach ($result as $row) {
-                    $output[] = array(
-                        'state'   => $row["state"],
-                        'data_value'  => floatval($row["data_value"])
-                    );
-                }
-
-                http_response_code(200); // ok
-                echo json_encode($output);
-            } else {
-                http_response_code(404); // not found
-                echo json_encode(array("message" => "Data not found."));
-            }
+            http_response_code(404); // not found
+            echo json_encode(array("message" => "Data not found."));
         }
     }
 

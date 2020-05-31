@@ -19,6 +19,7 @@
         <a href="../home/bmi">BODY MASS INDEX</a>
         <a href="../home/diets">DIETS</a>
         <a href="../home/contact">CONTACT</a>
+        <a href="../home/login">LOGIN</a>
     </nav>
 
     <main id="mainid">
