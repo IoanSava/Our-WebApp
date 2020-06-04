@@ -35,7 +35,7 @@ class ChartController extends Controller
 
         } else {
             http_response_code(400); // bad request
-            echo json_encode(array("message" => "Unable to insert row. Not enough data provided."));
+            echo json_encode(array("message" => "Unable to insert row: Not enough data provided."));
         }
     }
 
@@ -64,7 +64,7 @@ class ChartController extends Controller
 
         } else {
             http_response_code(400); // bad request
-            echo json_encode(array("message" => "Unable to update row. Not enough data provided."));
+            echo json_encode(array("message" => "Unable to update row: Not enough data provided."));
         }
     }
 
@@ -93,7 +93,7 @@ class ChartController extends Controller
 
         } else {
             http_response_code(400); // bad request
-            echo json_encode(array("message" => "Unable to delete row. Not enough data provided."));
+            echo json_encode(array("message" => "Unable to delete row: Not enough data provided."));
         }
     }
 }
