@@ -93,7 +93,7 @@ class UserController extends Controller
             echo json_encode(["jwt" => $jwt]);
         } else {
             http_response_code(401); // unauthorized
-            echo json_encode(array("message" => "Bad password."));
+            echo json_encode(array("message" => "Incorrect password."));
         }
     }
 
