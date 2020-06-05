@@ -15,7 +15,7 @@
     <nav id="sidenav">
         <a href="javascript:void(0)" class="closeButton" onclick="closeNavBar()">&times;</a>
         <a href="index">HOME</a>
-        <a href="">ABOUT</a>
+        <a href="about">ABOUT</a>
         <a href="statistics">STATISTICS</a>
         <a href="bmi">BODY MASS INDEX</a>
         <a href="diets">DIETS</a>
@@ -52,22 +52,22 @@
                 </label>
             </div>
 
+            <h2 class="result-message"></h2>
+
             <form onsubmit="submitForm(this); return false;" id="data-form">
                 <input type="text" placeholder="Enter year" name="year" />
                 <input type="text" placeholder="Enter gender" name="gender" />
                 <input type="text" placeholder="Enter state" name="state" />
                 <input type="text" placeholder="Enter data value" name="value" />
-                <input type="submit" value="Execute" />
+                <button type="submit" class="button">Execute</button>
             </form>
 
             <form class="hidden" onsubmit="submitForm(this); return false;" id="user-form">
                 <input type="text" placeholder="Enter username" name="username" />
                 <input type="text" placeholder="Enter email" name="email" />
                 <input type="password" placeholder="Enter password" name="password" />
-                <input type="submit" value="Execute" />
+                <button type="submit" class="button">Execute</button>
             </form>
-
-            <h2 class="result-message"></h2>
         </div>
 
         <footer>
