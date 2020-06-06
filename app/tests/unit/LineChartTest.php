@@ -54,13 +54,6 @@ final class LineChartTest extends \PHPUnit_Framework_TestCase
        $this->assertSame(null, $result);
     }
 
-    /**
-     * The idea behind the callMethod function:
-        -access the private/protected method on the object to be tested
-        -set its accessibility to true so it can be invoked.
-        -invoke the private/protected method with its parameters if any
-        -return the result.
-     */
     private function callMethod($object, string $method , array $parameters = [])
     {
         try {

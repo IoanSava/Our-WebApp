@@ -334,6 +334,31 @@
                 <!--Pentru Diana: Aici ma gandeam in felul urmator: 2 subsectiuni, una pentru browser, respectiv una pentru invocarile de servicii REST 
                     (partea cu chart-urile). La partea cu invocarile, eventual putem pune un link catre documentatia openapi ori cumva incarca documentatia in pagina-->
 
+                <p>
+                    &emsp;&emsp;Ca design, Obis pune la dispoziție, din punct de vedere al interfeței cu utilizatorul, 15 pagini Web, fiecare având un anume scop. Mai exact:
+                    <ul>
+                        <li><strong>index.html</strong> - servește drept pagină de start, oferind scurtături către restul conținutului pus la dispoziție de aplicație;</li>
+                        <li><strong>about.html</strong> - oferă o vedere de ansamblu asupra tematicii tratate de Obis;</li>
+                        <li><strong>statistics.html</strong> - pagina principală a secțiunii de statistici, din care se poate ajunge în paginile cu statistici pentru graficele de tip LineChart, ColumnChart respectiv GeoChart;</li>
+                        <li><strong>line_chart.php</strong> - pune la dispoziția utilizatorului reprezentarea datelor referitoare la ponderea obezității sub forma unui LineChart, putând realiza comparații între diverse state prin selectarea acestora, dar
+                            și exportul graficului în diverse formate;</li>
+                        <li><strong>column_chart.php</strong> - pune la dispoziția utilizatorului reprezentarea datelor referitoare la ponderea obezității sub forma unui ColumnChart, putând vizualiza în detaliul distribuția procentelor pe ani pentru statul
+                            selectat, precum și realizarea unui export într-un format dorit;</li>
+                        <li><strong>geochart.php</strong> - pune la dispoziția utilizatorului reprezentarea datelor referitoare la ponderea obezității sub forma unui GeoChart, putând vizualiza procentele pentru fiecare stat în parte sub forma unei hărți prin
+                            selectarea genului si anului dorit, precum și realizarea exportului în formatul dorit;</li>
+                        <li><strong>bmi.html</strong> - pune la dispoziția utilizatorului un calculator pentru indexul de masă corporală care, pe baza rezultatelor, poate trage concluzia dacă o persoană este sau nu sănătoasă;</li>
+                        <li><strong>diets.html</strong> - pune la dispoziția utilizatorului diverse sfaturi și diete pe care aceștia le pot, eventual, evalua;</li>
+                        <li><strong>contact.html</strong> - oferă utilizatorului un form pe care îl poate completa (dacă dorește) în vederea primirii unui răspuns la o eventuală nelămurire sau întrebare;</li>
+                        <li><strong>contact_succes.php</strong> - oferă utilizatorului un mesaj prin care îl informează că trimiterea form-ului a fost realizată cu succes, precum și faptul că va fi contactat în cel mai scurt timp;</li>
+                        <li><strong>contact_failure.php</strong> - oferă utilizatorului un mesaj prin care îl informează că în momentul trimiterii form-ului a apărut o eroare, astfel el va putea reveni pe pagina anterioară;</li>
+                        <li><strong>login.html</strong> - oferă posibilitatea unui administrator de a se autentifica pentru ca, mai apoi, să realizeze operații asupra bazei de date;</li>
+                        <li><strong>administration.html</strong> - oferă posibilitatea administratorului care este autentificat să realizeze operații asupra bazei de date, precum inserarea unui nou administrator, inserarea, actualizarea, respectiv ștergerea
+                            unei linii din baza de date asociată unui stat, pentru un anumit gen, an și valoare;</li>
+                        <li><strong>404.html</strong> - servește drept pagină înlocuitoare în cazul în care va apărea vreo eroare;</li>
+                        <li><strong>documentation.html</strong> - pagina care conține documentația proiectului nostru.</li>
+                    </ul>
+                </p>
+
             </section>
             <hr>
             <section role="doc-part">
