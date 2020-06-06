@@ -76,6 +76,10 @@
                         <ol class="nested">
                             <li class="nested"><a href="#App_Structure">Structura aplicației</a></li>
                             <li class="nested"><a href="#Database_Structure">Structura bazei de date</a></li>
+                            <ol class="nested">
+                                <li class="nested"><a href="#Database_Schema">Schema bazei de date</a></li>
+                                <li class="nested"><a href="#Database_Schema_Explanations">Explicații pentru schema bazei de date</a></li>
+                            </ol>
                         </ol>
                     </li>
                     <li class="nested"><a href="#User_Guide">Ghid de utilizare</a></li>
@@ -267,8 +271,6 @@
                         <div>
                             <h4>&emsp;&emsp;&emsp;&emsp;&#10147;Administrator</h4>
 
-                            <!--Pentru Ioan: Diagrama facuta ii una provizorie, raportata la ce ii facut pana acum in modulul pentru administrare. Dupa ce modulul e finalizat, daca consideri ca trebuie aduse modificari (ori chiar si acum), iti pot da share la schema ca sa aduci modificarile necesare, ori imi poti da indicatii si modific eu-->
-
                             <div class="center-image">
                                 <object data="/obis/public/images/doc/admin_usecase.svg" type="image/svg+xml" class="usecase"></object>
                             </div>
@@ -289,8 +291,33 @@
                     <section>
                         <h3 id="Database_Structure">7.2. Structura bazei de date</h3>
 
-                        <!--Pentru Ioan: ar fi bine de pus ca in modelul din arhiva, o diagrama a bazei de date iar sub ea niste explicatii-->
+                        <section>
+                            <h4 id="Database_Schema">7.2.1. Schema bazei de date</h4>
 
+                            <div class="center-image">
+                                <object data="/obis/public/images/doc/database.png" type="image/png" class="database"></object>
+                            </div>
+                        </section>
+                        <section>
+                            <h4 id="Database_Schema_Explanations">7.2.2. Explicații pentru schema bazei de date</h4>
+                            <ul>
+                                <h4>
+                                    <li>Data</li>
+                                </h4>
+                                <p>Tabela <em>data</em> conține date referitoare la obezitatea populației din SUA pentru diverse tipuri de eșantioane și diverși ani. Atributul <em>year</em> precizează anul pentru care este valabilă statistica respectivă.
+                                    Atributul <em>state</em> stabilește statul căruia îi este asociată statistica. Atributele <em>break_out</em> și <em>break_out_category</em> delimitează eșantionul pentru statistica corespunzătoare. Atributul <em>data_value</em>                                    semnifică indicele de masă corporală mediu pentru populația din eșantionul testat.
+                                </p>
+                                <p>Această tabelă a fost populată pe baza informațiilor colectate și oferite de <a href="https://www.cdc.gov/brfss/annual_data/annual_data.htm">BRFSS</a>. Diagramele din cadrul aplicației sunt construite pornind de la această
+                                    tabelă.</p>
+
+                                <h4>
+                                    <li>Users</li>
+                                </h4>
+                                <p>Tabela <em>users</em> păstrează datele de autentificare ale administratorilor. Atributul <em>email</em> este unic (nu pot exista doi administratori cu același email), întrucât autentificarea administratorilor necesită atât
+                                    introducerea email-ului cât și a parolei (care nu poate fi unică). Atributul <em>password</em> stochează în mod criptat parola administratorului corespunzător. </p>
+                            </ul>
+
+                        </section>
                     </section>
                 </div>
             </section>
