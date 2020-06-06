@@ -56,40 +56,34 @@
 .diets-section {
     border-top: 6px solid #6a8caf;
     border-radius: 6px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     overflow: hidden;
+}
+
+.diet1,
+.diet2,
+.diet3,
+.diet4 {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 20px;
 }
 
 .diet1 {
     background-image: url(../images/weighing-scale.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    padding-bottom: 20px;
 }
 
 .diet2 {
     background-image: url(../images/fruit-salads.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    padding-bottom: 20px;
 }
 
 .diet3 {
     background-image: url(../images/fasting-img.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    padding-bottom: 20px;
 }
 
 .diet4 {
     background-image: url(../images/salad-img.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    padding-bottom: 20px;
 }
 
 
