@@ -22,7 +22,7 @@ final class LineChartTest extends \PHPUnit_Framework_TestCase
     public function testCheckGenderIncorrect()
     {
         $lineChart = new LineChartController();
-        $expected = array('geneder');
+        $expected = array('gender');
         $this->assertSame(-1, $this->callMethod($lineChart, 'checkGender', $expected));
     }
 
