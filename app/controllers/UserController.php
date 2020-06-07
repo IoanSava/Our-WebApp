@@ -23,7 +23,7 @@ class UserController extends Controller
     {
         if (empty($jwt)) {
             http_response_code(401); // unauthorized
-            echo json_encode(array("message" => "Authentication failed"));
+            echo json_encode(array("message" => "Authentication failed!!"));
             exit();
         }
 
@@ -45,19 +45,19 @@ class UserController extends Controller
 
         if (empty($data->email)) {
             http_response_code(400); // bad request
-            echo json_encode(array("message" => "Unable to create user. You didn't provide email."));
+            echo json_encode(array("message" => "Unable to create user: You didn't provide email!!"));
         } else if (empty($data->username)) {
             http_response_code(400); // bad request
-            echo json_encode(array("message" => "Unable to create user. You didn't provide username."));
+            echo json_encode(array("message" => "Unable to create user: You didn't provide username!!"));
         } else if (empty($data->password)) {
             http_response_code(400); // bad request
-            echo json_encode(array("message" => "Unable to create user. You didn't provide password."));
+            echo json_encode(array("message" => "Unable to create user: You didn't provide password!!"));
         } else {
             $userModel = $this->model('User');
             $result = $userModel->getUserByEmail($data->email);
             if (!empty($result)) {
                 http_response_code(409); // conflict
-                echo json_encode(array("message" => "Another user with same email address already exists."));
+                echo json_encode(array("message" => "Another user with same email address already exists!!"));
             } else {
                 $password = password_hash($data->password, PASSWORD_BCRYPT);
                 $result = $userModel->createUser($data->email, $data->username, $password);
@@ -93,7 +93,7 @@ class UserController extends Controller
             echo json_encode(["jwt" => $jwt]);
         } else {
             http_response_code(401); // unauthorized
-            echo json_encode(array("message" => "Bad password."));
+            echo json_encode(array("message" => "Incorrect password!!"));
         }
     }
 
@@ -104,10 +104,10 @@ class UserController extends Controller
 
         if (empty($data->email)) {
             http_response_code(401); // unauthorized
-            echo json_encode(array("message" => "Unable to authenticate. You didn't provide email."));
+            echo json_encode(array("message" => "Unable to authenticate: You didn't provide email!!"));
         } else if (empty($data->password)) {
             http_response_code(401); // unauthorized
-            echo json_encode(array("message" => "Unable to authenticate. You didn't provide password."));
+            echo json_encode(array("message" => "Unable to authenticate: You didn't provide password!!"));
         } else {
             $userModel = $this->model('User');
             $result = $userModel->getUserByEmail($data->email);
@@ -123,7 +123,7 @@ class UserController extends Controller
                 $this->checkPassword($user, $data->password);
             } else {
                 http_response_code(401); // unauthorized
-                echo json_encode(array("message" => "Unable to authenticate. Invalid email."));
+                echo json_encode(array("message" => "Unable to authenticate: Invalid email!!"));
             }
         }
     }

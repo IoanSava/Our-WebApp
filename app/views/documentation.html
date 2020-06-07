@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="utf-8">
+    <title>Obis (USA Obesity Prevalence Visualizer)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/obis/public/css/documentation.css" />
+</head>
+
+<body>
+    <main>
+        <article resource="#" typeof="schema:ScholarlyArticle">
+            <header>
+                <h1 property="schema:name">Obis (USA Obesity Prevalence Visualizer)</h1>
+                <p role="doc-subtitle" property="schema:alternateName">
+                    - documentație -
+                </p>
+            </header>
+            <meta property="schema:accessibilityFeature" content="alternativeText">
+            <meta property="schema:accessibilityHazard" content="none">
+            <div role="contentinfo">
+                <section typeof="sa:AuthorsList">
+                    <h2>Membrii echipei</h2>
+                    <ul id="team_list">
+                        <li typeof="sa:ContributorRole" property="schema:author" resource="#">
+                            <span typeof="schema:Person">
+                                <meta property="schema:givenName" content="Ioan">
+                                <meta property="schema:familyName" content="Sava">
+                                <span property="schema:name">Sava Ioan, A2</span>
+                            </span>
+                        </li>
+                        <li typeof="sa:ContributorRole" property="schema:author" resource="#">
+                            <span typeof="schema:Person">
+                                <meta property="schema:givenName" content="Diana">
+                                <meta property="schema:additionalName" content="Isabela">
+                                <meta property="schema:familyName" content="Crainic">
+                                <span property="schema:name">Crainic Diana - Isabela, A2</span>
+                            </span>
+                        </li>
+                        <li typeof="sa:ContributorRole" property="schema:author" resource="#">
+                            <span typeof="schema:Person">
+                                <meta property="schema:givenName" content="Ciprian">
+                                <meta property="schema:familyName" content="Daniș">
+                                <span property="schema:name">Daniș Ciprian, A2</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <section role="doc-toc">
+                <h2>Cuprins</h2>
+                <ol class="nested" role="directory">
+                    <li class="nested"><a href="#Abstract">Abstract</a></li>
+                    <li class="nested"><a href="#Introduction">Introducere</a>
+                        <ol class="nested">
+                            <li class="nested"><a href="#Description">Descriere</a></li>
+                            <li class="nested"><a href="#Motivation">Motivație</a></li>
+                        </ol>
+                    </li>
+                    <li class="nested"><a href="#Types_of_Users">Tipuri de utilizatori</a></li>
+                    <li class="nested"><a href="#Distribution_on_Functional_Modules">Distribuția pe module funcționale</a></li>
+                    <li class="nested"><a href="#Technologies_Used">Tehnologii Utilizate</a>
+                        <ol class="nested">
+                            <li class="nested"><a href="#Development_Environment">Mediul de dezvoltare</a></li>
+                            <li class="nested"><a href="#Libraries_&_External_APIs">Biblioteci și API-uri externe</a></li>
+                        </ol>
+                    </li>
+                    <li class="nested"><a href="#Use-Case_Scenarios">Scenarii Use-Case</a>
+                        <ol class="nested">
+                            <li class="nested"><a href="#Scenarios">Scenarii</a></li>
+                            <li class="nested"><a href="#Diagrams">Diagrame</a></li>
+                        </ol>
+                    </li>
+                    <li class="nested"><a href="#Project_Architecture">Arhitectura proiectului</a>
+                        <ol class="nested">
+                            <li class="nested"><a href="#App_Structure">Structura aplicației</a></li>
+                            <li class="nested"><a href="#Database_Structure">Structura bazei de date</a></li>
+                        </ol>
+                    </li>
+                    <li class="nested"><a href="#User_Guide">Ghid de utilizare</a></li>
+                    <li class="nested"><a href="#Task_Distribution">Distribuția sarcinilor</a></li>
+                    <li class="nested"><a href="#Conclusions">Concluzii</a></li>
+                    <li class="nested"><a href="#References">Referințe</a></li>
+                </ol>
+            </section>
+            <section role="doc-abstract">
+                <h2 id="Abstract">1. Abstract</h2>
+                <div>
+                    <p>
+                        &emsp;&emsp;Acest articol detaliază munca noastră în structurarea și implementarea unei aplicații Web pentru vizualizarea de date referitoare la ponderea obezității în rândul populației în Statele Unite, ca parte a proiectului nostru pentru Tehnologii
+                        Web. Articolul oferă o vedere de ansamblu asupra arhitecturii proiectului, cât și asupra tehnologiilor utilizate în realizarea acestuia. Pentru mai multe detalii referitoare la aceste tehnologii, o listă cu referințe către materiale
+                        atât teoretice cât și practice este oferită în secțiunea <a href="#References"><em>Referințe</em></a>.
+                    </p>
+                </div>
+            </section>
+            <hr>
+            <section role="doc-introduction">
+                <h2 id="Introduction">2. Introducere</h2>
+                <div>
+                    <section>
+                        <h3 id="Description">2.1. Descriere</h3>
+                        <p>
+                            &emsp;&emsp;Obis este o aplicație Web dedicată vizualizării de date referitoare la ponderea obezității în rândul populației în Statele Unite, pe baza informațiilor colectate și oferite de <a href="https://www.cdc.gov/brfss/annual_data/annual_data.htm">BRFSS</a>.
+                            În cadrul acesteia, un utilizator poate vizualiza statisticile oferite, exporta graficele în diverse formate, afla indicele de masă corporală (IMC în română, BMI în engleză), adresa întrebări sau comentarii la care poate primi
+                            răspuns prin e-mail sau telefon, respectiv poate consulta sfaturile puse la dispoziție și le poate evalua.
+                        </p>
+                    </section>
+                    <section>
+                        <h3 id="Motivation">2.2. Motivație</h3>
+                        <p>
+                            &emsp;&emsp;Obezitatea este o afecțiune medicală de nutriție și metabolism în care grăsimea corporală se acumulează în exces, astfel încât poate avea un efect advers, negativ asupra sănătății, ducând la o speranță de viață redusă și/sau probleme de sănătate.
+                            Ea este una dintre principalele cauze de deces ce pot fi prevenite la nivel mondial, cu o răspândire din ce în ce mai mare la adulți și copii, iar autoritățile o consideră ca fiind una dintre cele mai grave probleme de sănătate
+                            publică din secolul al XXI-lea. Este în special gravă în Statele Unite, unde mai bine de o treime din populație și 17% din copii sunt obezi, conform statisticilor făcute de CDC în 2019. Prin urmare, scopul acestei aplicații
+                            este de a face ușoară informarea în legătură cu obezitatea, verificarea IMC-ului în vederea stabilirii condiției personale și de a oferi persoanelor interesate diverse sfaturi și diete care ar putea să îi ajute în tratarea
+                            obezității.
+                        </p>
+                    </section>
+                </div>
+            </section>
+            <hr>
+            <section role="doc-part">
+                <h2 id="Types_of_Users">3. Tipuri de utilizatori</h2>
+                <div>
+                    <p>&emsp;&emsp;La nivelul aplicației există 2 categorii de utilizatori: cel comun/nelogat, respectiv administratorul.</p>
+                    <div>
+                        <h4>&emsp;&emsp;&#10147;Utilizatorul comun/nelogat - acesta poate:</h4>
+                        <ul>
+                            <li>Vizualiza întregul conținut pus la dispoziție de către aplicație;</li>
+                            <li>Calcula IMC-ul său prin intermediul calculatorului pus la dispoziție de către aplicație și evaluarea condiției fizice pe baza valorii calculate;</li>
+                            <li>Doar vizualiza datele din cadrul bazei de date sub forma unor grafice în secțiunea de statistici, în diferite formate;</li>
+                            <li>Exporta grafice din cadrul paginii de statistici în diverse formate;</li>
+                            <li>Evalua sfaturile și dietele puse la dispoziție în cadrul aplicației;</li>
+                            <li>Adresa un mesaj administratorului prin intermediul unui formular (în cadrul formularului i se va cere un număr de telefon și o adresă de email validă pentru a i se putea, eventual, trimite un răspuns).</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>&emsp;&emsp;&#10147;Administratorul - acesta poate:</h4>
+                        <ul>
+                            <li>Realiza toate acțiunile permise unui utilizator comun/nelogat;</li>
+                            <li>Să se logheze în cadrul aplicației;</li>
+                            <li>Accesa datele din cadrul bazei de date;</li>
+                            <li>Realiza operații de ștergere, actualizare, respectiv inserare asupra bazei de date.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <hr>
+
+            <!--Am considerat ca ne putem referi in alta maniera de partea de design. Daca considerati ca poate fi folosit ce am scris, decomentati codul.
+                
+                <section role="doc-part">
+                <h2 id="Structure&Design">4. Structură &amp; Design</h2>
+                <div>
+                    <section>
+                        <h3 id="Structure">4.1. Structură</h3>
+                        <p>
+                            Pentru partea de arhitectură a aplicaţiei Web.
+                        </p>
+                    </section>
+                    <section>
+                        <h3 id="Design">4.2. Design</h3>
+                        <p>
+                            &emsp;&emsp;Ca design, Obis pune la dispoziție, din punct de vedere a interfeței cu utilizatorul, 8 pagini Web, fiecare având un anume scop. Mai exact:
+                            <ul>
+                                <li><strong>about.html</strong> - oferă o vedere de ansamblu asupra tematicii tratate de Obis;</li>
+                                <li><strong>index.html</strong> - servește drept pagină de start, oferind scurtături către restul conținutului oferit de aplicație;</li>
+                                <li><strong>diets.html</strong> - pune la dispoziția utilizatorilor diverse sfaturi și diete pe care aceștia le pot eventual evalua;</li>
+                                <li><strong>bmi.html</strong> - pune la dispoziția utilizatorilor un calculator pentru indexul de masă corporală care, pe baza rezultatelor, poate trage concluzia dacă o persoană este sau nu sănătoasă;</li>
+                                <li><strong>contact.html</strong> - oferă utilizatorului un form pe care îl poate completa (dacă dorește) în vederea primirii unui răspuns la o eventuală nelămurire sau întrebare;</li>
+                                <li><strong>statistics.html</strong> - pagina principală a secțiunii de statistici, din care se poate ajunge în paginile cu statistici pentru bărbați, respectiv pentru femei;</li>
+                            </ul>
+                        </p>
+                    </section>
+                </div>
+            </section>
+            <hr>-->
+            <section role="doc-part">
+                <h2 id="Distribution_on_Functional_Modules">4. Distribuția pe module funcționale</h2>
+
+                <!--De delimitat modulele functionale ale aplicatiei-->
+                <!-- Ciprian: contact, export-->
+                <!-- Diana: diete, statistici-->
+                <!-- Ioan: administrare, bmi-->
+
+            </section>
+            <hr>
+            <section role="doc-part">
+                <h2 id="Technologies_Used">5. Tehnologii Utilizate</h2>
+                <div>
+                    <section>
+                        <h3 id="Development_Environment">5.1. Mediul de dezvoltare</h3>
+                        <p>
+
+                            <!--De cazut de acord asupra mediului de dezvoltare: XAMPP + baza de date + Github -->
+
+                        </p>
+                    </section>
+                    <section>
+                        <h3 id="Libraries_&_External_APIs">5.2. Biblioteci și API-uri externe</h3>
+                        <p>
+
+                            <!--Pentru Ioan si Diana: Daca ati folosit API-uri sau biblioteci, includeti aici: Google Charts, Font Awesome, JWT, PHPUnit-->
+
+                        </p>
+                    </section>
+                </div>
+            </section>
+            <hr>
+            <section role="doc-part">
+                <h2 id="Use-Case_Scenarios">6. Scenarii Use-Case</h2>
+                <div>
+                    <section>
+                        <h3 id="Scenarios">6.1. Scenarii</h3>
+                        <div>
+                            <h4>&emsp;&emsp;&#10147;Utilizatorul obișnuit/nelogat dorește să își determine IMC-ul - acesta:</h4>
+                            <ul>
+                                <li>Accesează aplicația prin pagina principală a acesteia;</li>
+                                <li>Accesează pagina cu calculatorul pentru IMC fie din pagina de <strong>HOME</strong>, fie din meniul de navigare;</li>
+                                <li>În cadrul paginii, completează datele necesare calculatorului;</li>
+                                <li>După completarea datelor apasă pe butonul de <strong>Submit</strong> și primește rezultatul.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>&emsp;&emsp;&#10147;Utilizatorul obișnuit/nelogat dorește să lase un mesaj administratorului - acesta:</h4>
+                            <ul>
+                                <li>Accesează aplicația prin pagina principală a acesteia;</li>
+                                <li>Accesează pagina de contacte fie din pagina de <strong>HOME</strong>, fie din meniul de navigare;</li>
+                                <li>În cadrul paginii, completează formularul prezentat;</li>
+                                <li>Dacă nu a completat corect formularul, va fi atenționat;</li>
+                                <li>După completarea datelor apasă pe butonul de <strong>Submit</strong> și este redirectat către o altă pagină, în cadrul căreia este anunțat că trimiterea datelor s-a realizat cu succes.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4>&emsp;&emsp;&#10147;Utilizatorul obișnuit/nelogat dorește să vizualizeze o diagramă - acesta:</h4>
+                            <ul>
+                                <li>Accesează aplicația prin pagina principală a acesteia;</li>
+                                <li>Accesează pagina de statistici fie din pagina de <strong>HOME</strong>, fie din meniul de navigare;</li>
+                                <li>În cadrul paginii, selectează tipul de diagramă pe care dorește să o vizualizeze și va fi redirecționat spre pagina corespunzătoare;</li>
+                                <li>În cazul în care diagrama aleasă este Line Chart, poate vizualiza diagrama în funcție de genul și de lista de state alese (maxim patru);</li>
+                                <li>În cazul în care diagrama aleasă este Column Chart, poate vizualiza diagrama în funcție de genul și de statul ales;</li>
+                                <li>În cazul în care diagrama aleasă este GeoChart, poate vizualiza diagrama în funcție de genul și de anul ales.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4>&emsp;&emsp;&#10147;Utilizatorul obișnuit/nelogat dorește să exporte o diagramă într-un anumit format - acesta:</h4>
+                            <ul>
+                                <li>Accesează aplicația prin pagina principală a acesteia;</li>
+                                <li>Accesează pagina de statistici fie din pagina de <strong>HOME</strong>, fie din meniul de navigare;</li>
+                                <li>În cadrul paginii, selectează tipul de diagramă pe care dorește să o vizualizeze și va fi redirecționat spre pagina corespunzătoare;</li>
+                                <li>După ce selectează parametrii doriți (genul, anul sau statele), apasă pe butonul de <strong>EXPORT</strong>;</li>
+                                <li>Alege formatul în care dorește să exporte diagrama iar descărcarea acesteia va începe.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4>&emsp;&emsp;&#10147;Utilizatorul obișnuit/nelogat dorește să evalueze o dietă - acesta:</h4>
+                            <ul>
+                                <li>Accesează aplicația prin pagina principală a acesteia;</li>
+                                <li>Accesează pagina de diete fie din pagina de <strong>HOME</strong>, fie din meniul de navigare;</li>
+                                <li>În cadrul paginii, vizualizează toate dietele și poate evalua fiecare dintre acestea, selectând porțiunea de steluță corespunzătoare votului utilizatorului.</li>
+
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4>&emsp;&emsp;&#10147;Administratorul dorește să insereze un nou administrator - acesta:</h4>
+                            <ul>
+                                <li>Accesează aplicația prin pagina principală a acesteia;</li>
+                                <li>Accesează pagina de autentificare prin intermediul secțiunii de <strong>LOGIN</strong> din meniul de navigare;</li>
+                                <li>În cadrul paginii, acesta se autentifică pentru a putea aduce modificări bazei de date;</li>
+                                <li>Selectează opțiunea <strong>Insert admin</strong>, iar după ce completează câmpurile corespunzătoare numelui de utilizator, email-ul si parola noului administrator, apasă pe butonul <strong>EXECUTE</strong>;</li>
+                                <li>În cazul în care completarea formularului a fost realizată cu succes, un nou administrator a fost creat, în caz contrar se va afișa un mesaj de atenționare corespunzător.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4>&emsp;&emsp;&#10147;Administratorul dorește să insereze, să actualizeze sau să șteargă o linie din baza de date - acesta:</h4>
+                            <ul>
+                                <li>Accesează aplicația prin pagina principală a acesteia;</li>
+                                <li>Accesează pagina de autentificare prin intermediul secțiunii de <strong>LOGIN</strong> din meniul de navigare;</li>
+                                <li>În cadrul paginii, acesta se autentifică pentru a putea aduce modificări bazei de date;</li>
+                                <li>Selectează opțiunea dorită, <strong>Insert row</strong>, <strong>Update row</strong>, respectiv <strong>Delete row</strong>;</li>
+                                <li>Completează câmpurile corespunzătoare operației, inserare, actualizare sau ștergerea unei linii din baza de date asociată unui stat, pentru un anumit gen, an și valoare, după care apasă pe butonul <strong>EXECUTE</strong>;</li>
+                                <li>În cazul în care completarea formularului a fost realizată cu succes, s-a realizat operația menționată, în caz contrar se va afișa un mesaj de atenționare corespunzător.</li>
+                            </ul>
+                        </div>
+
+                    </section>
+                    <section>
+                        <h3 id="Diagrams">6.2. Diagrame</h3>
+                        <div>
+                            <h4>&emsp;&emsp;&emsp;&emsp;&#10147;Utilizator obișnuit/nelogat</h4>
+                            <div class="center-image">
+                                <object data="/obis/public/images/doc/simple_user_usecare.svg" type="image/svg+xml" class="usecase"></object>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>&emsp;&emsp;&emsp;&emsp;&#10147;Administrator</h4>
+
+                            <!--Pentru Ioan: Diagrama facuta ii una provizorie, raportata la ce ii facut pana acum in modulul pentru administrare. Dupa ce modulul e finalizat, daca consideri ca trebuie aduse modificari (ori chiar si acum), iti pot da share la schema ca sa aduci modificarile necesare, ori imi poti da indicatii si modific eu-->
+
+                            <div class="center-image">
+                                <object data="/obis/public/images/doc/admin_usecase.svg" type="image/svg+xml" class="usecase"></object>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+            <hr>
+            <section role="doc-part">
+                <h2 id="Project_Architecture">7. Arhitectura proiectului</h2>
+                <div>
+                    <section>
+                        <h3 id="App_Structure">7.1. Structura aplicației</h3>
+
+                        <!--Am lasat pentru cand avem aplicatia in forma completa: atunci putem face o diagrama uml, respectiv oferi cateva explicatii-->
+
+                    </section>
+                    <section>
+                        <h3 id="Database_Structure">7.2. Structura bazei de date</h3>
+
+                        <!--Pentru Ioan: ar fi bine de pus ca in modelul din arhiva, o diagrama a bazei de date iar sub ea niste explicatii-->
+
+                    </section>
+                </div>
+            </section>
+            <hr>
+            <section role="doc-part">
+                <h2 id="User_Guide">8. Ghid de utilizare</h2>
+
+                <!--Pentru Diana: Aici ma gandeam in felul urmator: 2 subsectiuni, una pentru browser, respectiv una pentru invocarile de servicii REST 
+                    (partea cu chart-urile). La partea cu invocarile, eventual putem pune un link catre documentatia openapi ori cumva incarca documentatia in pagina-->
+
+                <p>
+                    &emsp;&emsp;Ca design, Obis pune la dispoziție, din punct de vedere al interfeței cu utilizatorul, 15 pagini Web, fiecare având un anume scop. Mai exact:
+                    <ul>
+                        <li><strong>index.html</strong> - servește drept pagină de start, oferind scurtături către restul conținutului pus la dispoziție de aplicație;</li>
+                        <li><strong>about.html</strong> - oferă o vedere de ansamblu asupra tematicii tratate de Obis;</li>
+                        <li><strong>statistics.html</strong> - pagina principală a secțiunii de statistici, din care se poate ajunge în paginile cu statistici pentru graficele de tip LineChart, ColumnChart respectiv GeoChart;</li>
+                        <li><strong>line_chart.php</strong> - pune la dispoziția utilizatorului reprezentarea datelor referitoare la ponderea obezității sub forma unui LineChart, putând realiza comparații între diverse state prin selectarea acestora, dar
+                            și exportul graficului în diverse formate;</li>
+                        <li><strong>column_chart.php</strong> - pune la dispoziția utilizatorului reprezentarea datelor referitoare la ponderea obezității sub forma unui ColumnChart, putând vizualiza în detaliul distribuția procentelor pe ani pentru statul
+                            selectat, precum și realizarea unui export într-un format dorit;</li>
+                        <li><strong>geochart.php</strong> - pune la dispoziția utilizatorului reprezentarea datelor referitoare la ponderea obezității sub forma unui GeoChart, putând vizualiza procentele pentru fiecare stat în parte sub forma unei hărți prin
+                            selectarea genului si anului dorit, precum și realizarea exportului în formatul dorit;</li>
+                        <li><strong>bmi.html</strong> - pune la dispoziția utilizatorului un calculator pentru indexul de masă corporală care, pe baza rezultatelor, poate trage concluzia dacă o persoană este sau nu sănătoasă;</li>
+                        <li><strong>diets.html</strong> - pune la dispoziția utilizatorului diverse sfaturi și diete pe care aceștia le pot, eventual, evalua;</li>
+                        <li><strong>contact.html</strong> - oferă utilizatorului un form pe care îl poate completa (dacă dorește) în vederea primirii unui răspuns la o eventuală nelămurire sau întrebare;</li>
+                        <li><strong>contact_succes.php</strong> - oferă utilizatorului un mesaj prin care îl informează că trimiterea form-ului a fost realizată cu succes, precum și faptul că va fi contactat în cel mai scurt timp;</li>
+                        <li><strong>contact_failure.php</strong> - oferă utilizatorului un mesaj prin care îl informează că în momentul trimiterii form-ului a apărut o eroare, astfel el va putea reveni pe pagina anterioară;</li>
+                        <li><strong>login.html</strong> - oferă posibilitatea unui administrator de a se autentifica pentru ca, mai apoi, să realizeze operații asupra bazei de date;</li>
+                        <li><strong>administration.html</strong> - oferă posibilitatea administratorului care este autentificat să realizeze operații asupra bazei de date, precum inserarea unui nou administrator, inserarea, actualizarea, respectiv ștergerea
+                            unei linii din baza de date asociată unui stat, pentru un anumit gen, an și valoare;</li>
+                        <li><strong>404.html</strong> - servește drept pagină înlocuitoare în cazul în care va apărea vreo eroare;</li>
+                        <li><strong>documentation.html</strong> - pagina care conține documentația proiectului nostru.</li>
+                    </ul>
+                </p>
+
+            </section>
+            <hr>
+            <section role="doc-part">
+                <h2 id="Task_Distribution">9. Distribuția sarcinilor</h2>
+
+                <!--De lasat eventual pentru final, cand am terminat de lucrat la proiect si nu mai sunt task-uri de facut-->
+
+                <div>
+                    <section>
+                        <span typeof="schema:Person">
+                            <meta property="schema:givenName" content="Ioan">
+                            <meta property="schema:familyName" content="Sava">
+                            <span property="schema:name">Sava Ioan</span>
+                        </span>
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <span typeof="schema:Person">
+                            <meta property="schema:givenName" content="Diana">
+                            <meta property="schema:additionalName" content="Isabela">
+                            <meta property="schema:familyName" content="Crainic">
+                            <span property="schema:name">Crainic Diana - Isabela</span>
+                        </span>
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <span typeof="schema:Person">
+                            <meta property="schema:givenName" content="Ciprian">
+                            <meta property="schema:familyName" content="Daniș">
+                            <span property="schema:name">Daniș Ciprian</span>
+                        </span>
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </section>
+                </div>
+            </section>
+            <hr>
+            <section role="doc-conclusion">
+                <h2 id="Conclusions">10. Concluzii</h2>
+                <div>
+                    <p>
+                        &emsp;&emsp;Aplicația Web Obis facilitează accesul la statistici și informații verificate referitoare la obezitate și la ponderea acesteia în rândul populației americane. Sistemul de comunicare prin formular permite o comunicare facilă cu utilizatorul
+                        în vederea lămuririi eventualelor întrebări sau nelămuriri. Vizualizarea statisticilor în diverse forme asigură o vedere de ansamblu mai bună asupra valorilor prezentate, iar exportarea acestora în diverse formate permite utilizarea
+                        lor și de către alte entități.
+                    </p>
+                </div>
+            </section>
+            <hr>
+            <section role="doc-bibliography">
+                <h2 id="References">11. Referințe</h2>
+
+                <!--Pentru Ioan si Diana: Daca aveti de facut referiri pentru anumite biblioteci, tehnici ori notiuni teoretice mai speciale utilizate, adaugati in lista de mai jos-->
+
+                <ul>
+                    <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://profs.info.uaic.ro/~busaco/teach/courses/web/" property="schema:citation" id="course-site">
+                        <cite property="schema:name">
+                        <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/">Tehnologii Web - fundaţia unui viitor dezvoltator Web profesionist</a>
+                        </cite>
+                    </li>
+                    <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://profs.info.uaic.ro/~andrei.panu/" property="schema:citation" id="lab-site">
+                        <cite property="schema:name">
+                        <a href="https://profs.info.uaic.ro/~andrei.panu/">Web Technologies</a>
+                        </cite>
+                    </li>
+                    <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://nccd.cdc.gov/BRFSSPrevalence/rdPage.aspx?rdReport=DPH_BRFSS.ExploreByTopic&irbLocationType=StatesAndMMSA&islClass=CLASS14&islTopic=TOPIC09&islYear=2018&rdRnd=56727&fbclid=IwAR3J5CPUIlRHgLIOBsQTVIB6St4oWToKHz90jtAujmhJVmVOENu5-CxTUQA"
+                        property="schema:citation" id="statistics">
+                        <cite property="schema:name">
+                        <a href="https://nccd.cdc.gov/BRFSSPrevalence/rdPage.aspx?rdReport=DPH_BRFSS.ExploreByTopic&irbLocationType=StatesAndMMSA&islClass=CLASS14&islTopic=TOPIC09&islYear=2018&rdRnd=56727&fbclid=IwAR3J5CPUIlRHgLIOBsQTVIB6St4oWToKHz90jtAujmhJVmVOENu5-CxTUQA">BRFSS Prevalence & Trends Data - Topic: BMI Categories</a>
+                        </cite>
+                    </li>
+                    <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://fontawesome.com/" property="schema:citation" id="font-and-icons">
+                        <cite property="schema:name">
+                        <a href="https://fontawesome.com/">Font Awesome</a>
+                        </cite>
+                    </li>
+                    <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://developers.google.com/chart" property="schema:citation" id="some-id">
+                        <cite property="schema:name">
+                        <a href="https://developers.google.com/chart">Google Charts - Interactive charts for browsers and mobile devices.</a>
+                        </cite>
+                    </li>
+                </ul>
+            </section>
+        </article>
+    </main>
+</body>
+
+</html>
