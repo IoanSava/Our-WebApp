@@ -60,10 +60,18 @@
                     </li>
                     <li class="nested"><a href="#Types_of_Users">Tipuri de utilizatori</a></li>
                     <li class="nested"><a href="#Distribution_on_Functional_Modules">Distribuția pe module funcționale</a></li>
+                    <ol class="nested">
+                        <li class="nested"><a href="#BMI">Calculator pentru indicele de masă corporală</a></li>
+                        <li class="nested"><a href="#Administration">Modulul de administrare</a></li>
+                    </ol>
                     <li class="nested"><a href="#Technologies_Used">Tehnologii Utilizate</a>
                         <ol class="nested">
                             <li class="nested"><a href="#Development_Environment">Mediul de dezvoltare</a></li>
                             <li class="nested"><a href="#Libraries_&_External_APIs">Biblioteci și API-uri externe</a></li>
+                            <ol class="nested">
+                                <li class="nested"><a href="#Google_Charts">Google Charts</a></li>
+                                <li class="nested"><a href="#JWT">JSON Web Tokens</a></li>
+                            </ol>
                         </ol>
                     </li>
                     <li class="nested"><a href="#Use-Case_Scenarios">Scenarii Use-Case</a>
@@ -76,6 +84,10 @@
                         <ol class="nested">
                             <li class="nested"><a href="#App_Structure">Structura aplicației</a></li>
                             <li class="nested"><a href="#Database_Structure">Structura bazei de date</a></li>
+                            <ol class="nested">
+                                <li class="nested"><a href="#Database_Schema">Schema bazei de date</a></li>
+                                <li class="nested"><a href="#Database_Schema_Explanations">Explicații pentru schema bazei de date</a></li>
+                            </ol>
                         </ol>
                     </li>
                     <li class="nested"><a href="#User_Guide">Ghid de utilizare</a></li>
@@ -177,6 +189,20 @@
             <hr>-->
             <section role="doc-part">
                 <h2 id="Distribution_on_Functional_Modules">4. Distribuția pe module funcționale</h2>
+                <section>
+                    <h4 id="BMI">4.1. Calculator pentru indicele de masă corporală</h4>
+                    <p>Prin intermediul acestui calculator, utilizatorii își pot calcula indicele de masă corporală în funcție de vârsta, genul, înălțimea și greutatea acestora. În funcție de acești parametrii, calculatorul furnizează valoarea indicelui
+                        precum și interpretarea acestei valori: subponderal, sănătos, supraponderal sau obez.</p>
+                </section>
+                <section>
+                    <h4 id="Administration">4.2. Modulul de administrare</h4>
+                    <p>Modulul de administrare reprezintă modalitatea prin care sunt gestionate resursele aplicației. Singurele resurse ale aplicației sunt înregistrările cu statisticile referitoare la obezitatea populației din SUA și lista cu datele de
+                        autentificare ale administratorilor din baza de date.</p>
+                    <p>Doar administratorii au acces la această componentă de administrare. Modulul poate fi utilizat de un administrator ce s-a autentificat cu succes. Operațiile permise în cadrul modulului sunt: inserarea unei noi statistici, acutalizarea
+                        unei statistici existente, ștergerea unei statistici și inserarea unui nou administrator. Fiecare astfel de cerere trebuie însoțită de un JSON Web Token care să dovedească faptul că utilizatorul este autorizat să realizeze operația
+                        respectivă.
+                    </p>
+                </section>
 
                 <!--De delimitat modulele functionale ale aplicatiei-->
                 <!-- Ciprian: contact, export-->
@@ -192,17 +218,42 @@
                         <h3 id="Development_Environment">5.1. Mediul de dezvoltare</h3>
                         <p>
 
-                            <!--De cazut de acord asupra mediului de dezvoltare: XAMPP + baza de date + Github -->
+                            <div>
+                                Pentru dezvoltarea acestui proiect am folosit pachetul XAMPP, care conține, printre altele:
+                                <ul>
+                                    <li> serverul web Apache; </li>
+                                    <li> interpretorul PHP versiunea 7.4.2; </li>
+                                </ul>
+                                Am luat decizia de a folosi această versiune de PHP pentru realizarea proiectului.
+                                <p>Pentru stocarea şi managementul datelor, am utilizat server-ul de baze de date relaţionale al facultății, interogat via SQL, și anume <a href="https://students.info.uaic.ro/">fenrir</a> . Baza de date utilizată este una
+                                    MySQL.
+                                </p>
+                                <p>În ceea ce privește sistemul de management al codului-sursă, soluția aleasă de noi este Github. Motivația acestei alegeri o reprezintă popularitatea Github-ului precum și multitudinea de interfețe grafice și unelte ce facilitează
+                                    utilizarea sistemului (e.g. GitKraken, Sourcetree).
+                                </p>
+                            </div>
 
                         </p>
                     </section>
                     <section>
                         <h3 id="Libraries_&_External_APIs">5.2. Biblioteci și API-uri externe</h3>
-                        <p>
-
-                            <!--Pentru Ioan si Diana: Daca ati folosit API-uri sau biblioteci, includeti aici: Google Charts, Font Awesome, JWT, PHPUnit-->
-
-                        </p>
+                        <section>
+                            <h4 id="Google_Charts">5.2.1. Google Charts</h4>
+                            <p>Pentru a putea vizualiza statistici referitoare la obezitatea populației într-un mod ușor și interactiv, utilizatorilor le sunt puse la dispoziție o serie de diagrame precum diagrame de coloane, grafice tip linie și hărți.
+                                Prin intermediul acestora, utilizatorii pot realiza comparații între state în ceea ce privește obezitatea și, de asemenea, pot detecta diverse tendințe.</p>
+                            <p>Pentru a genera astfel de diagrame, aplicația folosește unealta <em>Google Charts</em>. Aceasta pune la dispoziție o colecție bogată de diagrame, atât simple cât și complexe, foarte ușor de personalizat. Un alt avantaj al acestor
+                                diagrame îl reprezintă portabilitatea și compatibilitatea între browsere.
+                            </p>
+                        </section>
+                        <section>
+                            <h4 id="JWT">5.2.2. JSON Web Tokens</h4>
+                            <p>Odată autentificat, un administrator poate realiza diverse operații DML asupra bazei de date (poate insera o nouă înregistrare, poate actualiza o înregistrare sau poate șterge o înregistrare). Pentru a asigura faptul că utilizatorul
+                                are autoritatea de a efectua astfel de operații, fiecare cerere este însoțită de un JSON Web Token. Dacă acest token este unul valid, operațiile dorite pot fi efectuate cu succes.
+                            </p>
+                            <p>JSON Web Token (JWT) este un standard deschis (RFC 7519) care definește un mod compact și de sine stătător pentru a transmite în siguranță informații între părți ca obiect JSON. Aceste informații pot fi verificate și de încredere,
+                                deoarece sunt semnate digital. JWT-urile pot fi semnate folosind un secret (cu algoritmul HMAC) sau o pereche de chei publice / private folosind RSA sau ECDSA. Un avantaj al JWT este faptul că are un caracter <em>stateless</em>,
+                                adică server-ul ce autorizează nu trebuie să rețină nicio informație legată de client, token-ul în sine conținând tot ceea ce este necesar. Acest lucru implică faptul că poate fi integrat cu ușurință într-un REST API.</p>
+                        </section>
                     </section>
                 </div>
             </section>
@@ -300,8 +351,6 @@
                         <div>
                             <h4>&emsp;&emsp;&emsp;&emsp;&#10147;Administrator</h4>
 
-                            <!--Pentru Ioan: Diagrama facuta ii una provizorie, raportata la ce ii facut pana acum in modulul pentru administrare. Dupa ce modulul e finalizat, daca consideri ca trebuie aduse modificari (ori chiar si acum), iti pot da share la schema ca sa aduci modificarile necesare, ori imi poti da indicatii si modific eu-->
-
                             <div class="center-image">
                                 <object data="/obis/public/images/doc/admin_usecase.svg" type="image/svg+xml" class="usecase"></object>
                             </div>
@@ -322,8 +371,34 @@
                     <section>
                         <h3 id="Database_Structure">7.2. Structura bazei de date</h3>
 
-                        <!--Pentru Ioan: ar fi bine de pus ca in modelul din arhiva, o diagrama a bazei de date iar sub ea niste explicatii-->
+                        <section>
+                            <h4 id="Database_Schema">7.2.1. Schema bazei de date</h4>
 
+                            <div class="center-image">
+                                <object data="/obis/public/images/doc/database.png" type="image/png" class="database"></object>
+                            </div>
+                        </section>
+                        <section>
+                            <h4 id="Database_Schema_Explanations">7.2.2. Explicații pentru schema bazei de date</h4>
+                            <ul>
+                                <h4>
+                                    <li>Data</li>
+                                </h4>
+                                <p>Tabela <em>data</em> conține date referitoare la obezitatea populației din SUA pentru diverse tipuri de eșantioane și diverși ani. Atributul <em>year</em> precizează anul pentru care este valabilă statistica respectivă.
+                                    Atributul <em>state</em> stabilește statul căruia îi este asociată statistica. Atributele <em>break_out</em> și <em>break_out_category</em> delimitează eșantionul pentru statistica corespunzătoare. Atributul <em>data_value</em>                                    semnifică procentul populației obeze din eșantionul testat.
+                                </p>
+                                <p>Această tabelă a fost populată pe baza informațiilor colectate și oferite de <a href="https://www.cdc.gov/brfss/annual_data/annual_data.htm">BRFSS</a>. Diagramele din cadrul aplicației sunt construite pornind de la această
+                                    tabelă.
+                                </p>
+
+                                <h4>
+                                    <li>Users</li>
+                                </h4>
+                                <p>Tabela <em>users</em> păstrează datele de autentificare ale administratorilor. Atributul <em>email</em> este unic (nu pot exista doi administratori cu același email), întrucât autentificarea administratorilor necesită atât
+                                    introducerea email-ului cât și a parolei (care poate fi aceeași pentru doi utilizatori diferiți). Atributul <em>password</em> stochează în mod criptat parola administratorului corespunzător. </p>
+                            </ul>
+
+                        </section>
                     </section>
                 </div>
             </section>
@@ -371,18 +446,45 @@
                         <span typeof="schema:Person">
                             <meta property="schema:givenName" content="Ioan">
                             <meta property="schema:familyName" content="Sava">
-                            <span property="schema:name">Sava Ioan</span>
+                            <h3><span property="schema:name">Sava Ioan</span></h3>
                         </span>
                         <ul>
-                            <li></li>
+                            <h4>Interfaţa şi interacţiunea cu utilizatorul</h4>
+                            <li>Pagina <strong>HOME</strong> ce conține legăturile spre diverse secțiuni din aplicație</li>
+                            <li>Pagina <strong>BODY MASS INDEX</strong> ce conține un calculator pe care utilizatorii aplicației îl pot folosi pentru a-și calcula indicele de masă corporală</li>
+                            <li>Pagina <strong>404 NOT FOUND</strong></li>
+                            <li>Paginile cu diagrame</li>
+                            <li>Pagina de <strong>LOGIN</strong></li>
+                            <li>Interfața modulului de administrare</li>
+                            <li>Meniul</li>
                         </ul>
+
+                        <ul>
+                            <h4>Arhitectura aplicaţiei Web şi soluţia completă</h4>
+                            <li>Arhitectura generală a backend-ului (structura MVC)</li>
+                            <li>Construirea bazei de date prin preluarea datelor de pe <a href="https://www.cdc.gov/brfss/annual_data/annual_data.htm">BRFSS</a> și crearea clasei singleton</li>
+                            <li>Implementare Column Chart (model, controller, actualizare asincronă prin <strong>AJAX</strong>)</li>
+                            <li>Export Column Chart în cele trei formate specificate (CSV, SVG, WEBP)</li>
+                            <li>Autentificarea pe bază de <a href="https://jwt.io/">JSON Web Tokens</a> pentru modulul de administrare</li>
+                            <li>Inserarea unui nou administrator și inserarea unei noi statistici în baza de date - funcționalități pentru modulul de administrare</li>
+                            <li>Configurare <a href="https://phpunit.de/index.html">PHPUnit</a> - framework pentru Unit Testing</li>
+                            <li>Unit Testing pentru pop-up-uri</li>
+                        </ul>
+
+                        <ul>
+                            <h4>Documentație</h4>
+                            <li>Distribuția pe module funcționale - calculatorul pentru indicele de masă corporală și modulul de administrare</li>
+                            <li>Mediul de dezvoltare</li>
+                            <li>API-uri și biblioteci externe - JWT și Google Charts</li>
+                            <li>Structura bazei de date</li>
+                            <li>Scenarii Use-Case pentru pagina de statistici</li>
                     </section>
                     <section>
                         <span typeof="schema:Person">
                             <meta property="schema:givenName" content="Diana">
                             <meta property="schema:additionalName" content="Isabela">
                             <meta property="schema:familyName" content="Crainic">
-                            <span property="schema:name">Crainic Diana - Isabela</span>
+                            <h3><span property="schema:name">Crainic Diana - Isabela</span></h3>
                         </span>
                         <ul>
                             <li></li>
@@ -392,7 +494,7 @@
                         <span typeof="schema:Person">
                             <meta property="schema:givenName" content="Ciprian">
                             <meta property="schema:familyName" content="Daniș">
-                            <span property="schema:name">Daniș Ciprian</span>
+                            <h3><span property="schema:name">Daniș Ciprian</span></h3>
                         </span>
                         <ul>
                             <li></li>
@@ -442,6 +544,16 @@
                     <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://developers.google.com/chart" property="schema:citation" id="some-id">
                         <cite property="schema:name">
                         <a href="https://developers.google.com/chart">Google Charts - Interactive charts for browsers and mobile devices.</a>
+                        </cite>
+                    </li>
+                    <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://jwt.io/" property="schema:citation" id="some-id">
+                        <cite property="schema:name">
+                        <a href="https://jwt.io/">JSON Web Tokens</a>
+                        </cite>
+                    </li>
+                    <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://phpunit.de/index.html" property="schema:citation" id="some-id">
+                        <cite property="schema:name">
+                        <a href="https://phpunit.de/index.html">PHPUnit</a>
                         </cite>
                     </li>
                 </ul>
