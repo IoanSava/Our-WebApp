@@ -63,6 +63,8 @@
                     <ol class="nested">
                         <li class="nested"><a href="#BMI">Calculator pentru indicele de masă corporală</a></li>
                         <li class="nested"><a href="#Administration">Modulul de administrare</a></li>
+                        <li class="nested"><a href="#Diets">Diete</a></li>
+                        <li class="nested"><a href="#Statistics">Statistici</a></li>
                     </ol>
                     <li class="nested"><a href="#Technologies_Used">Tehnologii Utilizate</a>
                         <ol class="nested">
@@ -71,6 +73,7 @@
                             <ol class="nested">
                                 <li class="nested"><a href="#Google_Charts">Google Charts</a></li>
                                 <li class="nested"><a href="#JWT">JSON Web Tokens</a></li>
+                              <li class="nested"><a href="#PHPUnit">PHPUnit</a></li>
                             </ol>
                         </ol>
                     </li>
@@ -158,35 +161,6 @@
                 </div>
             </section>
             <hr>
-
-            <!--Am considerat ca ne putem referi in alta maniera de partea de design. Daca considerati ca poate fi folosit ce am scris, decomentati codul.
-                
-                <section role="doc-part">
-                <h2 id="Structure&Design">4. Structură &amp; Design</h2>
-                <div>
-                    <section>
-                        <h3 id="Structure">4.1. Structură</h3>
-                        <p>
-                            Pentru partea de arhitectură a aplicaţiei Web.
-                        </p>
-                    </section>
-                    <section>
-                        <h3 id="Design">4.2. Design</h3>
-                        <p>
-                            &emsp;&emsp;Ca design, Obis pune la dispoziție, din punct de vedere a interfeței cu utilizatorul, 8 pagini Web, fiecare având un anume scop. Mai exact:
-                            <ul>
-                                <li><strong>about.html</strong> - oferă o vedere de ansamblu asupra tematicii tratate de Obis;</li>
-                                <li><strong>index.html</strong> - servește drept pagină de start, oferind scurtături către restul conținutului oferit de aplicație;</li>
-                                <li><strong>diets.html</strong> - pune la dispoziția utilizatorilor diverse sfaturi și diete pe care aceștia le pot eventual evalua;</li>
-                                <li><strong>bmi.html</strong> - pune la dispoziția utilizatorilor un calculator pentru indexul de masă corporală care, pe baza rezultatelor, poate trage concluzia dacă o persoană este sau nu sănătoasă;</li>
-                                <li><strong>contact.html</strong> - oferă utilizatorului un form pe care îl poate completa (dacă dorește) în vederea primirii unui răspuns la o eventuală nelămurire sau întrebare;</li>
-                                <li><strong>statistics.html</strong> - pagina principală a secțiunii de statistici, din care se poate ajunge în paginile cu statistici pentru bărbați, respectiv pentru femei;</li>
-                            </ul>
-                        </p>
-                    </section>
-                </div>
-            </section>
-            <hr>-->
             <section role="doc-part">
                 <h2 id="Distribution_on_Functional_Modules">4. Distribuția pe module funcționale</h2>
                 <section>
@@ -203,12 +177,14 @@
                         respectivă.
                     </p>
                 </section>
-
-                <!--De delimitat modulele functionale ale aplicatiei-->
-                <!-- Ciprian: contact, export-->
-                <!-- Diana: diete, statistici-->
-                <!-- Ioan: administrare, bmi-->
-
+                <section>
+                    <h4 id="Diets">4.3. Diete</h4>
+                    <!-- TODO -->
+                </section>
+                <section>
+                    <h4 id="Statistics">4.4. Statistici</h4>
+                    <!-- TODO -->
+                </section>
             </section>
             <hr>
             <section role="doc-part">
@@ -237,7 +213,7 @@
                     </section>
                     <section>
                         <h3 id="Libraries_&_External_APIs">5.2. Biblioteci și API-uri externe</h3>
-                        <section>
+                       <section>
                             <h4 id="Google_Charts">5.2.1. Google Charts</h4>
                             <p>Pentru a putea vizualiza statistici referitoare la obezitatea populației într-un mod ușor și interactiv, utilizatorilor le sunt puse la dispoziție o serie de diagrame precum diagrame de coloane, grafice tip linie și hărți.
                                 Prin intermediul acestora, utilizatorii pot realiza comparații între state în ceea ce privește obezitatea și, de asemenea, pot detecta diverse tendințe.</p>
@@ -253,6 +229,10 @@
                             <p>JSON Web Token (JWT) este un standard deschis (RFC 7519) care definește un mod compact și de sine stătător pentru a transmite în siguranță informații între părți ca obiect JSON. Aceste informații pot fi verificate și de încredere,
                                 deoarece sunt semnate digital. JWT-urile pot fi semnate folosind un secret (cu algoritmul HMAC) sau o pereche de chei publice / private folosind RSA sau ECDSA. Un avantaj al JWT este faptul că are un caracter <em>stateless</em>,
                                 adică server-ul ce autorizează nu trebuie să rețină nicio informație legată de client, token-ul în sine conținând tot ceea ce este necesar. Acest lucru implică faptul că poate fi integrat cu ușurință într-un REST API.</p>
+                        </section>
+                        <section>
+                            <h4 id="PHPUnit">5.2.3. PHPUnit</h4>
+                            <!-- TODO -->
                         </section>
                     </section>
                 </div>
@@ -408,6 +388,31 @@
 
                 <!--Pentru Diana: Aici ma gandeam in felul urmator: 2 subsectiuni, una pentru browser, respectiv una pentru invocarile de servicii REST 
                     (partea cu chart-urile). La partea cu invocarile, eventual putem pune un link catre documentatia openapi ori cumva incarca documentatia in pagina-->
+
+                <p>
+                    &emsp;&emsp;Ca design, Obis pune la dispoziție, din punct de vedere al interfeței cu utilizatorul, 15 pagini Web, fiecare având un anume scop. Mai exact:
+                    <ul>
+                        <li><strong>index.html</strong> - servește drept pagină de start, oferind scurtături către restul conținutului pus la dispoziție de aplicație;</li>
+                        <li><strong>about.html</strong> - oferă o vedere de ansamblu asupra tematicii tratate de Obis;</li>
+                        <li><strong>statistics.html</strong> - pagina principală a secțiunii de statistici, din care se poate ajunge în paginile cu statistici pentru graficele de tip LineChart, ColumnChart respectiv GeoChart;</li>
+                        <li><strong>line_chart.php</strong> - pune la dispoziția utilizatorului reprezentarea datelor referitoare la ponderea obezității sub forma unui LineChart, putând realiza comparații între diverse state prin selectarea acestora, dar
+                            și exportul graficului în diverse formate;</li>
+                        <li><strong>column_chart.php</strong> - pune la dispoziția utilizatorului reprezentarea datelor referitoare la ponderea obezității sub forma unui ColumnChart, putând vizualiza în detaliul distribuția procentelor pe ani pentru statul
+                            selectat, precum și realizarea unui export într-un format dorit;</li>
+                        <li><strong>geochart.php</strong> - pune la dispoziția utilizatorului reprezentarea datelor referitoare la ponderea obezității sub forma unui GeoChart, putând vizualiza procentele pentru fiecare stat în parte sub forma unei hărți prin
+                            selectarea genului si anului dorit, precum și realizarea exportului în formatul dorit;</li>
+                        <li><strong>bmi.html</strong> - pune la dispoziția utilizatorului un calculator pentru indexul de masă corporală care, pe baza rezultatelor, poate trage concluzia dacă o persoană este sau nu sănătoasă;</li>
+                        <li><strong>diets.html</strong> - pune la dispoziția utilizatorului diverse sfaturi și diete pe care aceștia le pot, eventual, evalua;</li>
+                        <li><strong>contact.html</strong> - oferă utilizatorului un form pe care îl poate completa (dacă dorește) în vederea primirii unui răspuns la o eventuală nelămurire sau întrebare;</li>
+                        <li><strong>contact_succes.php</strong> - oferă utilizatorului un mesaj prin care îl informează că trimiterea form-ului a fost realizată cu succes, precum și faptul că va fi contactat în cel mai scurt timp;</li>
+                        <li><strong>contact_failure.php</strong> - oferă utilizatorului un mesaj prin care îl informează că în momentul trimiterii form-ului a apărut o eroare, astfel el va putea reveni pe pagina anterioară;</li>
+                        <li><strong>login.html</strong> - oferă posibilitatea unui administrator de a se autentifica pentru ca, mai apoi, să realizeze operații asupra bazei de date;</li>
+                        <li><strong>administration.html</strong> - oferă posibilitatea administratorului care este autentificat să realizeze operații asupra bazei de date, precum inserarea unui nou administrator, inserarea, actualizarea, respectiv ștergerea
+                            unei linii din baza de date asociată unui stat, pentru un anumit gen, an și valoare;</li>
+                        <li><strong>404.html</strong> - servește drept pagină înlocuitoare în cazul în care va apărea vreo eroare;</li>
+                        <li><strong>documentation.html</strong> - pagina care conține documentația proiectului nostru.</li>
+                    </ul>
+                </p>
 
             </section>
             <hr>
