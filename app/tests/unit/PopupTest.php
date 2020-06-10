@@ -2,7 +2,7 @@
 
 require_once '../tests/../app/models/Popup.php';
 
-final class PopupTest extends \PHPUnit_Framework_TestCase
+final class PopupTest extends \PHPUnit\Framework\TestCase
 {
     public function test50States()
     {

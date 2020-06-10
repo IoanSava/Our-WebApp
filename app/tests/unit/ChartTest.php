@@ -1,10 +1,8 @@
 <?php
 
-use phpDocumentor\Reflection\Types\Array_;
-
 require_once '../tests/../app/models/Chart.php';
 
-final class ChartTest extends \PHPUnit_Framework_TestCase
+final class ChartTest extends \PHPUnit\Framework\TestCase
 {
     public function test1GetDataByGenderAndState()
     {
@@ -54,5 +52,4 @@ final class ChartTest extends \PHPUnit_Framework_TestCase
 
         return $method->invokeArgs($object, $parameters);
     }
-
 }
