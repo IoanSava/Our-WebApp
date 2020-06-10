@@ -2,7 +2,7 @@
 
 require_once '../tests/../app/models/User.php';
 
-final class UserTest extends \PHPUnit_Framework_TestCase
+final class UserTest extends \PHPUnit\Framework\TestCase
 {
     public function test1GetUserByEmail()
     {

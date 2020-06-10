@@ -1,9 +1,9 @@
-<?php
+<!-- <?php
 
 require_once '../tests/../app/core/Controller.php';
 require_once '../tests/../app/controllers/getChartData.php';
 
-final class GetChartDataTest extends \PHPUnit_Framework_TestCase
+final class GetChartDataTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testIndexMissingChartType()

@@ -3,7 +3,7 @@
 require_once '../tests/../app/core/Controller.php';
 require_once '../tests/../app/controllers/LineChartController.php';
 
-final class LineChartTest extends \PHPUnit_Framework_TestCase
+final class LineChartTest extends \PHPUnit\Framework\TestCase
 {
     public function testCheckGenderFemale()
     {
