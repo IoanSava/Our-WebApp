@@ -63,6 +63,8 @@
                     <ol class="nested">
                         <li class="nested"><a href="#BMI">Calculator pentru indicele de masă corporală</a></li>
                         <li class="nested"><a href="#Administration">Modulul de administrare</a></li>
+                        <li class="nested"><a href="#Diets">Diete</a></li>
+                        <li class="nested"><a href="#Statistics">Statistici</a></li>
                     </ol>
                     <li class="nested"><a href="#Technologies_Used">Tehnologii Utilizate</a>
                         <ol class="nested">
@@ -71,6 +73,7 @@
                             <ol class="nested">
                                 <li class="nested"><a href="#Google_Charts">Google Charts</a></li>
                                 <li class="nested"><a href="#JWT">JSON Web Tokens</a></li>
+                                <li class="nested"><a href="#PHPUnit">PHPUnit</a></li>
                             </ol>
                         </ol>
                     </li>
@@ -158,35 +161,6 @@
                 </div>
             </section>
             <hr>
-
-            <!--Am considerat ca ne putem referi in alta maniera de partea de design. Daca considerati ca poate fi folosit ce am scris, decomentati codul.
-                
-                <section role="doc-part">
-                <h2 id="Structure&Design">4. Structură &amp; Design</h2>
-                <div>
-                    <section>
-                        <h3 id="Structure">4.1. Structură</h3>
-                        <p>
-                            Pentru partea de arhitectură a aplicaţiei Web.
-                        </p>
-                    </section>
-                    <section>
-                        <h3 id="Design">4.2. Design</h3>
-                        <p>
-                            &emsp;&emsp;Ca design, Obis pune la dispoziție, din punct de vedere a interfeței cu utilizatorul, 8 pagini Web, fiecare având un anume scop. Mai exact:
-                            <ul>
-                                <li><strong>about.html</strong> - oferă o vedere de ansamblu asupra tematicii tratate de Obis;</li>
-                                <li><strong>index.html</strong> - servește drept pagină de start, oferind scurtături către restul conținutului oferit de aplicație;</li>
-                                <li><strong>diets.html</strong> - pune la dispoziția utilizatorilor diverse sfaturi și diete pe care aceștia le pot eventual evalua;</li>
-                                <li><strong>bmi.html</strong> - pune la dispoziția utilizatorilor un calculator pentru indexul de masă corporală care, pe baza rezultatelor, poate trage concluzia dacă o persoană este sau nu sănătoasă;</li>
-                                <li><strong>contact.html</strong> - oferă utilizatorului un form pe care îl poate completa (dacă dorește) în vederea primirii unui răspuns la o eventuală nelămurire sau întrebare;</li>
-                                <li><strong>statistics.html</strong> - pagina principală a secțiunii de statistici, din care se poate ajunge în paginile cu statistici pentru bărbați, respectiv pentru femei;</li>
-                            </ul>
-                        </p>
-                    </section>
-                </div>
-            </section>
-            <hr>-->
             <section role="doc-part">
                 <h2 id="Distribution_on_Functional_Modules">4. Distribuția pe module funcționale</h2>
                 <section>
@@ -203,12 +177,23 @@
                         respectivă.
                     </p>
                 </section>
-
-                <!--De delimitat modulele functionale ale aplicatiei-->
-                <!-- Ciprian: contact, export-->
-                <!-- Diana: diete, statistici-->
-                <!-- Ioan: administrare, bmi-->
-
+                <section>
+                    <h4 id="Diets">4.3. Diete</h4>
+                    <p>Pagina de diete reprezintă o modalitate prin care utilizatorii se pot informa cu privire la diverse regimuri alimentare. Astfel, prin intermediul acestora, pot îmbunătăți starea actuală de sănătate, respectiv pot păstra sau atinge
+                        o anumită greutate corporală. Fiecare dietă este descrisă pe scurt, conține un verdict pentru eficiența acesteia în lupta cu pierderea în greutate, alte benificii care vin la pachet cu acest regim alimentar, dar și câteva părți
+                        negative care pot să apară în urma adoptării acestei diete.
+                    </p>
+                    <p>Tot în cadrul acestei pagini, se poate acorda câte un rating corespunzător fiecărei diete în funcție de părerea utilizatorului. Această evaluare este realizată prin intermediul unor steluțe, acordând câte un calificativ de la "The
+                        worst! Would not recommend!" până la "Definitely worth trying!".</p>
+                </section>
+                <section>
+                    <h4 id="Statistics">4.4. Statistici</h4>
+                    <p>Prin intermediul acestei pagini, utilizatorii pot vizualiza statisticile raportate pentru Statele Unite ale Americii cu privire la ponderea obezității. Aceste statistici pot fi vizualizate în 3 maniere, sub forma unor grafice: Line
+                        Chart, Column Chart, respectiv Geo Chart. Astfel, în cadrul paginii principale de statistici, se poate selecta tipul de diagramă pe care dorește să o vizualizeze utilizatorul și va fi redirecționat spre pagina corespunzătoare.</p>
+                    <p>În cazul în care pagina aleasă este Line Chart, poate vizualiza diagrama în funcție de genul și de lista de state selectate (maxim patru). În cazul în care pagina aleasă este Column Chart, poate vizualiza diagrama în funcție de genul
+                        și de statul selectat. În cazul în care pagina aleasă este Geo Chart, poate vizualiza diagrama în funcție de genul și de anul selectat.</p>
+                    <p>Fiecare diagramă va putea fi exportată în diverse formate, la alegerea utilizatorului: WebP, CSV și SVG.</p>
+                </section>
             </section>
             <hr>
             <section role="doc-part">
@@ -239,7 +224,7 @@
                         <h3 id="Libraries_&_External_APIs">5.2. Biblioteci și API-uri externe</h3>
                         <section>
                             <h4 id="Google_Charts">5.2.1. Google Charts</h4>
-                            <p>Pentru a putea vizualiza statistici referitoare la obezitatea populației într-un mod ușor și interactiv, utilizatorilor le sunt puse la dispoziție o serie de diagrame precum diagrame de coloane, grafice tip linie și hărți.
+                            <p>Pentru a putea vizualiza statistici referitoare la obezitatea populației într-un mod ușor și interactiv, utilizatorilor le este pusă la dispoziție o serie de diagrame precum diagrame de coloane, grafice tip linie și hărți.
                                 Prin intermediul acestora, utilizatorii pot realiza comparații între state în ceea ce privește obezitatea și, de asemenea, pot detecta diverse tendințe.</p>
                             <p>Pentru a genera astfel de diagrame, aplicația folosește unealta <em>Google Charts</em>. Aceasta pune la dispoziție o colecție bogată de diagrame, atât simple cât și complexe, foarte ușor de personalizat. Un alt avantaj al acestor
                                 diagrame îl reprezintă portabilitatea și compatibilitatea între browsere.
@@ -253,6 +238,14 @@
                             <p>JSON Web Token (JWT) este un standard deschis (RFC 7519) care definește un mod compact și de sine stătător pentru a transmite în siguranță informații între părți ca obiect JSON. Aceste informații pot fi verificate și de încredere,
                                 deoarece sunt semnate digital. JWT-urile pot fi semnate folosind un secret (cu algoritmul HMAC) sau o pereche de chei publice / private folosind RSA sau ECDSA. Un avantaj al JWT este faptul că are un caracter <em>stateless</em>,
                                 adică server-ul ce autorizează nu trebuie să rețină nicio informație legată de client, token-ul în sine conținând tot ceea ce este necesar. Acest lucru implică faptul că poate fi integrat cu ușurință într-un REST API.</p>
+                        </section>
+                        <section>
+                            <h4 id="PHPUnit">5.2.3. PHPUnit</h4>
+                            <p>Pentru realzarea testelor, am folosit cadrul de testare unitar PHPUnit. Acesta utilizează parametri stricți pentru a determina dacă unitățile individuale de cod nu conțin bug-uri și dacă sunt pregătite pentru implementare.
+                                Prin izolarea și testarea unităților individuale, se poate asigura o stabilitate mai mare a aplicațiilor și se pot evita erorile de regresie. Cu ajutorul Composer, managerul de pachete la nivel de aplicație pentru limbajul
+                                PHP, am instalat și folosit PHPUnit.</p>
+                            <p>În momentul scrierii testelor, am urmărit să testăm funcțiile esențiale ale aplicației. Funcțiile de test au câte un nume descriptiv, precum și clasele din care fac parte. Modalitatea prin care am testat codul a fost realizată
+                                prin intermediul aserțiunilor de tip "assertSame()". </p>
                         </section>
                     </section>
                 </div>
@@ -444,6 +437,44 @@
                 <div>
                     <section>
                         <span typeof="schema:Person">
+                            <meta property="schema:givenName" content="Diana">
+                            <meta property="schema:additionalName" content="Isabela">
+                            <meta property="schema:familyName" content="Crainic">
+                            <h3><span property="schema:name">Crainic Diana - Isabela</span></h3>
+                        </span>
+                        <ul>
+                            <h4>Interfaţa şi interacţiunea cu utilizatorul</h4>
+                            <li>Pagina <strong>ABOUT</strong> oferă o vedere de ansamblu asupra tematicii tratate de Obis</li>
+                            <li>Pagina <strong>DIETS</strong> ce conține informații despre diverse diete</li>
+                            <li>Pagina <strong>STATISTICS</strong>, pagina principală a secțiunii de statistici, din care se poate ajunge în paginile cu statistici pentru graficele de tip LineChart, ColumnChart respectiv GeoChart</li>
+                            <li>Design-ul, inserarea și potrivirea imaginilor în pagini</li>
+                            <li>Footer - informațiile din subsolul paginilor</li>
+                            <li>Realizarea logo-ului aplicației (poziționat in colțul din dreapta sus)</li>
+                            <li>Realizarea pop-urilor din paginile cu garfice (pop-up pentru export, pentru selectarea genului/statului)</li>
+                            <li>Interfața modulului de administrare</li>
+                        </ul>
+
+                        <ul>
+                            <h4>Arhitectura aplicaţiei Web şi soluţia completă</h4>
+                            <li>Implementare Line Chart (model, controller, actualizare asincronă prin <strong>AJAX</strong>)</li>
+                            <li>Export Line Chart în cele trei formate specificate (CSV, SVG, WEBP)</li>
+                            <li>Actualizarea și ștergerea unei linii din baza de date asociată unui stat, pentru un anumit gen, an și valoare în baza de date - funcționalități pentru modulul de administrare</li>
+                            <li>Unit Testing pentru modulul de administrare - verificarea existenței unui utilizator în baza de date</li>
+                            <li>Unit Testing pentru grafice - verificarea furnizării corecte a datelor în funcție de diverși parametri specificați</li>
+                            <li>Unit Testing pentru graficul Line Chart, precum și exportul graficului în fomatele CSV, SVG, WEBP </li>
+                        </ul>
+
+                        <ul>
+                            <h4>Documentație</h4>
+                            <li>Distribuția pe module funcționale - pagina de diete și pagina cu statistici</li>
+                            <li>API-uri și biblioteci externe - PHPUnit</li>
+                            <li>Ghidul de utilizare</li>
+                            <li>Scenarii Use-Case pentru pagina de diete și pentru modulul de administrare (inserarea unui nou administrator, efectuarea de operații asupra bazei de date)</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <span typeof="schema:Person">
                             <meta property="schema:givenName" content="Ioan">
                             <meta property="schema:familyName" content="Sava">
                             <h3><span property="schema:name">Sava Ioan</span></h3>
@@ -478,16 +509,6 @@
                             <li>API-uri și biblioteci externe - JWT și Google Charts</li>
                             <li>Structura bazei de date</li>
                             <li>Scenarii Use-Case pentru pagina de statistici</li>
-                    </section>
-                    <section>
-                        <span typeof="schema:Person">
-                            <meta property="schema:givenName" content="Diana">
-                            <meta property="schema:additionalName" content="Isabela">
-                            <meta property="schema:familyName" content="Crainic">
-                            <h3><span property="schema:name">Crainic Diana - Isabela</span></h3>
-                        </span>
-                        <ul>
-                            <li></li>
                         </ul>
                     </section>
                     <section>

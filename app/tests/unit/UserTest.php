@@ -19,7 +19,6 @@ final class UserTest extends \PHPUnit_Framework_TestCase
     }
 
     /* creates an user and verify if it was successfully done*/
-    
     /*public function test1CreateUser()
     {
         $user = new User();
@@ -27,11 +26,5 @@ final class UserTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(0, $result);
     }
 
-    public function test2CreateUser()
-    {
-        $user = new User();
-        $result = $user->createUser("", "", "");
-        $this->assertSame(0, $result);
-    }
     */
 }
