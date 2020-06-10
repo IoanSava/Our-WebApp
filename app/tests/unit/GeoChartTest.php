@@ -3,7 +3,7 @@
 require_once '../tests/../app/core/Controller.php';
 require_once '../tests/../app/controllers/GeoChartController.php';
 
-final class GeoChartTest extends \PHPUnit_Framework_TestCase
+final class GeoChartTest extends \PHPUnit\Framework\TestCase
 {
     public function testCheckGenderFemale()
     {

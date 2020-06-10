@@ -2,7 +2,7 @@
 
 require_once '../tests/../app/models/FormManager.php';
 
-final class FormManagerTest extends \PHPUnit_Framework_TestCase
+final class FormManagerTest extends \PHPUnit\Framework\TestCase
 {
     public function testSendMailWithInfoEmptyField(){
         $formManager = new FormManager();
