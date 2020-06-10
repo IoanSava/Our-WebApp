@@ -17,7 +17,7 @@ class FormManager
             case 0:
                 $email_from = trim($data['email']);
                 $email_subject = "Message from User";
-                $email_body = "Ms./Mrs./Mr." . trim($data['name']) . " has sent the following message: '" . trim($data['msg']) . "'.\r\n"
+                $email_body = "Ms./Mrs./Mr. " . trim($data['name']) . " has sent the following message: '" . trim($data['msg']) . "'.\r\n"
                     . "Their contact info is:\r\n\tPhone number: " . trim($data['phone']) . ";\r\n\tEmail: {$email_from}.\r\n";
                 $to = "cdc_bmi@murika.com";
                 $headers = "From: {$email_from} \r\n" . "Reply-To: {$email_from} \r\n" . 'X-Mailer: PHP/' . phpversion();
