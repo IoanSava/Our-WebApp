@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 require_once '../tests/../app/core/Controller.php';
 require_once '../tests/../app/controllers/getChartData.php';
