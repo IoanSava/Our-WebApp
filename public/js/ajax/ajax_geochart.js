@@ -9,9 +9,8 @@ function loadData(gender, year) {
     var data = new FormData();
     data.append('gender', gender);
     data.append('year', year);
-    data.append('chart_type', "geo");
 
-    var url = '/obis/public/getChartData';
+    var url = '/obis/public/GeoChartController/getData';
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function() {
