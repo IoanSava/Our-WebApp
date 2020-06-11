@@ -90,6 +90,10 @@
                             <ol class="nested">
                                 <li class="nested"><a href="#Database_Schema">Schema bazei de date</a></li>
                                 <li class="nested"><a href="#Database_Schema_Explanations">Explicații pentru schema bazei de date</a></li>
+                                <ol>
+                                    <li class="nested"><a href="#Overview">Overview</a></li>
+                                    <li class="nested"><a href="#MVC">Model-View-Controller</a></li>
+                                </ol>
                             </ol>
                         </ol>
                     </li>
@@ -416,6 +420,23 @@
                         </section>
                         <section>
                             <h4 id="Database_Schema_Explanations">7.1.2. Explicații pentru diagrama de arhitectură</h4>
+                            <section>
+                                <h4 id="Overview">7.1.2.1 Overview</h4>
+                                <p>In prima diagramă UML (overview) se poate observa la nivel înalt modul de funcționare al aplicației. Aceasta este dezvoltată pe baza modelului arhitectural model-view-controller.</p>
+                                <p>Controller-ul se ocupă cu funcționalitatea logică a aplicației. Dacă controller-ul dorește să obțină sau să modifice datele salvate in aplicație, acest lucru se va realiza prin intermediul model-ului corespunzător. Modelul
+                                    are acces asupra bazei de date a aplicației iar în cadrul acestuia se vor efectua operații CRUD (create, read, update, delete).</p>
+                                <p>View-ul este componenta care primește datele ce urmează a fi expuse din partea unui controller și le afișează conform structurii proprii.</p>
+                                <p>Dispatcher-ul (clasa App) are rolul de a ruta cererile către controller-ul corect, precum și către metoda corespunzătoare. Un URL va fi interpretat de către dispatcher astfel:</p>
+                                <h3><span class="red-span">http://localhost/obis/public</span>/<span class="blue-span">ColumnChartController</span>/<span class="green-span">getData</span>
+                                </h3>
+                                <p>Unde <span class="red-span">http://localhost/obis/public</span> este domeniul, <span class="blue-span">ColumnChartController</span> este controller-ul iar <span class="green-span">getData</span> este metoda apelată de către
+                                    controller.
+                                </p>
+                            </section>
+                            <section>
+                                <h4 id="MVC">7.1.2.2 Model-View-Controller</h4>
+                                <p>În a doua diagramă este reprezentat în mod detaliat modul de organizare al tuturor claselor de tip Controller și de tip Model precum și relațiile care există între acestea.</p>
+                            </section>
                         </section>
                     </section>
                     <section>
@@ -479,6 +500,7 @@
                         <li><strong>404.html</strong> - servește drept pagină înlocuitoare în cazul în care va apărea vreo eroare;</li>
                         <li><strong>documentation.html</strong> - pagina care conține documentația proiectului nostru.</li>
                     </ul>
+                    <h3><a href="https://app.swaggerhub.com/apis/IoanSava/Obis-REST-API-v1/1.0.0#/">OPENAPI documentation</a></h3>
                 </p>
 
             </section>
@@ -522,10 +544,12 @@
                             <li>Distribuția pe module funcționale - calculatorul pentru indicele de masă corporală și modulul de administrare</li>
                             <li>Mediul de dezvoltare</li>
                             <li>API-uri și biblioteci externe - JWT și Google Charts</li>
+                            <li>Explicații referitoare la arhitectura aplicației</li>
                             <li>Structura bazei de date</li>
                             <li>Scenarii Use-Case pentru pagina de statistici și diagrama Use-Case pentru administrator</li>
                             <li>Structura aplicației (diagramele UML)</li>
                             <li>Filmul demonstrativ al aplicației</li>
+                            <li>OPENAPI</li>
                         </ul>
                     </section>
                     <section>
@@ -563,7 +587,9 @@
                             <li>API-uri și biblioteci externe - PHPUnit</li>
                             <li>Ghidul de utilizare</li>
                             <li>Scenarii Use-Case pentru pagina de diete și pentru modulul de administrare (inserarea unui nou administrator, efectuarea de operații asupra bazei de date)</li>
+                            <li>Diagramele Use-Case pentru utilizatorul obișnuit/nelogat</li>
                             <li>Structura aplicației (diagramele UML)</li>
+                            <li>OPENAPI</li>
                         </ul>
                     </section>
                     <section>
@@ -605,6 +631,7 @@
                             <li>API-uri și biblioteci externe - Font Awesome</li>
                             <li>Scenarii Use-Case pentru pagina de contact și pentru calculatorul indicelui de masă corporal și diagramele Use-Case pentru utilizatorul obișnuit/nelogat</li>
                             <li>Structura aplicației (diagramele UML)</li>
+                            <li>OPENAPI</li>
                         </ul>
                     </section>
                 </div>
@@ -659,6 +686,48 @@
                         <cite property="schema:name">
                         <a href="https://phpunit.de/index.html">PHPUnit</a>
                         </cite>
+                    </li>
+                    <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://swagger.io/resources/open-api/" property="schema:citation" id="some-id">
+                        <cite property="schema:name">
+                        <a href="https://swagger.io/resources/open-api/">OpenAPI Specification</a>
+                        </cite>
+                    </li>
+                    <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://www.healthline.com/nutrition/best-diet-plans" property="schema:citation" id="some-id">
+                        <cite property="schema:name">
+                        <a href="https://www.healthline.com/nutrition/best-diet-plans">Diet Text</a>
+                        </cite>
+                    </li>
+                    <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://knoema.com/atlas/Romania/Female-obesity-prevalence" property="schema:citation" id="some-id">
+                        <cite property="schema:name">
+                        <a href="https://knoema.com/atlas/Romania/Female-obesity-prevalence">About Text</a>
+                        </cite>
+                    </li>
+                    <li>
+                        <section>
+                            Images
+                            <ul>
+                                <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://www.pexels.com/photo-license/" property="schema:citation" id="some-id">
+                                    <cite property="schema:name">
+                                    <a href="https://www.pexels.com/photo-license/">Background images for HOME, ABOUT, STATISTICS, BMI, DIETS pages </a>
+                                    </cite>
+                                </li>
+                                <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://unsplash.com/" property="schema:citation" id="some-id">
+                                    <cite property="schema:name">
+                                    <a href="https://unsplash.com/">Images for CONTACT page </a>
+                                    </cite>
+                                </li>
+                                <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://www.flaticon.com" property="schema:citation" id="some-id">
+                                    <cite property="schema:name">
+                                    <a href="https://www.flaticon.com">Footer Icons</a>
+                                    </cite>
+                                </li>
+                                <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://icons8.com/icons" property="schema:citation" id="some-id">
+                                    <cite property="schema:name">
+                                    <a href="https://icons8.com/icons">Export Icons</a>
+                                    </cite>
+                                </li>
+                            </ul>
+                        </section>
                     </li>
                 </ul>
             </section>

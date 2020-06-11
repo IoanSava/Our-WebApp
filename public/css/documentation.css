@@ -84,3 +84,15 @@ hr:after {
     margin: auto;
     padding-bottom: 1em;
 }
+
+.red-span {
+    color: red;
+}
+
+.blue-span {
+    color: blue;
+}
+
+.green-span {
+    color: green;
+}
