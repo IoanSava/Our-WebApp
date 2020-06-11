@@ -12,42 +12,45 @@ class LineChartController extends Controller
         return 0;
     }
 
-    public function getData($requestData = [])
+    public function getData()
     {
-        if (empty($requestData)) {
-            http_response_code(403); // bad request
-            echo json_encode(array("message" => "The called url is not allowed."));
-            return;
-        }
-        $gender = $requestData["gender"];
-        if ($this->checkGender($gender) != 0) {
-            return;
-        }
-        $states = json_decode($requestData["states"]);
-
-        $chart = $this->model('Chart');
-        $result = array();
-        foreach ($states as $state) {
-            $currentStateDataValues = $chart->getDataByGenderAndState($gender, $state);
-            $result[$state] = array($currentStateDataValues);
-        }
-
-        $output = array();
-        foreach ($result as $row => $row_value) {
-            foreach ($row_value as $info) {
-                $current_output = array();
-                foreach ($info as $data) {
-                    $current_output[] = array(
-                        'year'   => $data["year"],
-                        'data_value'  => floatval($data["data_value"])
-                    );
-                }
-                $output[$row] = $current_output;
+        if (!isset($_POST["gender"])) {
+            http_response_code(400); // bad request
+            echo json_encode(array("message" => "Gender not specified"));
+        } else if (!isset($_POST["states"])) {
+            http_response_code(400); // bad request
+            echo json_encode(array("message" => "States not specified"));
+        } else {
+            $gender = $_POST["gender"];
+            if ($this->checkGender($gender) != 0) {
+                return;
             }
-        }
+            $states = json_decode($_POST["states"]);
 
-        http_response_code(200); // ok
-        echo json_encode($output);
+            $chart = $this->model('Chart');
+            $result = array();
+            foreach ($states as $state) {
+                $currentStateDataValues = $chart->getDataByGenderAndState($gender, $state);
+                $result[$state] = array($currentStateDataValues);
+            }
+
+            $output = array();
+            foreach ($result as $row => $row_value) {
+                foreach ($row_value as $info) {
+                    $current_output = array();
+                    foreach ($info as $data) {
+                        $current_output[] = array(
+                            'year'   => $data["year"],
+                            'data_value'  => floatval($data["data_value"])
+                        );
+                    }
+                    $output[$row] = $current_output;
+                }
+            }
+
+            http_response_code(200); // ok
+            echo json_encode($output);
+        }
     }
 
     private function getFileName($states, $gender, $format)

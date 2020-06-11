@@ -9,9 +9,8 @@ function loadData(gender, state) {
     var data = new FormData();
     data.append('gender', gender);
     data.append('state', state);
-    data.append('chart_type', "column");
 
-    var url = '/obis/public/getChartData';
+    var url = '/obis/public/ColumnChartController/getData';
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function() {
