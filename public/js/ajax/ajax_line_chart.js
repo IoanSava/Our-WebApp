@@ -9,10 +9,8 @@ function loadData(gender, states) {
     var data = new FormData();
     data.append('gender', gender);
     data.append('states', JSON.stringify(states));
-    var test_aux = JSON.stringify(states);
-    data.append('chart_type', "line");
 
-    var url = '/obis/public/getChartData';
+    var url = '/obis/public/LineChartController/getData';
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function() {
