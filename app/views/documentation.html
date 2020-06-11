@@ -194,6 +194,19 @@
                         și de statul selectat. În cazul în care pagina aleasă este Geo Chart, poate vizualiza diagrama în funcție de genul și de anul selectat.</p>
                     <p>Fiecare diagramă va putea fi exportată în diverse formate, la alegerea utilizatorului: WebP, CSV și SVG.</p>
                 </section>
+                <section>
+                    <h4 id="Contact">4.5. Contact</h4>
+                    <p>Prin intermediul acestei pagini, utilizatorii pot trimite un mesaj administratorilor prin completarea unui formular. În cadrul formularului trebuie oferite numele, adresa de email, numarul de telefon, respectiv mesajul ce se dorește
+                        a fi trimis. Pentru nume, email și număr de telefon, constrângerea este ca câmpurile corespunzătoare să nu fie goale, iar datele completate să fie valide, iar pentru mesaj se cere ca câmpul corespunzător să nu fie gol.</p>
+                    <p>După ce formularul a fost trimis, utilizatorul va fi redirectat către 2 pagini. Dacă datele oferite respectă formatul dorit, utilizatorul va fi redirectat către o pagină în care va fi anunțat că trimiterea datelor s-a realizat cu succes.
+                        În caz contrar, acesta va fi redirectat către o pagină în care este anunțat că au existat probleme la trimiterea datelor, fiindu-i precizată cauza problemei și oferită posibilitatea de a se întoarce înapoi la pagina de contact.</p>
+                </section>
+                <section>
+                    <h4 id="Export">4.6. Export</h4>
+                    <p>Toate tipurile de diagrame puse la dispoziție (column chart, line chart, respectiv geochart) pot fi exportate în 3 formate (WEBP, CSV și SVG), la alegerea utilizatorului. Pentru a realiza exportul unei diagrame, în pagina corespunzătoare
+                        diagramei selectate, prin intermediul butonului <strong>EXPORT</strong>, se va selecta unul din cele 3 formate. În urma alegerii va apărea un prompt în care utilizatorul va putea selecta unde să descarce diagrama, respectiv să
+                        o redenumească.</p>
+                </section>
             </section>
             <hr>
             <section role="doc-part">
@@ -246,6 +259,17 @@
                                 PHP, am instalat și folosit PHPUnit.</p>
                             <p>În momentul scrierii testelor, am urmărit să testăm funcțiile esențiale ale aplicației. Funcțiile de test au câte un nume descriptiv, precum și clasele din care fac parte. Modalitatea prin care am testat codul a fost realizată
                                 prin intermediul aserțiunilor de tip "assertSame()". </p>
+                        </section>
+                        <section>
+                            <h4 id="Font_Awesome">5.2.4. Font Awesome</h4>
+                            <p>
+                                Pentru anumite simboluri folosite la stilizarea aplicației (anume simbolul de warning de pe partea de javascript de la pagina de contact, respectiv simbolul de stea pe jumătate plină din pagina de diete), s-au utilizat imagini din cadrul Font Awesome.
+                                Pentru utilizarea imaginilor, în paginile unde a fost necesar s-a adaugat, în secțiunea de &lt;head&gt; a documentului, un tag &lt;script&gt; către un kit Font Awesome pus la dispoziție de <em>Daniș Ciprian</em>.
+                            </p>
+                            <p>
+                                Font Awesome este un set de instrumente pentru fonturi și pictograme bazat pe CSS și LESS. Acesta a fost realizat de Dave Gandy pentru utilizare cu Bootstrap, iar ulterior a fost încorporat în BootstrapCDN. În cadrul aplicației, el este folosit cu rol
+                                pur stilistic, doar pentru simbolurile precizate mai sus, care nu aveau echivalent în <em>HTML</em>.
+                            </p>
                         </section>
                     </section>
                 </div>
@@ -337,8 +361,33 @@
                         <h3 id="Diagrams">6.2. Diagrame</h3>
                         <div>
                             <h4>&emsp;&emsp;&emsp;&emsp;&#10147;Utilizator obișnuit/nelogat</h4>
-                            <div class="center-image">
-                                <object data="/obis/public/images/doc/simple_user_usecare.svg" type="image/svg+xml" class="usecase"></object>
+
+                            <div>
+                                <h5>&emsp;&emsp;&emsp;&emsp;1. Utilizatorul accesează pagina de statistici</h5>
+                                <div class="center-image">
+                                    <object data="/obis/public/images/doc/user_sees_statistics.svg" type="image/svg+xml" class="usecase"></object>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h5>&emsp;&emsp;&emsp;&emsp;2. Utilizatorul accesează pagina de contact</h5>
+                                <div class="center-image">
+                                    <object data="/obis/public/images/doc/user_sees_contact.svg" type="image/svg+xml" class="usecase"></object>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h5>&emsp;&emsp;&emsp;&emsp;3. Utilizatorul accesează pagina cu calculatorul IMC</h5>
+                                <div class="center-image">
+                                    <object data="/obis/public/images/doc/user_sees_bmi.svg" type="image/svg+xml" class="usecase"></object>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h5>&emsp;&emsp;&emsp;&emsp;4. Utilizatorul accesează pagina de diete</h5>
+                                <div class="center-image">
+                                    <object data="/obis/public/images/doc/user_sees_diets.svg" type="image/svg+xml" class="usecase"></object>
+                                </div>
                             </div>
                         </div>
                         <div>
@@ -354,9 +403,20 @@
             <hr>
             <section role="doc-part">
                 <h2 id="Project_Architecture">7. Arhitectura proiectului</h2>
+
                 <div>
                     <section>
                         <h3 id="App_Structure">7.1. Structura aplicației</h3>
+
+                        <section>
+                            <h4 id="Project_Diagram">7.1.1. Diagrama arhitecturii aplicației</h4>
+
+                            <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;page&quot;:1,&quot;toolbar&quot;:&quot;pages zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot; modified=\&quot;2020-06-11T00:56:48.279Z\&quot; agent=\&quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36 Edg/83.0.478.45\&quot; etag=\&quot;-PcCQFNltLYP9DM_sVoS\&quot; version=\&quot;13.2.1\&quot; type=\&quot;google\&quot; pages=\&quot;2\&quot;&gt;&lt;diagram id=\&quot;C3etFINKmdgmOjkkmfnG\&quot; name=\&quot;Page-1\&quot;&gt;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&lt;/diagram&gt;&lt;diagram id=\&quot;8BdV4Tpj7xan3pkMFtBS\&quot; name=\&quot;Page-2\&quot;&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+                            <script type="text/javascript" src="https://app.diagrams.net/js/viewer.min.js"></script>
+                        </section>
+                        <section>
+                            <h4 id="Database_Schema_Explanations">7.1.2. Explicații pentru diagrama de arhitectură</h4>
+                        </section>
                     </section>
                     <section>
                         <h3 id="Database_Structure">7.2. Structura bazei de date</h3>
@@ -414,7 +474,7 @@
                         <li><strong>bmi.html</strong> - pune la dispoziția utilizatorului un calculator pentru indexul de masă corporală care, pe baza rezultatelor, poate trage concluzia dacă o persoană este sau nu sănătoasă;</li>
                         <li><strong>diets.html</strong> - pune la dispoziția utilizatorului diverse sfaturi și diete pe care aceștia le pot, eventual, evalua;</li>
                         <li><strong>contact.html</strong> - oferă utilizatorului un form pe care îl poate completa (dacă dorește) în vederea primirii unui răspuns la o eventuală nelămurire sau întrebare;</li>
-                        <li><strong>contact_succes.php</strong> - oferă utilizatorului un mesaj prin care îl informează că trimiterea form-ului a fost realizată cu succes, precum și faptul că va fi contactat în cel mai scurt timp;</li>
+                        <li><strong>contact_success.php</strong> - oferă utilizatorului un mesaj prin care îl informează că trimiterea form-ului a fost realizată cu succes, precum și faptul că va fi contactat în cel mai scurt timp;</li>
                         <li><strong>contact_failure.php</strong> - oferă utilizatorului un mesaj prin care îl informează că în momentul trimiterii form-ului a apărut o eroare, astfel el va putea reveni pe pagina anterioară;</li>
                         <li><strong>login.html</strong> - oferă posibilitatea unui administrator de a se autentifica pentru ca, mai apoi, să realizeze operații asupra bazei de date;</li>
                         <li><strong>administration.html</strong> - oferă posibilitatea administratorului care este autentificat să realizeze operații asupra bazei de date, precum inserarea unui nou administrator, inserarea, actualizarea, respectiv ștergerea
@@ -465,6 +525,7 @@
                             <li>API-uri și biblioteci externe - PHPUnit</li>
                             <li>Ghidul de utilizare</li>
                             <li>Scenarii Use-Case pentru pagina de diete și pentru modulul de administrare (inserarea unui nou administrator, efectuarea de operații asupra bazei de date)</li>
+                            <li>Structura aplicației (diagramele UML)</li>
                         </ul>
                     </section>
 
@@ -504,7 +565,8 @@
                             <li>Mediul de dezvoltare</li>
                             <li>API-uri și biblioteci externe - JWT și Google Charts</li>
                             <li>Structura bazei de date</li>
-                            <li>Scenarii Use-Case pentru pagina de statistici</li>
+                            <li>Scenarii Use-Case pentru pagina de statistici și diagrama Use-Case pentru administrator</li>
+                            <li>Structura aplicației (diagramele UML)</li>
                             <li>Filmul demonstrativ al aplicației</li>
                         </ul>
                     </section>
@@ -515,7 +577,39 @@
                             <h3><span property="schema:name">Daniș Ciprian</span></h3>
                         </span>
                         <ul>
-                            <li></li>
+                            <h4>Interfaţa şi interacţiunea cu utilizatorul</h4>
+                            <li>Pagina <strong>DIETS</strong> ce conține informații despre diverse diete (realizarea și stilizarea <em>star ranking-ului)</em></li>
+                            <li>Pagina <strong>CONTACT</strong> ce permite utilizatorului sa trimită un mesaj administratorilor aplicației</li>
+                            <li>Validare la nivel de client a datelor introduse în formularul din pagina <strong>CONTACT</strong></li>
+                            <li>Stilizarea anumitor componente din paginile de statistici pentru graficele de tip LineChart, ColumnChart respectiv GeoChart (choicebox-ul pentru gender, respectiv butonul pentru selectarea anului din pagina pentru GeoChart)</li>
+                            <li>Un view asociat paginii <strong>CONTACT</strong> pentru înștiințarea utilizatorului că trimitea datelor s-a realizat cu succes, din care acesta se poate întoarce în pagina <strong>HOME</strong></li>
+                            <li>Un view asociat paginii <strong>CONTACT</strong> pentru înștiințarea utilizatorului că a apărut o problemă la trimiterea datelor, fiind precizată și cauza problemei, din care acesta se poate întoarce în pagina <strong>CONTACT</strong></li>
+                        </ul>
+
+                        <ul>
+                            <h4>Arhitectura aplicaţiei Web şi soluţia completă</h4>
+                            <li>Implementare GeoChart (model, controller, actualizare asincronă prin <strong>AJAX</strong>)</li>
+                            <li>Export GeoChart în cele trei formate specificate (CSV, SVG, WEBP)</li>
+                            <li>Validare la nivel de server a datelor introduse în formularul din pagina <strong>CONTACT</strong> și trimiterea de mail cu datele validate</li>
+                            <li>Redirectare către <strong>404.html</strong> (atunci când controller-ul <strong>Home</strong> nu poate găsi view-ul precizat), către <strong>contact_failure.php</strong> (dacă datele trimise nu au putut fi validate), către
+                                <strong>contact_success.php</strong> (dacă validarea datelor trimise s-a realizat cu succes), respectiv către controller-ul <strong>GetChartData</strong> (endpoint REST pentru request-uri legate de chart-uri)</li>
+                            <li>Endpoint-ul REST getChartData, dat prin controller-ul <strong>GetChartData</strong>, pentru procesarea datelor și apelarea controller-ului corespunzător graficului dorit</li>
+                            <li>Unit Testing pentru <strong>GetChartData</strong></li>
+                            <li>Unit Testing pentru <strong>FormManager</strong>, care se ocupă cu procesarea datelor primite de către controller-ul paginii <strong>CONTACT</strong></li>
+                            <li>Unit Testing pentru graficul GeoChart, precum și exportul graficului în fomatul CSV</li>
+                            <li>Verificarea că aplicația previne atacuri de tip Cross Site Scripting</li>
+                        </ul>
+
+                        <ul>
+                            <h4>Documentație</h4>
+                            <li>Structura generală a documentație</li>
+                            <li>Stilizarea documentație</li>
+                            <li>Abstract, Introducere și Concluzii</li>
+                            <li>Tipuri de utilizatori</li>
+                            <li>Distribuția pe module funcționale - pagina de contact și exportul de grafice</li>
+                            <li>API-uri și biblioteci externe - Font Awesome</li>
+                            <li>Scenarii Use-Case pentru pagina de contact și pentru calculatorul indicelui de masă corporal și diagramele Use-Case pentru utilizatorul obișnuit/nelogat</li>
+                            <li>Structura aplicației (diagramele UML)</li>
                         </ul>
                     </section>
                 </div>
